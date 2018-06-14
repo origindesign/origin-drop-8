@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.single_column_copy.field_copy_first_column
+    - paragraphs.paragraphs_type.single_column_copy
+  module:
+    - text
+id: paragraph.single_column_copy.default
+targetEntityType: paragraph
+bundle: single_column_copy
+mode: default
+content:
+  field_copy_first_column:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

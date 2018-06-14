@@ -1,0 +1,14 @@
+
+<div class="listing ajax {{ additional_classes }}">
+    <div class="content">
+
+        {% if filter_ajax %}
+            <div class="filter-ajax">
+                {{ filter_ajax }}
+            </div>
+        {% endif %}
+
+        {{ content }}
+
+    </div>
+</div>

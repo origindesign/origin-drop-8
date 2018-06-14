@@ -1,0 +1,42 @@
+<{{ element ?: "article" }} {{ attributes.addClass(classes).addClass(extraClasses) }}>
+
+    <div class="wrapper">
+
+        {{ title_suffix }}
+
+            {% if content.field_main_image|render %}
+                <a href="{{ url }}" class="image">
+                    {{ content.field_main_image }}
+                </a>
+            {% else %}
+                <a href="{{ url }}" class="image">
+                    {% include "@molecules/media/media-placeholder.twig"
+                        with {
+                            "src": "/" ~ base_path ~ directory ~ "/images/thumb-placeholder.jpg",
+                            "alt": "Placeholder",
+                            "style": "medium"
+                        }
+                    %}
+
+
+                </a>
+            {% endif %}
+
+        <div class="copy">
+
+            <h3>
+                <a href="{{ url }}">{{ label }}</a>
+            </h3>
+
+            {{ content.field_category }}
+
+            {{ content.field_category_2 }}
+
+            {{ content.body }}
+
+        </div>
+
+    </div>
+
+
+</{{ element ?: "article" }}>

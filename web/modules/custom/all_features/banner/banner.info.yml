@@ -1,0 +1,15 @@
+name: Banner
+description: 'Provides Banner content type and related configuration. Use <em>Banner</em> for your promotional content. Creating a new banner allow you to add it to any other type of content.'
+type: module
+core: 8.x
+dependencies:
+  - entity_browser_entity_form
+  - field
+  - global
+  - inline_entity_form
+  - link
+  - menu_ui
+  - node
+  - path
+  - text
+  - user

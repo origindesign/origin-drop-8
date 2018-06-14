@@ -1,0 +1,12 @@
+main {
+    @include grid-container;
+    margin-top: 20px;
+}
+
+.layout-content {
+    @include grid-span(9, 1);
+}
+
+.layout-sidebar-first {
+    @include grid-span(3, 10);
+}

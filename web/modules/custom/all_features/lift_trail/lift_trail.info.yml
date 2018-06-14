@@ -1,0 +1,13 @@
+name: 'Lift & Trail'
+description: 'Provides Lift &amp; Trail content type and related configuration. Use <em>Lift & Trail</em> content to create a new lift, trail or Park that will be added to the Lifts & Trails status page.'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - global
+  - lesson
+  - menu_ui
+  - node
+  - path
+  - taxonomy
+  - user

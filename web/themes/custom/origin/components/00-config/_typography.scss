@@ -1,0 +1,23 @@
+$base-font-size: 16;
+
+@function calculateRem($size) {
+    $remSize: $size / 16;
+    @return $remSize * 1rem;
+}
+
+@mixin body-copy() {
+    font-size: $base-font-size;
+    font-family: $font--family--regular;
+}
+
+@mixin font-size($size) {
+    font-size: calculateRem($size);
+}
+
+@mixin h1() {
+    font-family: $font--family--regular;
+}
+
+@mixin h2() {
+    font-family: sans-serif;
+}

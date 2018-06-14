@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.media_slideshow.field_caption_position
+    - field.field.paragraph.media_slideshow.field_heading
+    - field.field.paragraph.media_slideshow.field_medias
+    - paragraphs.paragraphs_type.media_slideshow
+  module:
+    - options
+id: paragraph.media_slideshow.default
+targetEntityType: paragraph
+bundle: media_slideshow
+mode: default
+content:
+  field_caption_position:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_heading:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_medias:
+    type: entity_reference_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden: {  }

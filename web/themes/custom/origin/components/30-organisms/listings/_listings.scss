@@ -1,0 +1,30 @@
+.listing {
+
+    @include add-grid(12);
+    @include add-gutter(1/3);
+
+
+    .no-results {
+        text-align: center;
+        min-height: 200px;
+    }
+
+    &.isotope {
+
+        .isoGrid {
+            min-height: 200px;
+        }
+
+        .no-results {
+            display: none;
+        }
+
+        .iso-gutter {
+            display: block;
+            width: 0;
+        }
+
+
+    }
+
+}

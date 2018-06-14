@@ -1,0 +1,29 @@
+name: Global
+description: 'Provides core components required by other features.'
+type: module
+core: 8.x
+dependencies:
+  - address
+  - block
+  - contact
+  - entity_browser
+  - entity_browser_entity_form
+  - entity_reference_revisions
+  - field
+  - file
+  - image
+  - inline_entity_form
+  - media
+  - menu_link_content
+  - metatag
+  - node
+  - options
+  - paragraphs
+  - path
+  - responsive_image
+  - shortcut
+  - taxonomy
+  - text
+  - tour
+  - user
+  - views

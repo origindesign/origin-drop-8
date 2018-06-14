@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: scale_1280
+label: 'Scale 1280'
+effects:
+  7acdf4a0-770a-478f-8d85-c82e2549b744:
+    uuid: 7acdf4a0-770a-478f-8d85-c82e2549b744
+    id: image_scale
+    weight: 1
+    data:
+      width: 1280
+      height: null
+      upscale: false

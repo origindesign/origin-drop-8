@@ -1,0 +1,23 @@
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.lift_trail.field_level
+    - field.field.node.lift_trail.field_status
+    - field.field.node.lift_trail.field_type
+    - node.type.lift_trail
+  module:
+    - user
+id: node.lift_trail.teaser
+targetEntityType: node
+bundle: lift_trail
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_level: true
+  field_status: true
+  field_type: true

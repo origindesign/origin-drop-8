@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_caption_position
+    - paragraphs.paragraphs_type.media_slideshow
+  module:
+    - options
+id: paragraph.media_slideshow.field_caption_position
+field_name: field_caption_position
+entity_type: paragraph
+bundle: media_slideshow
+label: 'Caption Position'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: overlay
+default_value_callback: ''
+settings: {  }
+field_type: list_string

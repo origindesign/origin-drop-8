@@ -1,0 +1,10 @@
+.node--view-mode-card {
+
+    @include float-span(4);
+
+    & > .wrapper {
+        border: 1px solid $color--border;
+        padding: 20px;
+    }
+
+}

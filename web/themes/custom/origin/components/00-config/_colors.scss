@@ -1,0 +1,41 @@
+////
+/// @group colors
+////
+
+/// @type color
+$color--primary--blue: #007bff;
+/// @type color
+$color--primary--orange: #F27A22;
+/// @type color
+$color--primary: $color--primary--blue;
+
+/// @type color
+$color--secondary--blue: #0E6BAC;
+/// @type color
+$color--secondary: $color--secondary--blue;
+
+/// @type color
+$color--gray--white: hsl(0, 0%, 91.1%);
+/// @type color
+$color--gray--lightest: #f8f9fa;
+/// @type color
+$color--gray--lighter: #e9ecef;
+/// @type color
+$color--gray--light: rgba(0, 0 , 0, .125);
+/// @type color
+$color--gray: #aaa;
+/// @type color
+$color--gray--dark: rgba(0, 0, 0, .5);
+/// @type color
+$color--gray--darker: #343a40;
+/// @type color
+$color--gray--darkest: #212529;
+/// @type color
+$color--gray--black: #000;
+
+
+/// @type color
+$color--copy--main: $color--gray--darkest;
+
+/// @type color
+$color--border: $color--gray--light;

@@ -1,0 +1,24 @@
+name: Event
+description: 'Provides Event content type and related configuration. Use <em>Event</em> for your time-sensitive content that you want to display in the calendar.'
+type: module
+core: 8.x
+dependencies:
+  - activity
+  - address
+  - datetime_range
+  - entity_browser_entity_form
+  - entity_reference_revisions
+  - field
+  - field_group
+  - global
+  - inline_entity_form
+  - menu_ui
+  - metatag
+  - node
+  - page
+  - paragraphs
+  - path
+  - smart_trim
+  - taxonomy
+  - text
+  - user

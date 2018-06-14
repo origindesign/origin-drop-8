@@ -1,0 +1,17 @@
+.menu--main, .menu--footer {
+
+    ul.menu {
+        @include clearfix;
+        margin: 0;
+    }
+    li {
+        float: left;
+        display: inline-block;
+        height: 60px;
+        padding: 18px 20px 10px 20px;
+
+        &:first-child { padding-left: 0; }
+        &:last-child { padding-right: 0; }
+    }
+
+}

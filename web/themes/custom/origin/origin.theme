@@ -1,0 +1,227 @@
+<?php
+
+/**
+ * @file
+ * Functions to support the Origin theme.
+ */
+
+
+
+/**
+ * Implements template_preprocess_html().
+ * @param array $variables
+ */
+function origin_preprocess_html(&$variables) {
+
+    // Get URL alias and pass it to template
+    $current_path = \Drupal::service('path.current')->getPath();
+    $current_alias = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    $arr_alias = explode('/',$current_alias);
+    array_splice($arr_alias, 0, 1);
+    $variables['path_alias'] = $arr_alias;
+
+}
+
+
+
+/**
+ * Implements template_preprocess_page.
+ * @param array $variables
+ */
+function origin_preprocess_page(&$variables) {
+
+    $entityTypeManager = \Drupal::entityTypeManager();
+    $moduleHandler = \Drupal::service('module_handler');
+
+    $variables["page_type"] = \Drupal::state()->get('page_type') ?: false;
+
+    // Main Navigation
+    $block_main_nav = \Drupal\block\Entity\Block::load('origin_main_menu');
+    $variables['main_menu'] = $entityTypeManager
+        ->getViewBuilder('block')
+        ->view($block_main_nav);
+
+    // Tabs
+    $block_tabs = \Drupal\block\Entity\Block::load('origin_local_tasks');
+    $variables['tabs'] = $entityTypeManager
+        ->getViewBuilder('block')
+        ->view($block_tabs);
+
+
+}
+
+
+
+/**
+ * Implements template_preprocess_node.
+ * @param array $variables
+ */
+function origin_preprocess_node(&$variables) {
+
+    // Define useful variables
+    $nid = $variables['node']->id();
+    $variables['nid'] = $nid;
+    $view_mode = $variables['view_mode'];
+    $variables["type"] = $variables['node']->getType();
+    $variables['status'] = $variables['node']->isPublished();
+
+    // Set is_front variable
+    try {
+        $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+    }
+    catch (Exception $e) {
+        // If the database is not yet available, set the default value.
+        $variables['is_front'] = FALSE;
+    }
+
+
+    if ($view_mode == "full"){
+
+        // Store Title
+        $variables['title'] = $variables['node']->getTitle();
+
+        // Return content sticky in node variable
+        $variables["sticky"] = $variables['node']->isSticky();
+
+        // Return date of created node in  node variable
+        $variables["created"] = $variables['node']->getCreatedTime();
+
+
+        // Set includes based on nid
+        switch ($nid){
+
+            // Events
+            case 1:
+                $controllerName = "EventController";
+                $variables['#attached']['library'][] = 'origin/events';
+                $doNotCache = true;
+                break;
+
+            // Activities
+            case 2:
+                $controllerName = "ActivityController";
+                $variables['#attached']['library'][] = 'origin/isotope';
+                $doNotCache = true;
+                break;
+
+            // Dining
+            case 3:
+                $controllerName = "DiningController";
+                $variables['#attached']['library'][] = 'origin/isotope';
+                $doNotCache = true;
+                break;
+
+            // Lodging
+            case 4:
+                $controllerName = "LodgingController";
+                $variables['#attached']['library'][] = 'origin/isotope';
+                $doNotCache = true;
+                break;
+
+            // Articles
+            case 5:
+                $controllerName = "ArticleController";
+                $param = \Drupal::request()->query->all();
+                $tag = ( isset ($param['tag']) ) ? $param['tag'] : '';
+                $arguments = array('tag' => $tag);
+                $doNotCache = true;
+                break;
+
+            // Lessons
+            case 6:
+                $controllerName = "LessonController";
+                $variables['#attached']['library'][] = 'origin/isotope';
+                $doNotCache = true;
+                break;
+
+        }
+
+
+
+        // Set Controller if name is available
+        if( isset($controllerName) ){
+
+            // Instantiate Includer Service
+            $arguments = ( isset ($arguments) ) ? $arguments : array();
+
+            $includer = \Drupal::service('includer.dispatcher');
+            $allIncludes = $includer->dispatch($controllerName, $arguments);
+            // Loop through all includes and pass them into the variables array so they can be used in twig templates
+            foreach($allIncludes as $key => $value){
+                // Only pass it if the value is not false
+                if( $value ){
+                    $variables[$key] = $value;
+                }
+            }
+
+        }
+
+
+
+        // Clear cache of page
+        if( isset($doNotCache)){
+            if ($doNotCache){
+                $renderHelper = \Drupal::service('helper.render_helper');
+                $variables['block_no_cache'] = $renderHelper->renderUncacheBlock();
+            }
+        }
+
+
+    }
+
+
+
+
+}
+
+
+
+/**
+ * Implements hook_page_attachments_HOOK_alter().
+ * @param array $page
+ */
+function origin_page_attachments_alter(array &$page) {
+
+    $viewport = array(
+        '#type' => 'html_tag',
+        '#tag' => 'meta',
+        '#attributes' => array(
+            'name' => 'viewport',
+            'content' => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
+        ),
+    );
+    $page['#attached']['html_head'][] = [$viewport, 'viewport'];
+
+}
+
+
+
+/**
+ *  Change layout of html to have no wrappers when on ajax call
+ *
+ */
+function origin_theme_suggestions_html_alter(array &$suggestions, array $variables) {
+
+    if (isset($_GET['response_type'])) {
+        if ( $_GET['response_type'] === 'ajax' ){
+            $suggestions[] = 'html__ajax';
+        }
+    }
+
+}
+
+
+
+/**
+ *  Change layout of page to have no wrappers when on ajax call
+ *
+ */
+function origin_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+    if (isset($_GET['response_type'])) {
+        if ( $_GET['response_type'] === 'ajax' ){
+            $suggestions[] = 'page__ajax';
+        }
+    }
+
+}

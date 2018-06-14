@@ -1,0 +1,23 @@
+name: Activity
+description: 'Provides Activity content type and related configuration. Use <em>activities</em> for your "Things to Do" content.'
+type: module
+core: 8.x
+dependencies:
+  - address
+  - article
+  - entity_browser_entity_form
+  - entity_reference_revisions
+  - field
+  - field_group
+  - global
+  - inline_entity_form
+  - menu_ui
+  - metatag
+  - node
+  - page
+  - paragraphs
+  - path
+  - smart_trim
+  - taxonomy
+  - text
+  - user

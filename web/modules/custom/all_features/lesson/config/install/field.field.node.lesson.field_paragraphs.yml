@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.lesson
+    - paragraphs.paragraphs_type.image_aside_copy
+    - paragraphs.paragraphs_type.media_slideshow
+    - paragraphs.paragraphs_type.single_column_copy
+    - paragraphs.paragraphs_type.two_columns_copy
+  module:
+    - entity_reference_revisions
+id: node.lesson.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: lesson
+label: Paragraphs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      single_column_copy: single_column_copy
+      image_aside_copy: image_aside_copy
+      two_columns_copy: two_columns_copy
+      media_slideshow: media_slideshow
+    target_bundles_drag_drop:
+      single_column_copy:
+        enabled: true
+        weight: -9
+      image_aside_copy:
+        enabled: true
+        weight: -8
+      two_columns_copy:
+        enabled: true
+        weight: -7
+      media_slideshow:
+        enabled: true
+        weight: -6
+field_type: entity_reference_revisions

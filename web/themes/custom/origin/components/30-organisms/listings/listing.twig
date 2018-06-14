@@ -1,0 +1,15 @@
+
+{% if listing_heading %}
+    <div class="listing-heading">
+        {{ listing_heading|raw }}
+    </div>
+{% endif %}
+
+<div class="listing {{ additional_classes }}">
+
+    <div class="content">
+
+        {{ content }}
+
+    </div>
+</div>

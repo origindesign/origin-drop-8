@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.media_slideshow.field_caption_position
+    - field.field.paragraph.media_slideshow.field_heading
+    - field.field.paragraph.media_slideshow.field_medias
+    - paragraphs.paragraphs_type.media_slideshow
+id: paragraph.media_slideshow.default
+targetEntityType: paragraph
+bundle: media_slideshow
+mode: default
+content:
+  field_caption_position:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_heading:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_medias:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

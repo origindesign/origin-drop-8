@@ -1,0 +1,24 @@
+<{{ element ?: "article" }} {{ attributes.addClass(classes) }}>
+
+    {{ title_suffix }}
+
+        {% if content.field_image|render %}
+            <a href="{{ url }}" class="image">
+                {{ content.field_image }}
+            </a>
+        {% endif %}
+
+    <div class="copy">
+
+        <h3>
+            <a href="{{ url }}">{{ label }}</a>
+        </h3>
+
+
+        {{ content.body }}
+
+
+    </div>
+
+
+</{{ element ?: "article" }}>

@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Banner
+type: banner
+description: 'Use <em>Banner</em> for your promotional content. Creating a new banner allow you to add it to any other type of content.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

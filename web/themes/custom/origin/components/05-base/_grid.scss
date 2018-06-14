@@ -1,0 +1,9 @@
+
+@mixin  grid-container {
+    @include clearfix;
+    max-width: $container-max-width;
+    margin: 0 auto;
+}
+
+@include add-grid(12);
+@include add-gutter(1/3);

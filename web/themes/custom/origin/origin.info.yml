@@ -1,0 +1,38 @@
+name: Origin
+type: theme
+description: An Origin Drupal starter theme.
+core: 8.x
+
+# Defines libraries group in which we can add css/js.
+libraries:
+  - origin/origin
+
+base theme: classy
+
+# Regions
+regions:
+  header: Header
+  featured: Featured
+  content: Content
+  sidebar_first: First sidebar
+  sidebar_second: Second sidebar
+  footer: Footer
+
+
+# Components
+component-libraries:
+  atoms:
+    paths:
+      - components/10-atoms
+  molecules:
+    paths:
+      - components/20-molecules
+  organisms:
+    paths:
+      - components/30-organisms
+  templates:
+    paths:
+      - components/40-templates
+  pages:
+    paths:
+      - components/50-pages

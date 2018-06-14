@@ -1,0 +1,21 @@
+.media {
+
+    position: relative;
+
+    .image {
+        @include cover();
+        position: relative;
+    }
+
+    &.media--view-mode-medium {
+
+        .field--name-field-media-image {
+            @include objectFitImage();
+            padding-bottom: 65%;
+        }
+
+    }
+
+
+
+}

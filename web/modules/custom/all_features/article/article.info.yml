@@ -1,0 +1,26 @@
+name: Article
+description: 'Provides Article content type and related configuration. Use <em>articles</em> for time-sensitive content like news, press releases or blog posts.'
+type: module
+core: 8.x
+dependencies:
+  - activity
+  - comment
+  - entity_browser_entity_form
+  - entity_reference_revisions
+  - field
+  - field_group
+  - file
+  - global
+  - image
+  - inline_entity_form
+  - menu_ui
+  - metatag
+  - node
+  - page
+  - paragraphs
+  - path
+  - rdf
+  - smart_trim
+  - taxonomy
+  - text
+  - user

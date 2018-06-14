@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.page
+    - paragraphs.paragraphs_type.image_aside_copy
+    - paragraphs.paragraphs_type.media_slideshow
+    - paragraphs.paragraphs_type.single_column_copy
+    - paragraphs.paragraphs_type.two_columns_copy
+  module:
+    - entity_reference_revisions
+id: node.page.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: page
+label: Paragraphs
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      image_aside_copy: image_aside_copy
+      media_slideshow: media_slideshow
+      single_column_copy: single_column_copy
+      two_columns_copy: two_columns_copy
+    target_bundles_drag_drop:
+      image_aside_copy:
+        enabled: true
+        weight: 5
+      media_slideshow:
+        enabled: true
+        weight: 6
+      single_column_copy:
+        enabled: true
+        weight: 7
+      two_columns_copy:
+        enabled: true
+        weight: 8
+field_type: entity_reference_revisions

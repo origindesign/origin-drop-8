@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: media_slideshow
+label: 'Media & Slideshow'
+icon_uuid: 16254c9b-25ca-48a6-992a-6c67fbbc26ba
+description: ''
+behavior_plugins: {  }
