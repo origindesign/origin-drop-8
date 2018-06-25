@@ -1,12 +1,14 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - video_embed_media
 id: video
 label: Video
-description: 'A locally hosted video file.'
-source: video_file
+description: 'An embedded video from an external source'
+source: video_embed_field
 queue_thumbnail_downloads: false
-new_revision: true
+new_revision: false
 source_configuration:
-  source_field: field_media_video_file
+  source_field: field_media_video_embed_field
 field_map: {  }

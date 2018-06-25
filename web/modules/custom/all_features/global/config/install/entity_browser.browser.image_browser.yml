@@ -5,26 +5,26 @@ dependencies:
     - views.view.media_entity_browser
   module:
     - views
-name: media_entity_browser
-label: 'Media Entity Browser'
-display: iframe
+name: image_browser
+label: 'Image Browser'
+display: modal
 display_configuration:
-  width: '1070'
-  height: '840'
-  link_text: 'Select entities'
+  width: '1100'
+  height: '850'
+  link_text: 'Select media'
   auto_open: false
 selection_display: no_display
 selection_display_configuration: {  }
 widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
-  6586703a-6976-4124-8a49-cbb07ceaa3b1:
+  9a8d3913-bfcd-47e3-a868-e1933a0dbb97:
     settings:
       view: media_entity_browser
-      view_display: entity_browser_1
-      submit_text: 'Select entities'
+      view_display: entity_browser_2
+      submit_text: 'Select media'
       auto_select: false
-    uuid: 6586703a-6976-4124-8a49-cbb07ceaa3b1
+    uuid: 9a8d3913-bfcd-47e3-a868-e1933a0dbb97
     weight: 1
-    label: view
+    label: 'Select Existing Media'
     id: view

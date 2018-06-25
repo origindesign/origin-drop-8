@@ -4,6 +4,7 @@ type: module
 core: 8.x
 dependencies:
   - address
+  - article
   - block
   - contact
   - entity_browser
@@ -26,4 +27,6 @@ dependencies:
   - text
   - tour
   - user
+  - video_embed_field
+  - video_embed_media
   - views

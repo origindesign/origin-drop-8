@@ -2,31 +2,30 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.video.field_media_video_file
+    - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_tags
     - media.type.video
   module:
-    - file
+    - video_embed_field
 id: media.video.default
 targetEntityType: media
 bundle: video
 mode: default
 content:
-  field_media_video_file:
-    type: file_video
+  field_media_video_embed_field:
     weight: 0
-    label: visually_hidden
+    label: hidden
     settings:
-      muted: false
-      width: 640
+      responsive: true
+      width: 854
       height: 480
-      controls: true
-      autoplay: false
-      loop: false
-      multiple_file_display_type: tags
+      autoplay: true
     third_party_settings: {  }
+    type: video_embed_field_video
     region: content
 hidden:
   created: true
+  field_tags: true
   name: true
   thumbnail: true
   uid: true

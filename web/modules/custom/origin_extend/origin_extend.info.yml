@@ -1,0 +1,5 @@
+name: 'Origin Extend'
+type: module
+description: 'Module extending others with specifics to this site'
+package: Custom
+core: 8.x
