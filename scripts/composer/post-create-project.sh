@@ -12,5 +12,3 @@ docker-compose run -w /var/www/html/web php drush pm-uninstall bartik --yes --st
 docker-compose run -w /var/www/html/web php drush cr --strict=0
 yarn --cwd ./web/themes/custom/origin install --strict=0
 cd ./web/themes/custom/origin && gulp compile --strict=0
-
-
