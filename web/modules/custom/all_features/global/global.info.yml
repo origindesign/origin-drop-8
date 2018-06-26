@@ -6,14 +6,19 @@ dependencies:
   - address
   - article
   - block
+  - ckeditor
   - contact
+  - editor
+  - editor_file
   - entity_browser
   - entity_browser_entity_form
   - entity_reference_revisions
   - field
   - file
+  - filter
   - image
   - inline_entity_form
+  - linkit
   - media
   - menu_link_content
   - metatag
