@@ -6,19 +6,22 @@ dependencies:
     - field.field.paragraph.media_slideshow.field_heading
     - field.field.paragraph.media_slideshow.field_medias
     - paragraphs.paragraphs_type.media_slideshow
+  module:
+    - entity_browser_entity_form
+    - inline_entity_form
 id: paragraph.media_slideshow.default
 targetEntityType: paragraph
 bundle: media_slideshow
 mode: default
 content:
   field_caption_position:
-    weight: 2
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_heading:
-    weight: 1
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -26,13 +29,22 @@ content:
     type: string_textfield
     region: content
   field_medias:
-    weight: 0
+    weight: 2
     settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
       match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: media_browser
+    type: inline_entity_form_complex
     region: content
 hidden:
   created: true

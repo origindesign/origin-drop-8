@@ -118,7 +118,6 @@ third_party_settings:
       label: 'Available Fields'
     group_dates:
       children:
-        - field_date
         - field_date_range
         - field_all_day
       parent_name: group_available_fields
@@ -197,9 +196,10 @@ content:
       override_labels: false
       collapsible: false
       collapsed: false
+      allow_duplicate: false
     third_party_settings:
       entity_browser_entity_form:
-        entity_browser_id: media_entity_browser
+        entity_browser_id: image_browser
     type: inline_entity_form_complex
     region: content
   field_metatags:
@@ -311,5 +311,10 @@ content:
       size: 60
       placeholder: ''
     region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

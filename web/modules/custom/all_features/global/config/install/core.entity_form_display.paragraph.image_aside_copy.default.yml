@@ -24,7 +24,7 @@ content:
     type: text_textarea
     region: content
   field_image:
-    weight: 0
+    weight: 1
     settings:
       form_mode: default
       label_singular: ''
@@ -35,13 +35,14 @@ content:
       override_labels: false
       collapsible: false
       collapsed: false
+      allow_duplicate: false
     third_party_settings:
       entity_browser_entity_form:
-        entity_browser_id: media_entity_browser
+        entity_browser_id: image_browser
     type: inline_entity_form_complex
     region: content
   field_image_alignment:
-    weight: 1
+    weight: 0
     settings: {  }
     third_party_settings: {  }
     type: options_select

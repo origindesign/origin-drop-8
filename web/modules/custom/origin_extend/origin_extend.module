@@ -1,0 +1,31 @@
+<?php
+
+function origin_extend_inline_entity_form_table_fields_alter(&$fields, $context) {
+
+    // Add thumbnail to image and video media bundles
+    $bundles = ['image','video'];
+
+    if ($context['entity_type'] == 'media' && array_intersect($bundles, $context['allowed_bundles'])) {
+
+        $fields['thumbnail'] = [
+            'type' => 'field',
+            'label' => t('Thumbnail'),
+            'display_options' => array(
+                'label' => 'hidden',
+                'type' => 'image',
+                'settings' => [
+                    'image_style' => 'thumbnail',
+                ],
+            ),
+            'weight' => 10,
+        ];
+
+    }
+
+    // If 'bundle' is set, reorder to first col
+    if(isset($fields['bundle'])){
+        $fields['bundle']['weight'] = 0;
+    }
+
+
+}
