@@ -13,6 +13,10 @@
 
             });
 
+            // Formstone
+            $("input[type=checkbox], input[type=radio]").checkbox();
+            $("select").dropdown();
+
         }
     };
 

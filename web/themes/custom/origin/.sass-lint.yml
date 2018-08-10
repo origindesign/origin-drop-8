@@ -28,25 +28,12 @@ rules:
   no-empty-rulesets: 1
   no-extends: 1
   no-ids: 2
-  no-important: 2
   no-misspelled-properties:
     - 1
-  no-vendor-prefixes: 2
   placeholder-in-extend: 2
-  quotes:
-    - 1
-    - style: double
-  space-after-colon:
-    - 1
-    - include: true
-  space-after-comma: 1
   space-before-bang:
     - 1
     - include: true
-  space-before-brace:
-    - 1
-    - include: true
-  space-before-colon: 1
   space-between-parens:
     - 1
     - include: false

@@ -91,35 +91,35 @@ function origin_preprocess_node(&$variables) {
         switch ($nid){
 
             // Events
-            case 1:
+            case 2:
                 $controllerName = "EventController";
                 $variables['#attached']['library'][] = 'origin/events';
                 $doNotCache = true;
                 break;
 
             // Activities
-            case 2:
+            case 3:
                 $controllerName = "ActivityController";
                 $variables['#attached']['library'][] = 'origin/isotope';
                 $doNotCache = true;
                 break;
 
             // Dining
-            case 3:
+            case 4:
                 $controllerName = "DiningController";
                 $variables['#attached']['library'][] = 'origin/isotope';
                 $doNotCache = true;
                 break;
 
             // Lodging
-            case 4:
+            case 5:
                 $controllerName = "LodgingController";
                 $variables['#attached']['library'][] = 'origin/isotope';
                 $doNotCache = true;
                 break;
 
             // Articles
-            case 5:
+            case 6:
                 $controllerName = "ArticleController";
                 $param = \Drupal::request()->query->all();
                 $tag = ( isset ($param['tag']) ) ? $param['tag'] : '';
@@ -128,7 +128,7 @@ function origin_preprocess_node(&$variables) {
                 break;
 
             // Lessons
-            case 6:
+            case 7:
                 $controllerName = "LessonController";
                 $variables['#attached']['library'][] = 'origin/isotope';
                 $doNotCache = true;

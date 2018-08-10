@@ -1,0 +1,125 @@
+
+.clearfix {
+    @include clearfix();
+}
+
+
+@mixin hover(){
+    &:hover,
+    &:focus{
+        @content;
+    }
+}
+
+@mixin marginResets($sides: false){
+    &:first-child{
+        @if $sides{
+            margin-left:0;
+        }@else{
+            margin-top:0;
+        }
+    }
+    &:last-child{
+        @if $sides{
+            margin-right:0;
+        }@else{
+            margin-bottom:0;
+        }
+    }
+}
+
+@mixin padding($px,$direction: side){
+    @if $direction == top{
+        padding-top:$px; padding-bottom:$px;
+    }
+    @if $direction == side{
+        padding-left:$px; padding-right:$px;
+    }
+}
+
+@mixin margin($px,$direction){
+    @if $direction == top{
+        margin-top:$px; margin-bottom:$px;
+    }
+    @if $direction == side{
+        margin-left:$px; margin-right:$px;
+    }
+}
+
+@mixin maxWidth($width: $container-max-width, $center: true){
+    @if $center{
+        @include margin(auto,side);
+    }
+    max-width: $width;
+}
+
+@mixin verticalCenter(){
+    display:inline-block; position:absolute; left:0; top:50%; width:100%; transform:translateY(-50%);
+}
+
+@mixin horizontalCenter(){
+    position:absolute; left:50%; transform:translateX(-50%);
+}
+
+@mixin displayTable(){
+    display:table; height:100%; width:100%;
+}
+
+@mixin tableCell($width: 100%, $align: top){
+    display:table-cell; width:$width; vertical-align:$align;
+}
+
+@mixin verticalAlign(){
+    @include displayTable();
+    > * {
+        @include tableCell(100%,middle);
+    }
+}
+.layout-table{
+    @include verticalAlign();
+}
+
+@mixin centerFloats(){
+    float:left; position:relative; left:50%; width:100%;
+    > .inner {
+        float:left; position:relative; left:-50%; width:100%;
+    }
+}
+.center-floats{
+    @include centerFloats;
+}
+
+@mixin resetFloat(){
+    float:none; width:auto;
+}
+
+@mixin cover(){
+    width:100%; height:100%; position:absolute; top:0; left:0;
+}
+
+@mixin pseudo(){
+    @include cover();
+    display:block; content:'';
+}
+
+@mixin reset(){
+    margin:0; padding:0; list-style: none;
+    li{
+        margin:0; padding:0; list-style: none;
+        &:before{
+            display:none;
+        }
+    }
+}
+
+@mixin visuallyHidden(){
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    overflow-wrap: normal;
+    position: absolute !important;
+    width: 1px;
+}
+.visually-hidden{
+    @include visuallyHidden();
+}

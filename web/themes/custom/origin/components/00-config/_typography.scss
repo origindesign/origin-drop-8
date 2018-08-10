@@ -1,4 +1,7 @@
 $base-font-size: 16;
+$base-typography-spacing: 30px;
+$outline-offset: 2px;
+$outline:1px dotted;
 
 @function calculateRem($size) {
     $remSize: $size / 16;
@@ -20,4 +23,50 @@ $base-font-size: 16;
 
 @mixin h2() {
     font-family: sans-serif;
+}
+
+@mixin h3() {
+    font-family: sans-serif;
+}
+
+@mixin h4() {
+    font-family: sans-serif;
+}
+
+@mixin h5() {
+    font-family: sans-serif;
+}
+
+
+
+@mixin fonticon ($content, $size:20px, $color: #000, $top: "", $left: "", $right: "", $bottom: "", $center: false, $middle: false, $elem: before) {
+    position:relative;
+    &:#{$elem} {
+        @include transition();
+        position: absolute;
+        content: $content;
+        color: $color;
+        font-size:$size;
+        font-family:'icomoon';
+        font-style:normal;
+        font-weight:normal;
+        speak:none;
+        display:block;
+        text-decoration:none;
+        width:$size;
+        height:$size;
+        text-align:center;
+        text-rendering:optimizeLegibility;
+        line-height: $size;
+        float: left;
+        z-index:2;
+        text-indent:0;
+        @if $top != '' { top: $top; }
+        @if $left != '' { left: $left; }
+        @if $right != '' { right: $right; }
+        @if $bottom != '' { bottom: $bottom; }
+        @if $center{ transform:translateX(-50%); }
+        @if $middle{ transform:translateY(-50%); }
+        @if $center and $middle{ transform:translateX(-50%) translateY(-50%); }
+    }
 }

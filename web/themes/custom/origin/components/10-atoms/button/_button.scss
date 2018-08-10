@@ -1,5 +1,5 @@
-.button {
-    color: $color--gray--white;
+@mixin button() {
+    color: #fff;
     background: $color--primary;
     border: 0;
     padding: 0.5em 1em;
@@ -9,4 +9,8 @@
         background: $color--secondary;
         cursor: pointer;
     }
+}
+
+.button{
+    @include button();
 }

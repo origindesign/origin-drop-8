@@ -12,17 +12,29 @@ body {
     margin-bottom: 160px;
 }
 
+h1, h2, h3, h4, h5{
+    @include marginResets();
+}
 h1 { @include h1; }
 h2 { @include h2; }
+h3 { @include h2; }
+h4 { @include h2; }
+h5 { @include h2; }
+
+p, ul, ol{
+    @include marginResets();
+    margin:$base-typography-spacing 0;
+}
 
 a {
-    color: $color--primary--blue;
+    @include transition();
+    color: $color--primary;
     &:hover { color: $color--secondary--blue; }
 }
 
 blockquote {
     font-style: italic;
-    border-left: solid 3px $color--gray;
+    border-left: solid 3px $color--border;
 }
 
 img {

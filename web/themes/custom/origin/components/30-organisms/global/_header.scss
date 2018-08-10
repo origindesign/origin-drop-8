@@ -1,6 +1,6 @@
 .region-header {
 
-    background: $color--gray--darker;
+    background: $color--gray;
     padding: $spacing;
 
     & > .wrapper-region {
@@ -16,7 +16,7 @@
 
 .region-main-navigation {
 
-    background: $color--gray--lightest;
+    background: $color--gray--light;
     border-bottom: 1px solid $color--border;
 
     & > .wrapper-region {

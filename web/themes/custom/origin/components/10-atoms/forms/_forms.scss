@@ -1,0 +1,82 @@
+$margin-form-item: 30px;
+$form-field-height: 35px;
+
+@mixin label() {
+    display: block; margin-bottom: 10px; font-weight:bold;
+}
+
+@mixin field() {
+    background: #fff; border:$border; width:100%; padding:0 20px; line-height:$form-field-height; height:$form-field-height;
+}
+
+@mixin required() {
+    &:after {
+        content: " *";
+        color: red;
+    }
+}
+
+
+form {
+
+    .form-item {
+        margin: $margin-form-item 0;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="number"], select {
+        @include field();
+    }
+
+    label, .form-composite legend {
+        @include label();
+        &.form-required{
+            @include required();
+        }
+    }
+
+    textarea {
+        padding: 10px; border:$border; width:100%;
+    }
+
+    button[type="submit"], input[type="submit"] {
+        margin-top: 20px; outline-offset:$outline-offset;
+        &:focus{
+            outline:#{$outline} $color--primary;
+        }
+    }
+
+    fieldset.webform-type-fieldset {
+        margin: $margin-form-item 0; border:none; padding:0;
+        > legend{
+            @include h2();
+        }
+    }
+
+    .form-checkboxes .form-item, .form-radios .form-item {
+        display: inline-block;
+        margin: 10px 0;
+        vertical-align: bottom;
+        width: 100%;
+    }
+
+    .description {
+        margin-top: 10px;
+    }
+
+    input.form-type-date{
+        background:url("../images/calendar.svg") 95% center no-repeat; background-size:20px 20px; position:relative; z-index:2;
+    }
+
+}
+
+
+button[type="submit"], input[type="submit"]{
+    @include button();
+    -webkit-appearance:none !important; -webkit-border-radius:0 !important; border-radius:0 !important;
+
+    &:focus{
+        outline:1px dotted #000;
+    }
+
+}
+
