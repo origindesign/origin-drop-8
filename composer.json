@@ -137,6 +137,7 @@
         "sort-packages": true,
         "platform": {
             "php": "7.0.8"
-        }
+        },
+        "process-timeout":0
     }
 }
