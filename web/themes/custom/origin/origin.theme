@@ -32,20 +32,25 @@ function origin_preprocess_page(&$variables) {
 
     $entityTypeManager = \Drupal::entityTypeManager();
     $moduleHandler = \Drupal::service('module_handler');
+    $config = \Drupal::config('system.site');
 
+    $variables['site_logo'] = '/'.drupal_get_path('theme', 'origin') . '/logo.svg';
+    $variables['site_name'] = $config->get('name');
     $variables["page_type"] = \Drupal::state()->get('page_type') ?: false;
 
-    // Main Navigation
-    $block_main_nav = \Drupal\block\Entity\Block::load('origin_main_menu');
-    $variables['main_menu'] = $entityTypeManager
-        ->getViewBuilder('block')
-        ->view($block_main_nav);
 
-    // Tabs
-    $block_tabs = \Drupal\block\Entity\Block::load('origin_local_tasks');
-    $variables['tabs'] = $entityTypeManager
-        ->getViewBuilder('block')
-        ->view($block_tabs);
+    // Blocks
+    $blocks = [
+        'origin_main_menu' => 'main_menu',
+        'origin_footer' => 'footer_menu',
+        'origin_local_tasks' => 'tabs',
+        'origin_messages' => 'messages',
+    ];
+
+    foreach($blocks as $key => $value){
+        $block = \Drupal\block\Entity\Block::load($key);
+        $variables[$value] = $entityTypeManager->getViewBuilder('block')->view($block);
+    }
 
 
 }

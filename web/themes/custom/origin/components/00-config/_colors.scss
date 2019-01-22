@@ -1,25 +1,11 @@
-////
-/// @group colors
-////
 
-/// @type color
 $color--primary--blue: #007bff;
-/// @type color
 $color--primary: $color--primary--blue;
-
-/// @type color
 $color--secondary--blue: #0E6BAC;
-/// @type color
 $color--secondary: $color--secondary--blue;
+$color--grey: #3d3d3d;
+$color--grey--light: #c9c9c9;
 
-/// @type color
-$color--gray--light: #e9ecef;
-/// @type color
-$color--gray: #aaa;
-
-
-/// @type color
-$color--copy--main: $color--gray;
-
-/// @type color
-$color--border: $color--gray--light;
+$color--text: $color--grey;
+$color--border: $color--grey;
+$color--background: $color--grey--light;

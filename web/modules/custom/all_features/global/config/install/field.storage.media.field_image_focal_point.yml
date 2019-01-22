@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - options
+id: media.field_image_focal_point
+field_name: field_image_focal_point
+entity_type: media
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: focus-top-left
+      label: Top/Left
+    -
+      value: focus-top-center
+      label: Top/Center
+    -
+      value: focus-top-right
+      label: Top/Right
+    -
+      value: focus-middle-left
+      label: Middle/Left
+    -
+      value: focus-middle-center
+      label: Middle/Center
+    -
+      value: focus-middle-right
+      label: Middle/Right
+    -
+      value: focus-bottom-left
+      label: Bottom/Left
+    -
+      value: focus-bottom-center
+      label: Bottom/center
+    -
+      value: focus-bottom-right
+      label: Bottom/Right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

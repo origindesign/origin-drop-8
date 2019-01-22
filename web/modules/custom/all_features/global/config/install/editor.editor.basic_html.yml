@@ -12,6 +12,7 @@ third_party_settings:
     scheme: public
     directory: inline-files
     extensions: pdf
+    max_size: ''
 format: basic_html
 editor: ckeditor
 settings:
@@ -35,6 +36,7 @@ settings:
             - NumberedList
             - Outdent
             - Indent
+            - Blockquote
         -
           name: Tables
           items:
@@ -42,7 +44,7 @@ settings:
         -
           name: Media
           items:
-            - DrupalFile
+            - file_embed
         -
           name: 'Block Formatting'
           items:

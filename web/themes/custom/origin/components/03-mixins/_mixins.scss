@@ -53,12 +53,70 @@
     max-width: $width;
 }
 
+@mixin container($padding: true, $maxWidth: $container-max-width) {
+    @include clearfix();
+    @include maxWidth($maxWidth);
+    @if $padding {
+        @include padding($small-screen-padding,side);
+        @include breakpoint($bp--large) {
+            @include padding(0);
+        }
+    }
+    @else{
+        @include padding(0);
+    }
+    position:relative;
+}
+
+@mixin content-container($padding: true){
+    @if $padding {
+        @include container(true, $content-width);
+        @include breakpoint($bp--content){
+            @include padding(0);
+        }
+    }@else{
+        @include container(false, $content-width);
+    }
+}
+
+.container{
+    @include container();
+}
+.content-container{
+    @include content-container();
+}
+
+@mixin rowMargin($small: false, $force: false){
+    margin-top:$row-margin-small; margin-bottom:$row-margin-small;
+    @if not $small{
+        @include breakpoint($bp--tablet-landscape){
+            margin-top:$row-margin; margin-bottom:$row-margin;
+        }
+    }
+    @if not $force{
+        @include marginResets();
+    }
+}
+
+@mixin rowPadding($small: false){
+    padding-top:$row-margin-small; padding-bottom:$row-margin-small;
+    @if not $small{
+        @include breakpoint($bp--tablet-landscape){
+            padding-top:$row-margin; padding-bottom:$row-margin;
+        }
+    }
+}
+
 @mixin verticalCenter(){
     display:inline-block; position:absolute; left:0; top:50%; width:100%; transform:translateY(-50%);
 }
 
 @mixin horizontalCenter(){
     position:absolute; left:50%; transform:translateX(-50%);
+}
+
+@mixin absoluteCenter(){
+    position:absolute; top:50%; left:50%; transform:translateX(-50%) translateY(-50%);
 }
 
 @mixin displayTable(){
@@ -69,10 +127,10 @@
     display:table-cell; width:$width; vertical-align:$align;
 }
 
-@mixin verticalAlign(){
+@mixin verticalAlign($width:auto){
     @include displayTable();
     > * {
-        @include tableCell(100%,middle);
+        @include tableCell($width,middle);
     }
 }
 .layout-table{

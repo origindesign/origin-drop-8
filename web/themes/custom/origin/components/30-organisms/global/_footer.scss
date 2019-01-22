@@ -1,23 +1,11 @@
-footer {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    height: 62px;
 
-    .region-footer {
+footer.site-footer {
+    @include clearfix();
+    background: $color--background;
+    border-top: 1px solid $color--border;
 
-        background: $color--gray--light;
-        height: 100%;
-        border-top: 1px solid $color--border;
-
-        & > .wrapper-region {
-            @include grid-container;
-
-            .navigation {
-                @include grid-span(12, 1);
-            }
-        }
-
+    .navigation {
+        @include grid-span(12, 1);
     }
 
 }

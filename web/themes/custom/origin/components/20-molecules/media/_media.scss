@@ -1,20 +1,31 @@
+
+.media--loading{
+    @include loader();
+    &:after{
+        @include absoluteCenter();
+    }
+    &:before{
+        display:none;
+    }
+}
+
 .media {
 
     position: relative;
+
+    .blazy &{
+        @include cover();
+    }
 
     .image {
         @include cover();
         position: relative;
     }
 
-    &.media--view-mode-medium {
+    .field--name-field-media-image{
 
-        .field--name-field-media-image {
-            @include objectFitImage();
-            padding-bottom: 65%;
-        }
+        @include objectFitImage();
 
     }
-
 
 }

@@ -1,30 +1,22 @@
-.region-header {
 
-    background: $color--gray;
-    padding: $spacing;
+.site-header{
+    @include clearfix();
+    background: $color--background;
+    border-bottom: 1px solid $color--border;
 
-    & > .wrapper-region {
-        @include grid-container;
-
-        .block-system-branding-block {
-            @include grid-span(12, 1);
-        }
+    .logo{
+        float:left;
     }
 
 }
 
 
-.region-main-navigation {
+.main-menu{
+    @include clearfix();
+    float:left;
 
-    background: $color--gray--light;
-    border-bottom: 1px solid $color--border;
-
-    & > .wrapper-region {
-        @include grid-container;
-
-        .navigation {
-            @include grid-span(12, 1);
-        }
+    .navigation {
+        @include grid-span(12, 1);
     }
 
 }

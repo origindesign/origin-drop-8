@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media_entity_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: inline_image_browser
+label: 'Inline Image Browser'
+display: iframe
+display_configuration:
+  width: '110'
+  height: '850'
+  link_text: 'Select media'
+  auto_open: true
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  c5a31a90-c916-49ea-b83f-116da747d90e:
+    settings:
+      entity_type: media
+      bundle: ''
+      form_mode: default
+      submit_text: 'Save media'
+    uuid: c5a31a90-c916-49ea-b83f-116da747d90e
+    weight: 1
+    label: 'Upload New Media'
+    id: entity_form
+  ae5e8d33-9344-4274-81e0-489fe765ad8e:
+    settings:
+      view: media_entity_browser
+      view_display: entity_browser_5
+      submit_text: 'Select media'
+      auto_select: false
+    uuid: ae5e8d33-9344-4274-81e0-489fe765ad8e
+    weight: 2
+    label: 'Select Existing Media'
+    id: view

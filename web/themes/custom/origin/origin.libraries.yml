@@ -7,7 +7,7 @@ origin:
       dist/style.css:
         preprocess: true
   js:
-    https://cdn.jsdelivr.net/combine/npm/formstone@1.4.6/src/js/core.min.js,npm/formstone@1.4.6/src/js/checkbox.min.js,npm/formstone@1.4.6/src/js/dropdown.min.js,npm/gsap@1.20.4/TweenMax.min.js: { type: external, minified: true }
+    https://cdn.jsdelivr.net/combine/npm/formstone@1.4.6/src/js/core.min.js,npm/formstone@1.4.6/src/js/checkbox.min.js,npm/formstone@1.4.6/src/js/dropdown.min.js,npm/gsap@1.20.4/TweenMax.min.js,npm/object-fit-images@3.2.3/dist/ofi.min.js: { type: external, minified: true }
     dist/all.min.js:
       preprocess: false
   dependencies:
@@ -21,7 +21,7 @@ isotope:
   version: 1.x
   js:
     https://cdn.jsdelivr.net/combine/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js,npm/imagesloaded@4.1.4/imagesloaded.pkgd.min.js: { type: external, minified: true }
-    js/isotope.js: { preprocess: false }
+    dist/isotope.js: { preprocess: false }
   dependencies:
     - core/jquery
     - core/drupal
@@ -31,7 +31,7 @@ events:
   version: 1.x
   js:
     https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js: { type: external, minified: true }
-    js/events.js: { preprocess: false }
+    dist/events.js: { preprocess: false }
   dependencies:
     - core/jquery
     - core/drupal

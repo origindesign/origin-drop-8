@@ -1,7 +1,31 @@
 
 table{
+    @include fontsize(16);
 
     width:100%;
+
+    caption{
+        @include h4();
+        text-align:left;
+    }
+
+    th{
+        white-space:nowrap;
+        @include breakpoint($bp--tablet-portrait){
+            white-space:normal;
+        }
+    }
+
+    thead{
+        th{
+            background: $color--background; color:#fff; text-align:left;
+        }
+    }
+    tbody{
+        th{
+            font-weight:bold;
+        }
+    }
 
     th{
         text-align:left;
@@ -10,6 +34,28 @@ table{
     th,
     td{
         padding:5px 10px;
+    }
+
+    tr{
+        background:#fff;
+    }
+
+}
+
+.table-wrap{
+    margin:$base-typography-spacing 0; position:relative;
+
+    &.scroll{
+        overflow-x:auto; overflow-y:hidden;
+    }
+
+}
+
+.scroll-indicator{
+    padding-right:20px; display:none;
+
+    + .table-wrap{
+        margin-top:0;
     }
 
 }

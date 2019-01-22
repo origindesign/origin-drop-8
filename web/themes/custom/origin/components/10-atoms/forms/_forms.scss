@@ -20,7 +20,13 @@ $form-field-height: 35px;
 form {
 
     .form-item {
-        margin: $margin-form-item 0;
+        @include clearfix();
+        margin: $margin-form-item 0; position:relative;
+        @include marginResets();
+    }
+
+    input, select, textarea, button{
+        -webkit-appearance:none !important; -webkit-border-radius:0 !important; border-radius:0 !important;
     }
 
     input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="number"], select {
@@ -32,6 +38,11 @@ form {
         &.form-required{
             @include required();
         }
+    }
+
+    label.error{
+        @include fontsize();
+        color:#ff0000;
     }
 
     textarea {
@@ -57,6 +68,13 @@ form {
         margin: 10px 0;
         vertical-align: bottom;
         width: 100%;
+    }
+
+    .form-type-checkbox,
+    .form-type-radio{
+        label{
+            width:auto !important;
+        }
     }
 
     .description {

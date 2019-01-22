@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.inline_image
+  content:
+    - 'file:file:3d023da7-73eb-4e47-adaa-23a1743a757d'
+  module:
+    - entity_embed
+    - media
+label: 'Inline Image Embed'
+id: inline_image_embed
+type_id: entity
+type_settings:
+  entity_type: media
+  bundles:
+    - inline_image
+  display_plugins:
+    - 'view_mode:media.inline'
+  entity_browser: inline_image_browser
+  entity_browser_settings:
+    display_review: false
+icon_uuid: 3d023da7-73eb-4e47-adaa-23a1743a757d

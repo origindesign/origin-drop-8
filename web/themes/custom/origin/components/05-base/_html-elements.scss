@@ -3,23 +3,29 @@
 }
 
 html {
-    position: relative;
-    min-height: 100%;
+    font-size:62.5%;
 }
 
 body {
     @include body-copy();
-    margin-bottom: 160px;
+    color:$color--text;
+
+    &.cke_editable{
+        @include fontsize();
+        padding:20px !important; background:#fff !important;
+    }
+
 }
 
 h1, h2, h3, h4, h5{
     @include marginResets();
 }
-h1 { @include h1; }
-h2 { @include h2; }
-h3 { @include h2; }
-h4 { @include h2; }
-h5 { @include h2; }
+h1 { @include h1(); }
+h2 { @include h2(); }
+h3 { @include h3(); }
+h4 { @include h4(); }
+h5 { @include h5(); }
+h6 { @include h6(); }
 
 p, ul, ol{
     @include marginResets();
@@ -28,16 +34,33 @@ p, ul, ol{
 
 a {
     @include transition();
-    color: $color--primary;
-    &:hover { color: $color--secondary--blue; }
+    text-decoration:none;
+
+    @include hover(){
+        color:$color--text;
+    }
+}
+
+a.image{
+    display:block; outline-offset:$outline-offset;
 }
 
 blockquote {
-    font-style: italic;
-    border-left: solid 3px $color--border;
+    padding:20px 30px; margin:$base-typography-spacing 0;
 }
 
 img {
     max-width: 100%;
     height: auto;
+    display:block;
+}
+
+article.embedded-entity{
+    + article.embedded-entity{
+        margin-top:$base-typography-spacing/2;
+    }
+}
+
+iframe{
+    width:100%;
 }

@@ -5,17 +5,21 @@ core: 8.x
 dependencies:
   - address
   - article
+  - blazy
   - block
   - ckeditor
   - contact
   - editor
   - editor_file
+  - embed
   - entity_browser
   - entity_browser_entity_form
+  - entity_embed
   - entity_reference_revisions
   - field
   - file
   - filter
+  - help
   - image
   - inline_entity_form
   - linkit
@@ -28,6 +32,7 @@ dependencies:
   - path
   - responsive_image
   - shortcut
+  - system
   - taxonomy
   - text
   - tour

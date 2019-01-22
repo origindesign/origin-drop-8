@@ -1,12 +1,12 @@
 main {
-    @include grid-container;
+    @include clearfix();
     margin-top: 20px;
 }
 
-.layout-content {
-    @include grid-span(9, 1);
+.layout-container{
+    @include container();
 }
 
-.layout-sidebar-first {
-    @include grid-span(3, 10);
+.layout-content{
+    padding:40px 0 80px;
 }

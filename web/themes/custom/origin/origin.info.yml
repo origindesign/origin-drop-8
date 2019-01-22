@@ -2,22 +2,22 @@ name: Origin
 type: theme
 description: An Origin Drupal starter theme.
 core: 8.x
+base theme: classy
+libraries-override:
+  classy/base: false
 
 # Defines libraries group in which we can add css/js.
 libraries:
   - origin/origin
 
-base theme: classy
-
 # Regions
 regions:
-  header: Header
-  featured: Featured
   content: Content
-  sidebar_first: First sidebar
-  sidebar_second: Second sidebar
-  footer: Footer
+  disabled: Disabled
 
+# WYSIWYG Stlyes
+ckeditor_stylesheets:
+  - dist/style.css
 
 # Components
 component-libraries:

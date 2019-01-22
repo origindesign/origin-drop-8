@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.inline
+    - field.field.media.inline_image.field_media_image_1
+    - field.field.media.inline_image.field_tags
+    - media.type.inline_image
+  module:
+    - image
+id: media.inline_image.inline
+targetEntityType: media
+bundle: inline_image
+mode: inline
+content:
+  field_media_image_1:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  field_tags: true
+  name: true
+  thumbnail: true
+  uid: true

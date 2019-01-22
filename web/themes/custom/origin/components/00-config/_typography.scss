@@ -1,43 +1,65 @@
 $base-font-size: 16;
+$mobile-font-size: 15;
 $base-typography-spacing: 30px;
-$outline-offset: 2px;
-$outline:1px dotted;
+$base-line-height: 1.8;
 
-@function calculateRem($size) {
-    $remSize: $size / 16;
-    @return $remSize * 1rem;
+@mixin fontsize($fontSize: $base-font-size){
+    font-size: #{$fontSize}px;
+    font-size: #{$fontSize / 10}rem;
 }
 
 @mixin body-copy() {
-    font-size: $base-font-size;
-    font-family: $font--family--regular;
-}
-
-@mixin font-size($size) {
-    font-size: calculateRem($size);
+    @include fontsize($mobile-font-size);
+    line-height:$base-line-height;
+    @include breakpoint($bp--tablet-portrait){
+        @include fontsize();
+    }
 }
 
 @mixin h1() {
-    font-family: $font--family--regular;
+    @include fontsize(25);
+    line-height:1; margin:0;
+    @include breakpoint($bp--tablet-portrait){
+        @include fontsize(30);
+    }
 }
 
 @mixin h2() {
-    font-family: sans-serif;
+    @include fontsize(24);
+    line-height:1; margin:0 0 $base-typography-spacing 0;
+    @include breakpoint($bp--tablet-portrait){
+        @include fontsize(28);
+    }
 }
 
 @mixin h3() {
-    font-family: sans-serif;
+    @include fontsize(23);
+    line-height:1; margin:0 0 $base-typography-spacing 0;
+    @include breakpoint($bp--tablet-portrait){
+        @include fontsize(26);
+    }
 }
 
 @mixin h4() {
-    font-family: sans-serif;
+    @include fontsize(22);
+    line-height:1; margin:0;
+    @include breakpoint($bp--tablet-portrait){
+        @include fontsize(24);
+    }
 }
 
 @mixin h5() {
-    font-family: sans-serif;
+    @include fontsize(20);
+    line-height:1; margin:0;
+    @include breakpoint($bp--tablet-portrait){
+        @include fontsize(20);
+    }
 }
 
-
+@mixin h6() {
+    @include fontsize();
+    line-height:1; margin:0;
+}
 
 @mixin fonticon ($content, $size:20px, $color: #000, $top: "", $left: "", $right: "", $bottom: "", $center: false, $middle: false, $elem: before) {
     position:relative;
@@ -67,6 +89,6 @@ $outline:1px dotted;
         @if $bottom != '' { bottom: $bottom; }
         @if $center{ transform:translateX(-50%); }
         @if $middle{ transform:translateY(-50%); }
-        @if $center and $middle{ transform:translateX(-50%) translateY(-50%); }
+        @if $center and $middle{ transform:translate(-50%,-50%); }
     }
 }

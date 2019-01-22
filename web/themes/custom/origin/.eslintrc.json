@@ -17,7 +17,8 @@
     "Backbone": true,
     "Modernizr": true,
     "CKEDITOR": true,
-    "TweenMax": true
+    "TweenMax": true,
+    "objectFitImages": true
   },
   "rules": {
     "no-console": 0,

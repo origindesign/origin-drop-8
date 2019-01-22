@@ -9,7 +9,6 @@
     "test": "gulp validate"
   },
   "dependencies": {
-    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.6.1",
     "bourbon": "^4.2.7",
     "breakpoint-sass": "^2.7.0",
@@ -36,6 +35,8 @@
     "singularitygs": "^1.8.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "gulp-clean-css": "^4.0.0",
     "gulp-debug": "^2.1.2"
   }
 }
