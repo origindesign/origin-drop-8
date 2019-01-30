@@ -181,6 +181,26 @@ function origin_preprocess_node(&$variables) {
 
 
 
+function origin_preprocess_field(&$variables){
+
+    $variables['bundle'] = $variables['element']['#bundle'];
+
+    switch($variables['field_name']){
+
+        case 'field_media_image':
+            if($variables['bundle'] == 'image'){
+                if(!empty($variables['element']['#object']->get('field_image_focal_point')->getValue()[0])){
+                    $variables['image_focus'] = $variables['element']['#object']->get('field_image_focal_point')->getValue()[0]['value'];
+                }
+            }
+            break;
+
+    }
+
+}
+
+
+
 /**
  * Implements hook_page_attachments_HOOK_alter().
  * @param array $page
