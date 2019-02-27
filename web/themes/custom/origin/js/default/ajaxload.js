@@ -82,7 +82,6 @@
                 let wrapper = $( "<div/>", { 'class': 'wrapper'});
                 wrapper.html(result);
                 $container.html(wrapper);
-                TweenMax.from( wrapper, 0.5, {opacity: 0});
                 $container.addClass('loaded');
                 Drupal.attachBehaviors();
 
@@ -118,8 +117,7 @@
 
                         $that.css("opacity", 0).removeClass('loading');
                         let $result = $(response).find('.ajax-block-container');
-                        $that.html($result);
-                        TweenMax.to( $that, 0.2, {opacity: 1} );
+                        $that.html($result).css("opacity", 1);
                         Drupal.attachBehaviors();
 
                     }

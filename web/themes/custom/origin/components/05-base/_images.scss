@@ -17,7 +17,8 @@ $base-image-padding: 56.25%;
     position: relative;
     display: block;
     padding-bottom:$padding;
-    img {
+    img:not(.b-lazy),
+    img.b-lazy.b-loaded {
         @include cover();
         @include object-fit($fit, $position);
         .focus-top-left &{ @include object-fit($fit, 0 0); }

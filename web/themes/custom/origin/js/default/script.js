@@ -69,4 +69,26 @@
     };
 
 
+
+    /**
+     * SLICK SLIDESHOWS
+     */
+    Drupal.behaviors.slick = {};
+    Drupal.behaviors.slick.attach = function () {
+
+        // Global call only triggered once
+        $('body').once('slick').each(function () {
+
+            $('.slick').slick({
+                dots: true,
+                arrows: true
+            }).on('afterChange', function(){
+                Drupal.blazy.init.revalidate();
+            });
+
+        });
+
+    };
+
+
 })(jQuery, Drupal);

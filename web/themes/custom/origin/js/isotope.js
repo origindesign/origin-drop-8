@@ -130,7 +130,10 @@
         let filterValue = _obj.concatValues( _obj.filterArr );
 
         // Update Isotope
-        _obj.isotope.isotope({ filter: filterValue });
+        _obj.isotope.isotope({ filter: filterValue })
+            .on('layoutComplete', function(){
+                Drupal.blazy.init.revalidate();
+            });
 
         // No results
         if ( !_obj.isotope.data('isotope').filteredItems.length ) {
