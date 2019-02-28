@@ -51,7 +51,7 @@
         "drupal/view_unpublished": "^1.0@alpha",
         "drupal/xmlsitemap": "^1.0@alpha",
         "drush-ops/behat-drush-endpoint": "^0.0.5",
-        "drush/drush": "~8",
+        "drush/drush": "~9",
         "hirak/prestissimo": "^0.3.8",
         "origindesign/efq": "^1.4",
         "origindesign/helper": "^1.4",
