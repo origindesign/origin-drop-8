@@ -76,6 +76,7 @@ $ ddrush sql-sync @origindrop.local @origindrop.dev
 $ ddrush -r . rsync @origindrop.local:sites/default/files/ @origindrop.dev:%files
 ```
 - This way, the local and the dev site are using the same UUID so we can use config manager
+- If drush fails because of permission errors, skip this and continue. Push your first commit, let circle build a new version of Drush to push to Pantheon, then revisit this setup after.
 
 ## 4. Pushing to Github
 
