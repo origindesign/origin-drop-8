@@ -38,51 +38,9 @@ defaults: &defaults
 
 version: 2
 jobs:
-    # @todo: common initialization: 'composer install' for the site-under-test
-    build:
-        <<: *defaults
-        steps:
-            - checkout
-
-            - restore_cache:
-                keys:
-                    - composer-cache
-                    - terminus-install
-
-            - run:
-                # Set TERMINUS_ENV and related environment variables.
-                # https://github.com/pantheon-systems/docker-build-tools-ci/blob/1.x/scripts/set-environment
-                name: environment
-                command: /build-tools-ci/scripts/set-environment
-
-            - run:
-                name: run composer install to get the vendor directory
-                command: composer install
-
-            - save_cache:
-                key: composer-cache
-                paths:
-                    - $HOME/.composer/cache
-
-            - save_cache:
-                key: terminus-install
-                paths:
-                    - $(TERMINUS_PLUGINS_DIR:-~/.terminus/plugins)
-
-            - run:
-                name: lint php code for syntax errors
-                command: composer -n lint
-
-            - run:
-                name: check coding standards
-                command: composer -n code-sniff
-
-            - run:
-                name: run unit tests
-                command: composer -n unit-test
-
     build_deploy_and_test:
         <<: *defaults
+        #parallelism: 2
         steps:
             - checkout
 
@@ -99,46 +57,64 @@ jobs:
 
             - run:
                 name: install dev dependencies, build assets, etc.
-                command: ./.circleci/scripts/pantheon/01-prepare
+                command: |
+                  chmod +x ./.circleci/scripts/pantheon/01-prepare
+                  ./.circleci/scripts/pantheon/01-prepare
 
             - run:
                 name: build assets
                 command: composer -n build-assets
 
+            - save_cache:
+                key: composer-cache
+                paths:
+                    - $HOME/.composer/cache
+
+            - save_cache:
+                key: terminus-install
+                paths:
+                    - $(TERMINUS_PLUGINS_DIR:-~/.terminus/plugins)
+
+            #- run:
+            #    name: lint php code for syntax errors
+            #    command: composer -n lint
+
+            #- run:
+            #    name: check coding standards
+            #    command: composer -n code-sniff
+
+            #- run:
+            #    name: run unit tests
+            #    command: composer -n unit-test
+
             - run:
                 name: prepare database for site-under test
-                command: ./.circleci/scripts/pantheon/02-init-site-under-test-clone-existing
+                command: |
+                  chmod +x ./.circleci/scripts/pantheon/02-init-site-under-test-clone-existing
+                  ./.circleci/scripts/pantheon/02-init-site-under-test-clone-existing
                 # command: ./.circleci/scripts/pantheon/02-init-site-under-test-reinstall-new
 
             - run:
-                name: run composer install again to get dev dependencies
-                command: composer install
-
-            - run:
-                name: run functional tests with Behat
-                command: ./tests/scripts/run-behat
-
-            - run:
                 name: post-test actions
-                command: ./.circleci/scripts/pantheon/03-post-test
+                command: |
+                  chmod +x ./.circleci/scripts/pantheon/03-post-test
+                  ./.circleci/scripts/pantheon/03-post-test
 
             - run:
-                name: handle merge to master (if needed)
-                command: ./.circleci/scripts/pantheon/04-merge-master
+                name: handle merge to master
+                command: |
+                  chmod +x ./.circleci/scripts/pantheon/04-merge-master
+                  ./.circleci/scripts/pantheon/04-merge-master
 
             - run:
                 name: remove transient test fixtures
-                command: ./.circleci/scripts/pantheon/09-cleanup-fixtures
-
-    # TODO:
-    # 04-merge-master
-    # 09-cleanup-fixtures
+                command: |
+                  chmod +x ./.circleci/scripts/pantheon/09-cleanup-fixtures
+                  ./.circleci/scripts/pantheon/09-cleanup-fixtures
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      # Install dev dependencies and do simple tests (sniff, unit tests, etc.)
-      - build
       # Build deploy and test on target platform
       - build_deploy_and_test
