@@ -3,7 +3,8 @@
         'paragraph',
         'paragraph--type--' ~ paragraph.bundle|clean_class,
         view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-        not paragraph.isPublished() ? 'paragraph--unpublished'
+        not paragraph.isPublished() ? 'paragraph--unpublished',
+        content.field_column_style|render ? content.field_column_style[0]["#markup"],
     ]
 %}
 

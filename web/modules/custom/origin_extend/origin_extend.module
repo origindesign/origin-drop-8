@@ -1,8 +1,27 @@
 <?php
 
+/**
+ * Add css to admin pages to format Paragraphs fields
+ * @param array $attachments
+ *
+ */
+function origin_extend_page_attachments(array &$attachments) {
+    $is_admin = \Drupal::service('router.admin_context')->isAdminRoute();
+    if ($is_admin) {
+        $attachments['#attached']['library'][] = 'origin_extend/admin-css';
+        return;
+    }
+
+}
+
+
+/** Add thumbnail to image and video media bundles inline entity form
+ * @param $fields
+ * @param $context
+ */
+
 function origin_extend_inline_entity_form_table_fields_alter(&$fields, $context) {
 
-    // Add thumbnail to image and video media bundles
     $bundles = ['image','video'];
 
     if ($context['entity_type'] == 'media' && array_intersect($bundles, $context['allowed_bundles'])) {

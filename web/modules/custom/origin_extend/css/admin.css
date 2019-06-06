@@ -1,0 +1,11 @@
+
+.paragraphs-subform .form-wrapper:not(:last-child){
+    margin-bottom:10px;
+}
+
+.field--name-field-image-focal-point .fieldset-wrapper{
+    overflow:hidden; max-width:470px;
+}
+.field--name-field-image-focal-point .fieldset-wrapper .form-item{
+    float:left; width:33.333%;
+}
