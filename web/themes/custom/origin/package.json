@@ -6,7 +6,8 @@
   "scripts": {
     "start": "gulp clean && gulp compile && gulp",
     "compile": "gulp clean && gulp compile",
-    "test": "gulp validate"
+    "test": "gulp validate",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "babel-preset-env": "^1.6.1",
@@ -26,12 +27,13 @@
     "gulp-eslint": "^4.0.2",
     "gulp-if": "^2.0.2",
     "gulp-postcss": "^7.0.1",
-    "gulp-sass": "^2.3.1",
+    "gulp-sass": "^3.0.0",
     "gulp-sass-glob": "^1.0.9",
     "gulp-sass-lint": "^1.3.4",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
     "normalize.scss": "^0.1.0",
+    "patch-package": "^6.1.2",
     "run-sequence": "^2.2.1",
     "singularitygs": "^1.8.0"
   },
