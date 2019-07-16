@@ -27,7 +27,24 @@ if [[ $CIRCLE_BRANCH == "master" ]]; then
 
 else
 
-   terminus -n build:env:create "$TERMINUS_SITE.dev" "$CIRCLE_BRANCH" --yes --clone-content --notify="$NOTIFY"
+    # Search list of Pantheon mutlidevs to see if this branch already exits
+    MULTIDEVS=$(terminus multidev:list --field=id --format=string $TERMINUS_SITE)
+    CREATE_MULTI_DEV=TRUE
+
+    for i in $MULTIDEVS
+    do
+        if [[ $i == *$CIRCLE_BRANCH* ]]; then
+            echo "Mutidev "$CIRCLE_BRANCH" already exists, push code to it"
+            terminus -n build:env:push "$TERMINUS_SITE.$CIRCLE_BRANCH"
+            CREATE_MULTI_DEV=FALSE
+        fi
+    done
+
+    if [ $CREATE_MULTI_DEV == TRUE ]; then
+        echo "Mutidev doesnt exist, create a new one"
+        terminus -n build:env:create "$TERMINUS_SITE.dev" "$CIRCLE_BRANCH" --yes --clone-content --notify="$NOTIFY"
+    fi
+
 
    # Run updatedb to ensure that the cloned database is updated for the new code
    terminus -n drush "$TERMINUS_SITE.$CIRCLE_BRANCH" -- updatedb -y
@@ -38,6 +55,3 @@ else
    fi
 
 fi
-
-
-
