@@ -33,6 +33,12 @@ composer create-project
 - This should install Drupal, all required modules (contrib and custom), a set of features as well as the main Origin theme.
 - The admin password should be displayed in the console when Drupal is installed. Make sure to copy it (username is admin)
 - Navigating to <http://[name-of-your-project].docker.localhost:8000> to see the site
+- Create .drush and .ssh folders in the container
+````
+docker-compose exec php sh
+mkdir ~/.drush
+mkdir ~/.ssh
+````
 
 
 ## 2. Using Drush to manage Config Manager and Cache Rebuild
@@ -45,16 +51,6 @@ $ drush status
 ```
 - Drush can aslo be accessed through the docker-compose command and by specifiying the root directory `docker-compose exec php drush -r /var/www/html/web/ status`
 - In order to simplify the command, you can create an alias in your .bashrc file like `alias ddrush='docker-compose exec php drush'` (I called mine "ddrush" for docker drush)
-- Then you'd need to create your drush aliases and copy it from your local machine to the php container drush directory:
-```shell
-$ cd ~/.drush
-$ docker cp [name-of-your-project].aliases.drushrc.php [name-of-your-project]_php_1:/root/.drush/[name-of-your-project].aliases.drushrc.php
-```
-- Depending on the name you set for your aliases, you should be able to run drush from your local like these:
-```shell
-$ ddrush @local status 
-$ ddrush @dev status 
-```
 
 ## 3. Preparing for Pantheon
 
@@ -78,7 +74,28 @@ $ git push --force origin master
 Replace ssh://ID@ID.drush.in:2222/~/repository.git with the URL from the middle of the SSH clone URL from the Connection Info popup dialog on your dashboard.
 
 - Once it's pushed in the repository, go back in the Pantheon Dashboard and set your site to sftp mode. Navigate to your Dev site and install drupal as normal.
-- If it's not done yet, download the drush aliases and set it up as described in point 3
+- Visit the Pantheon main dashboard and download the drush alias
+- Create a new alias file and copy the definitions from the Pantheon alias file for your site, removing the site name from the alias definitions so you have an alias for each environment named: local, dev, test, live
+- Copy the alias file from from your local machine to the php container drush directory:
+```shell
+$ cd ~/.drush
+$ docker cp [name-of-your-project].aliases.drushrc.php [name-of-your-project]_php:/root/.drush
+```
+- Depending on the name you set for your aliases, you should be able to run drush from your local like these:
+```shell
+$ ddrush @local status 
+$ ddrush @dev status 
+```
+- Copy your ssh key into the container
+````
+cd ~/.ssh
+docker cp id_rsa [name-of-your-project]_php:/root/.ssh
+````
+- You will most likley need to change the permissions of the key file, From the root of the project:
+````
+docker-compose exec php sh
+chmod 400 ~/.ssh/id_rsa
+````
 - In order to use config manager, you need to sync the database and files before pushing anything else. From the root of the project:
 ```shell
 $ ddrush sql-sync @origindrop.local @origindrop.dev
