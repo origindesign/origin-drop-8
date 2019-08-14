@@ -17,8 +17,8 @@ dependencies with [Composer](https://getcomposer.org/).
 - From the root of the new project:
 
 ```shell
-$ docker-compose up -d
-$ composer create-project
+docker-compose up -d
+composer create-project
 ```
 - If at the end of the process you have drush issues in the output, it means that composer installed drush incorrectly from outside the container
 - Delete /vendor/drush and /vendor/bin/drush*
@@ -45,9 +45,9 @@ mkdir ~/.ssh
 
 - Drush can be accessed normally after sshing into the php container:
 ```shell
-$ docker-compose exec php sh
-$ cd /var/www/html/web
-$ drush status
+docker-compose exec php sh
+cd /var/www/html/web
+drush status
 ```
 - Drush can aslo be accessed through the docker-compose command and by specifiying the root directory `docker-compose exec php drush -r /var/www/html/web/ status`
 - In order to simplify the command, you can create an alias in your .bashrc file like `alias ddrush='docker-compose exec php drush'` (I called mine "ddrush" for docker drush)
@@ -65,11 +65,12 @@ settings.php.txt to settings.php
 ```
 - From the Pantheon Dashboard, create a new Drupal 8 site; then, before installing Drupal, set your site to git mode and do the following from the root of your local project:
 ```shell
-$ git init
-$ git add -A .
-$ git commit -m "Setting up Drupal with web docroot"
-$ git remote add origin ssh://ID@ID.drush.in:2222/~/repository.git
-$ git push --force origin master
+git rm -rf .git
+git init
+git add -A .
+git commit -m "Setting up Drupal with web docroot"
+git remote add origin ssh://ID@ID.drush.in:2222/~/repository.git
+git push --force origin master
 ```
 Replace ssh://ID@ID.drush.in:2222/~/repository.git with the URL from the middle of the SSH clone URL from the Connection Info popup dialog on your dashboard.
 
@@ -78,13 +79,13 @@ Replace ssh://ID@ID.drush.in:2222/~/repository.git with the URL from the middle 
 - Create a new alias file and copy the definitions from the Pantheon alias file for your site, removing the site name from the alias definitions so you have an alias for each environment named: local, dev, test, live
 - Copy the alias file from from your local machine to the php container drush directory:
 ```shell
-$ cd ~/.drush
-$ docker cp [name-of-your-project].aliases.drushrc.php [name-of-your-project]_php:/root/.drush
+cd ~/.drush
+docker cp [name-of-your-project].aliases.drushrc.php [name-of-your-project]_php:/root/.drush
 ```
 - Depending on the name you set for your aliases, you should be able to run drush from your local like these:
 ```shell
-$ ddrush @local status 
-$ ddrush @dev status 
+ddrush @local status 
+ddrush @dev status 
 ```
 - Copy your ssh key into the container
 ````
@@ -98,8 +99,8 @@ chmod 400 ~/.ssh/id_rsa
 ````
 - In order to use config manager, you need to sync the database and files before pushing anything else. From the root of the project:
 ```shell
-$ ddrush sql-sync @origindrop.local @origindrop.dev
-$ ddrush -r . rsync @origindrop.local:sites/default/files/ @origindrop.dev:%files
+ddrush sql-sync @origindrop.local @origindrop.dev
+ddrush -r . rsync @origindrop.local:sites/default/files/ @origindrop.dev:%files
 ```
 - This way, the local and the dev site are using the same UUID so we can use config manager
 - If drush fails because of permission errors, skip this and continue. Push your first commit, let circle build a new version of Drush to push to Pantheon, then revisit this setup after.
@@ -111,12 +112,12 @@ $ ddrush -r . rsync @origindrop.local:sites/default/files/ @origindrop.dev:%file
 - Create an empty github repository with the name of your site (ie: origindrop).
 
 ```shell
-$ rm -rf .git 
-$ git init
-$ git add -A .
-$ git commit -m "Moving repo to Github"
-$ git remote add origin git@github.com:origindesign/origindrop.git
-$ git push -u origin master
+rm -rf .git 
+git init
+git add -A .
+git commit -m "Moving repo to Github"
+git remote add origin git@github.com:origindesign/origindrop.git
+git push -u origin master
 ```
 
 ## 5. Configuring Circle CI
