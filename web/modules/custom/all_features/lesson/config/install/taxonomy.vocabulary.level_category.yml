@@ -4,5 +4,4 @@ dependencies: {  }
 name: 'Level Category'
 vid: level_category
 description: ''
-hierarchy: 0
 weight: 0

@@ -15,7 +15,6 @@ dependencies:
     - field.field.node.article.field_related_content
     - field.field.node.article.field_subtitle
     - field.field.node.article.field_tags
-    - field.field.node.article.field_website
     - field.field.node.article.field_weight
     - node.type.article
   module:
@@ -28,6 +27,8 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   body: true
   comment: true
@@ -41,5 +42,4 @@ hidden:
   field_related_content: true
   field_subtitle: true
   field_tags: true
-  field_website: true
   field_weight: true

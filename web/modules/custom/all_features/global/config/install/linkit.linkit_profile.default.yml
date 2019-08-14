@@ -6,19 +6,14 @@ dependencies:
 id: default
 label: Default
 description: ''
-attributes:
-  target:
-    id: target
-    weight: 0
-    settings:
-      widget_type: simple_checkbox
 matchers:
   beb2c32c-73e5-4312-b666-30fa587b5b67:
     uuid: beb2c32c-73e5-4312-b666-30fa587b5b67
     id: 'entity:node'
     weight: 0
     settings:
-      result_description: '[node:title]'
       bundles: {  }
       group_by_bundle: true
       include_unpublished: false
+      substitution_type: canonical
+      metadata: '[node:title]'

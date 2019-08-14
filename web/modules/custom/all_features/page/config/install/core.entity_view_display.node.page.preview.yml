@@ -13,7 +13,6 @@ dependencies:
     - field.field.node.page.field_phone
     - field.field.node.page.field_related_content
     - field.field.node.page.field_subtitle
-    - field.field.node.page.field_website
     - node.type.page
   module:
     - smart_trim
@@ -72,4 +71,3 @@ hidden:
   field_paragraphs: true
   field_phone: true
   field_related_content: true
-  field_website: true

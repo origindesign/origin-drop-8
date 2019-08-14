@@ -10,7 +10,7 @@ name: inline_image_browser
 label: 'Inline Image Browser'
 display: iframe
 display_configuration:
-  width: '110'
+  width: '1100'
   height: '850'
   link_text: 'Select media'
   auto_open: true
@@ -22,7 +22,7 @@ widgets:
   c5a31a90-c916-49ea-b83f-116da747d90e:
     settings:
       entity_type: media
-      bundle: ''
+      bundle: inline_image
       form_mode: default
       submit_text: 'Save media'
     uuid: c5a31a90-c916-49ea-b83f-116da747d90e

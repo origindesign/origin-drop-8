@@ -4,5 +4,4 @@ dependencies: {  }
 name: 'Activity Category'
 vid: activity_category
 description: ''
-hierarchy: 0
 weight: 0

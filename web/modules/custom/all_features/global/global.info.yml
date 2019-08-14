@@ -4,10 +4,13 @@ type: module
 core: 8.x
 dependencies:
   - address
+  - advagg
+  - advagg_bundler
   - article
   - blazy
   - block
   - ckeditor
+  - comment
   - contact
   - editor
   - editor_file
@@ -22,6 +25,7 @@ dependencies:
   - help
   - image
   - inline_entity_form
+  - link
   - linkit
   - media
   - menu_link_content
@@ -30,11 +34,14 @@ dependencies:
   - options
   - paragraphs
   - path
+  - pathauto
+  - redirect
   - responsive_image
   - shortcut
   - system
   - taxonomy
   - text
+  - tinypng
   - tour
   - user
   - video_embed_field

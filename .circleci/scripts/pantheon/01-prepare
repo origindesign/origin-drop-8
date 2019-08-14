@@ -9,6 +9,7 @@ set -eo pipefail
 # - Terminus plugins are installed
 # - Any needed code updates are done
 #
+
 echo "Begin build for $DEFAULT_ENV. Pantheon test environment is $TERMINUS_SITE.$TERMINUS_ENV"
 
 # Log in via Terminus

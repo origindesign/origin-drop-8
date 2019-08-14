@@ -2,6 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.inline
+    - entity_browser.browser.inline_image_browser
     - media.type.inline_image
   content:
     - 'file:file:3d023da7-73eb-4e47-adaa-23a1743a757d'

@@ -26,6 +26,24 @@ isotope:
     - core/drupal
     - core/jquery.once
 
+ajaxload:
+  version: 1.x
+  js:
+    dist/ajaxload.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+
+smallpipe:
+  version: 1.x
+  js:
+    dist/smallpipe.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+
 events:
   version: 1.x
   js:

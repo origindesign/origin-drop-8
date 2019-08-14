@@ -34,7 +34,7 @@
         "drupal/hsts": "^1.0",
         "drupal/inline_entity_form": "1.x-dev",
         "drupal/link_attributes": "^1.5",
-        "drupal/linkit": "^4.3",
+        "drupal/linkit": "^5",
         "drupal/media_entity_browser": "^2.0",
         "drupal/menu_block": "^1.5",
         "drupal/metatag": "^1.5",
@@ -137,7 +137,7 @@
         },
         "patches": {
             "drupal/paragraphs" : {
-                "Make paragraphs module working with field_group version 3.x with support for the field_layout module" : "https://www.drupal.org/files/issues/2019-07-04/2907094_57.patch"
+                "Make paragraphs module working with field_group version 3.x with support for the field_layout module" : "https://www.drupal.org/files/issues/2019-08-04/2907094_76.patch"
             }
         }
     },

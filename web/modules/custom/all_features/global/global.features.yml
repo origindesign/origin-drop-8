@@ -1,6 +1,4 @@
 excluded:
-  - media.type.audio
-  - media.type.file
   - image.style.max_325x325
   - media.settings
 required: true

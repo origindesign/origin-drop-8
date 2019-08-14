@@ -21,6 +21,7 @@ dependencies:
     - entity_browser_entity_form
     - field_group
     - inline_entity_form
+    - link_attributes
     - metatag
     - paragraphs
     - path
@@ -41,6 +42,7 @@ third_party_settings:
         classes: ''
         direction: vertical
       label: 'Available Fields'
+      region: content
     group_main_copy_image:
       children:
         - field_main_image
@@ -55,6 +57,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Main Copy / Image'
+      region: content
     group_related_content:
       children:
         - field_related_content
@@ -68,6 +71,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Related Content'
+      region: content
     group_categories:
       children:
         - field_tags
@@ -82,10 +86,11 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Categories
+      region: content
     group_contact_information:
       children:
-        - field_email
         - field_website
+        - field_email
         - field_phone
         - field_other_information
       parent_name: group_available_fields
@@ -98,6 +103,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Contact Information'
+      region: content
 id: node.article.default
 targetEntityType: node
 bundle: article
@@ -120,7 +126,7 @@ content:
     third_party_settings: {  }
   field_email:
     type: email_default
-    weight: 0
+    weight: 52
     region: content
     settings:
       size: 60
@@ -152,7 +158,7 @@ content:
     third_party_settings: {  }
   field_other_information:
     type: string_textarea
-    weight: 3
+    weight: 54
     region: content
     settings:
       rows: 3
@@ -172,7 +178,7 @@ content:
     third_party_settings: {  }
   field_phone:
     type: string_textfield
-    weight: 2
+    weight: 53
     region: content
     settings:
       size: 60
@@ -205,13 +211,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_website:
-    type: string_textfield
-    weight: 1
-    region: content
+    weight: 51
     settings:
-      size: 60
-      placeholder: ''
+      placeholder_url: 'http://www.website.com'
+      placeholder_title: www.website.com
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
+    type: link_attributes
+    region: content
   field_weight:
     type: number
     weight: 4

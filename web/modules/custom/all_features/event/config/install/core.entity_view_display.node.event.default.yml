@@ -22,6 +22,7 @@ dependencies:
     - address
     - datetime_range
     - entity_reference_revisions
+    - link
     - metatag
     - text
     - user
@@ -38,14 +39,14 @@ content:
     third_party_settings: {  }
     region: content
   field_address:
-    weight: 13
+    weight: 12
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_all_day:
-    weight: 6
+    weight: 5
     label: hidden
     settings:
       format: custom
@@ -63,7 +64,7 @@ content:
     type: entity_reference_label
     region: content
   field_date_range:
-    weight: 5
+    weight: 4
     label: hidden
     settings:
       separator: '-'
@@ -77,7 +78,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    type: email_mailto
     region: content
   field_main_image:
     type: entity_reference_entity_view
@@ -89,14 +90,14 @@ content:
     third_party_settings: {  }
     region: content
   field_metatags:
-    weight: 14
+    weight: 13
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
     region: content
   field_other_information:
-    weight: 12
+    weight: 11
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -104,7 +105,7 @@ content:
     region: content
   field_paragraphs:
     type: entity_reference_revisions_entity_view
-    weight: 7
+    weight: 6
     label: hidden
     settings:
       view_mode: default
@@ -112,7 +113,7 @@ content:
     third_party_settings: {  }
     region: content
   field_phone:
-    weight: 11
+    weight: 10
     label: hidden
     settings:
       link_to_entity: false
@@ -120,7 +121,7 @@ content:
     type: string
     region: content
   field_related_content:
-    weight: 8
+    weight: 7
     label: hidden
     settings:
       link: true
@@ -137,15 +138,19 @@ content:
     type: string
     region: content
   field_website:
-    weight: 10
+    weight: 8
     label: hidden
     settings:
-      link_to_entity: false
+      trim_length: 80
+      target: _blank
+      url_only: false
+      url_plain: false
+      rel: '0'
     third_party_settings: {  }
-    type: string
+    type: link
     region: content
   links:
-    weight: 15
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }

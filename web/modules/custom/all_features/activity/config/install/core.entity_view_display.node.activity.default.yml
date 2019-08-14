@@ -19,6 +19,7 @@ dependencies:
   module:
     - address
     - entity_reference_revisions
+    - link
     - metatag
     - text
     - user
@@ -50,11 +51,11 @@ content:
     type: entity_reference_label
     region: content
   field_email:
-    weight: 6
+    weight: 7
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    type: email_mailto
     region: content
   field_main_image:
     type: entity_reference_entity_view
@@ -114,12 +115,16 @@ content:
     type: string
     region: content
   field_website:
-    weight: 7
+    weight: 6
     label: hidden
     settings:
-      link_to_entity: false
+      trim_length: 80
+      target: _blank
+      url_only: false
+      url_plain: false
+      rel: '0'
     third_party_settings: {  }
-    type: string
+    type: link
     region: content
   links:
     weight: 12

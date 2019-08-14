@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.storage.node.field_website
     - node.type.lodging
+  module:
+    - link
 id: node.lodging.field_website
 field_name: field_website
 entity_type: node
@@ -14,5 +16,7 @@ required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  link_type: 17
+  title: 2
+field_type: link

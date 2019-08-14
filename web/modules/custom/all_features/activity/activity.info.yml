@@ -11,6 +11,8 @@ dependencies:
   - field_group
   - global
   - inline_entity_form
+  - link
+  - link_attributes
   - menu_ui
   - metatag
   - node

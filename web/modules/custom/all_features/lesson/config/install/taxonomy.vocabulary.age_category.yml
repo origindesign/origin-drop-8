@@ -4,5 +4,4 @@ dependencies: {  }
 name: 'Age Category'
 vid: age_category
 description: ''
-hierarchy: 0
 weight: 0

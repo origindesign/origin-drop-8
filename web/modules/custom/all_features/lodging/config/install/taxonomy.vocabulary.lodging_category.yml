@@ -4,5 +4,4 @@ dependencies: {  }
 name: 'Lodging Category'
 vid: lodging_category
 description: ''
-hierarchy: 0
 weight: 0

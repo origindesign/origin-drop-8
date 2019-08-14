@@ -27,7 +27,7 @@ if [[ $CIRCLE_BRANCH == "master" ]]; then
 
 else
 
-    # Search list of Pantheon mutlidevs to see if this branch already exits
+    # Search list of Pantheon multidevs to see if this branch already exits
     MULTIDEVS=$(terminus multidev:list --field=id --format=string $TERMINUS_SITE)
     CREATE_MULTI_DEV=TRUE
 

@@ -4,5 +4,4 @@ dependencies: {  }
 name: 'Lifts & Trails Type'
 vid: lifts_trails_type
 description: ''
-hierarchy: 0
 weight: 0

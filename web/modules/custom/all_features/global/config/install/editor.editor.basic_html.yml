@@ -27,7 +27,7 @@ settings:
         -
           name: Linking
           items:
-            - Linkit
+            - DrupalLink
             - DrupalUnlink
         -
           name: Lists
@@ -63,12 +63,13 @@ settings:
             - Undo
             - Redo
   plugins:
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default
     language:
       language_list: un
     stylescombo:
-      styles: a.button|Button
-    linkit:
-      linkit_profile: default
+      styles: "a.button|Button\r\np.mice-type|Mice Type\r\np.larger-text|Larger Text"
 image_upload:
   status: true
   scheme: public

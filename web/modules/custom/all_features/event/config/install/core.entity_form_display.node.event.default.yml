@@ -24,6 +24,7 @@ dependencies:
     - entity_browser_entity_form
     - field_group
     - inline_entity_form
+    - link_attributes
     - metatag
     - paragraphs
     - path
@@ -43,6 +44,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Address
+      region: content
     group_main_copy_image:
       children:
         - field_main_image
@@ -57,10 +59,11 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Main Copy / Image'
+      region: content
     group_contact_information:
       children:
-        - field_email
         - field_website
+        - field_email
         - field_phone
         - field_other_information
       parent_name: group_available_fields
@@ -73,6 +76,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Contact Information'
+      region: content
     group_related_content:
       children:
         - field_related_content
@@ -86,6 +90,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Related Content'
+      region: content
     group_categories:
       children:
         - field_category
@@ -100,6 +105,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Categories
+      region: content
     group_available_fields:
       children:
         - group_main_copy_image
@@ -116,6 +122,7 @@ third_party_settings:
         classes: ''
         direction: vertical
       label: 'Available Fields'
+      region: content
     group_dates:
       children:
         - field_date_range
@@ -130,6 +137,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Dates
+      region: content
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -152,8 +160,7 @@ content:
     third_party_settings: {  }
   field_address:
     weight: 31
-    settings:
-      default_country: null
+    settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
@@ -177,7 +184,7 @@ content:
     type: daterange_default
     region: content
   field_email:
-    weight: 10
+    weight: 52
     settings:
       size: 60
       placeholder: ''
@@ -209,7 +216,7 @@ content:
     type: metatag_firehose
     region: content
   field_other_information:
-    weight: 13
+    weight: 54
     settings:
       rows: 3
       placeholder: ''
@@ -229,7 +236,7 @@ content:
     third_party_settings: {  }
     region: content
   field_phone:
-    weight: 12
+    weight: 53
     settings:
       size: 60
       placeholder: ''
@@ -254,12 +261,21 @@ content:
     type: string_textfield
     region: content
   field_website:
-    weight: 11
+    weight: 51
     settings:
-      size: 60
-      placeholder: ''
+      placeholder_url: 'http://www.website.com'
+      placeholder_title: www.website.com
+      enabled_attributes:
+        target: true
+        id: false
+        name: false
+        rel: false
+        class: false
+        accesskey: false
+        aria-label: false
+        title: false
     third_party_settings: {  }
-    type: string_textfield
+    type: link_attributes
     region: content
   field_weight:
     weight: 35

@@ -29,3 +29,10 @@
     }
 
 }
+
+.file--application-pdf{
+    padding-left:0; background:none;
+    a{
+        //@include icon('\e90d');
+    }
+}
