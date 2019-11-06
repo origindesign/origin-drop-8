@@ -31,13 +31,49 @@ $base-image-padding: 56.25%;
         .focus-bottom-center &{ @include object-fit($fit, 50% 100%); }
         .focus-bottom-right &{ @include object-fit($fit, 100% 100%); }
     }
-    &.focus-top-left img{ @include object-fit($fit, 0 0); }
-    &.focus-top-center img{ @include object-fit($fit, 50% 0); }
-    &.focus-top-right img{ @include object-fit($fit, 100% 0); }
-    &.focus-middle-left img{ @include object-fit($fit, 0 50%); }
-    &.focus-middle-center img{ @include object-fit($fit, 50% 50%); }
-    &.focus-middle-right img{ @include object-fit($fit, 100% 50%); }
-    &.focus-bottom-left img{ @include object-fit($fit, 0 100%); }
-    &.focus-bottom-center img{ @include object-fit($fit, 50% 100%); }
-    &.focus-bottom-right img{ @include object-fit($fit, 100% 100%); }
+    &.focus-top-left{
+        img:not(.b-lazy),
+        img.b-lazy.b-loaded{
+            @include object-fit($fit, 0 0); }
+    }
+    &.focus-top-center{
+        img:not(.b-lazy),
+        img.b-lazy.b-loaded{
+            @include object-fit($fit, 50% 0); }
+    }
+    &.focus-top-right{
+        img:not(.b-lazy),
+        img.b-lazy.b-loaded{
+            @include object-fit($fit, 100% 0); }
+    }
+    &.focus-middle-left{
+        img:not(.b-lazy),
+        img.b-lazy.b-loaded{
+            @include object-fit($fit, 0 50%); }
+    }
+    &.focus-middle-center{
+        img:not(.b-lazy),
+        img.b-lazy.b-loaded{
+            @include object-fit($fit, 50% 50%); }
+    }
+    &.focus-middle-right{
+        img:not(.b-lazy),
+        img.b-lazy.b-loaded{
+            @include object-fit($fit, 100% 50%); }
+    }
+    &.focus-bottom-left{
+        img:not(.b-lazy),
+        img.b-lazy.b-loaded{
+            @include object-fit($fit, 0 100%); }
+    }
+    &.focus-bottom-center{
+        img:not(.b-lazy),
+        img.b-lazy.b-loaded{
+            @include object-fit($fit, 50% 100%); }
+    }
+    &.focus-bottom-right{
+        img:not(.b-lazy),
+        img.b-lazy.b-loaded{
+            @include object-fit($fit, 100% 100%); }
+    }
 }

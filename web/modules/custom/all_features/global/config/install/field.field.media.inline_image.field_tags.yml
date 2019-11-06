@@ -10,7 +10,7 @@ field_name: field_tags
 entity_type: media
 bundle: inline_image
 label: Tags
-description: ''
+description: 'Use to make media easily searchable within the media browser'
 required: false
 translatable: true
 default_value: {  }

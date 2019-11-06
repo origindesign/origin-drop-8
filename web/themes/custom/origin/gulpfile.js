@@ -95,6 +95,7 @@ gulp.task('sass', function() {
         .pipe(sass())
         .pipe(postcss([ autoprefixer() ]))
         .pipe(gulpIf('*.css', cssnano()))
+        .pipe(cleanCSS())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/'));
 });

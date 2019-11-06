@@ -134,11 +134,6 @@
                 ".htaccess",
                 "web.config"
             ]
-        },
-        "patches": {
-            "drupal/paragraphs" : {
-                "Make paragraphs module working with field_group version 3.x with support for the field_layout module" : "https://www.drupal.org/files/issues/2019-08-04/2907094_76.patch"
-            }
         }
     },
     "config": {

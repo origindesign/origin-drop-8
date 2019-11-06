@@ -14,7 +14,7 @@ field_name: field_media_image
 entity_type: media
 bundle: image
 label: Image
-description: ''
+description: 'Images should be uploaded at a min ratio of 16:9, at a max width around 4000px and min width of 1600px'
 required: true
 translatable: true
 default_value: {  }

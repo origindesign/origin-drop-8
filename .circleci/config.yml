@@ -1,7 +1,7 @@
 # https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs
 defaults: &defaults
   docker:
-    - image: quay.io/pantheon-public/build-tools-ci:5.x
+    - image: quay.io/pantheon-public/build-tools-ci:6.x
   working_directory: ~/example_drops_8_composer
   environment:
     #=========================================================================
@@ -100,11 +100,11 @@ jobs:
                   chmod +x ./.circleci/scripts/pantheon/03-post-test
                   ./.circleci/scripts/pantheon/03-post-test
 
-            - run:
-                name: handle merge to master
-                command: |
-                  chmod +x ./.circleci/scripts/pantheon/04-merge-master
-                  ./.circleci/scripts/pantheon/04-merge-master
+            #- run:
+            #    name: handle merge to master
+            #    command: |
+            #      chmod +x ./.circleci/scripts/pantheon/04-merge-master
+            #      ./.circleci/scripts/pantheon/04-merge-master
 
             - run:
                 name: remove transient test fixtures

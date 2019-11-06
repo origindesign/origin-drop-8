@@ -187,6 +187,12 @@ function origin_preprocess_field(&$variables){
 
     switch($variables['field_name']){
 
+        case 'body':
+        case 'field_copy_first_column':
+        case 'field_copy_second_column':
+            $variables['extra_classes'] = ['rte'];
+            break;
+
         case 'field_media_image':
             if($variables['bundle'] == 'image'){
                 if(!empty($variables['element']['#object']->get('field_image_focal_point')->getValue()[0])){
@@ -198,10 +204,67 @@ function origin_preprocess_field(&$variables){
             }
             break;
 
+        case 'field_category':
+            /*
+            foreach($variables['items'] as $key => $item){
+              /*$type = $variables['element']['#object']->getType();
+                $tid = $variables['element']['#object']->get('field_category')->getValue()[$key]['target_id'];
+
+                switch($type){
+                    case 'article':
+                        $term = \Drupal::entityTypeManager()
+                            ->getStorage('taxonomy_term')
+                            ->load($tid);
+                        $url = '/the-resort/blog?tag='.$term->getName();
+                        break;
+                    default:
+                        $url = '';
+                        break;
+                }
+
+                if($url !== ''){
+                    $variables['items'][$key]['url'] = $url;
+                }
+
+            }*/
+            break;
+
+        case 'field_medias':
+            if(count($variables['items']) > 1){
+                $variables['slider'] = true;
+            }
+            break;
+
         case 'field_phone':
             foreach($variables['items'] as $key => $item){
                 $url = 'tel:'.$item['content']['#context']['value'];
                 $variables['items'][$key]['url'] = $url;
+            }
+            break;
+
+        case 'field_heading':
+            foreach($variables['items'] as $key => $item){
+                $variables['items'][$key]['element'] = 'span';
+            }
+            break;
+
+        case 'field_date_range':
+            foreach($variables['items'] as $key => $item){
+
+                $node = $variables['element']['#object'];
+                $type = $node->getType();
+
+                if($type == 'event'){
+                    $all_day = $node->get('field_all_day')->getValue()[0]['value'];
+
+                    $variables['label'] = 'Time';
+
+                    if( $all_day === '1' ){
+                        $variables['hide_time'] = true;
+                    }
+
+                }
+
             }
             break;
 
@@ -222,7 +285,7 @@ function origin_page_attachments_alter(array &$page) {
         '#tag' => 'meta',
         '#attributes' => array(
             'name' => 'viewport',
-            'content' => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
+            'content' => 'width=device-width, initial-scale=1, maximum-scale=3',
         ),
     );
     $page['#attached']['html_head'][] = [$viewport, 'viewport'];
