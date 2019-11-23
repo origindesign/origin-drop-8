@@ -12,20 +12,26 @@ $admin-bar-open: 79px;
 // Sign posts
 $width-small: 360px;
 $width-medium: 600px;
+$width-phone: $width-medium - 1px;
 $width-tablet-portrait: 740px;
 $width-content: $content-width+($small-screen-padding*2);
 $width-tablet-landscape: 960px;
+$width-condensed-layout: $width-tablet-landscape - 1px;
 $width-large: $container-max-width+($small-screen-padding*2);
 $width-xlarge: 1600px;
 
 // Mobile-first queries
 $bp--small: $width-small;
+$bp--phone: 1px $width-phone;
 $bp--medium: $width-medium;
 $bp--tablet-portrait: $width-tablet-portrait;
+$bp--tablet-portrait-only: $width-tablet-portrait $width-condensed-layout;
 $bp--content: $width-content;
+$bp--condensed-layout: 1px $width-condensed-layout;
 $bp--tablet-landscape: $width-tablet-landscape;
 $bp--large: $width-large;
 $bp--xlarge: $width-xlarge;
+$bp--short: (min-width $width-tablet-portrait) (max-height $width-tablet-portrait);
 
 
 // Basic layout

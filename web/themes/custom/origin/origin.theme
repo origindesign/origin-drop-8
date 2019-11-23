@@ -8,10 +8,10 @@
 
 
 /**
- * Implements template_preprocess_html().
- * @param array $variables
+ * Implements template_preprocess().
+ * @param $variables
  */
-function origin_preprocess_html(&$variables) {
+function origin_preprocess(&$variables) {
 
     // Get URL alias and pass it to template
     $current_path = \Drupal::service('path.current')->getPath();
@@ -19,6 +19,25 @@ function origin_preprocess_html(&$variables) {
     $arr_alias = explode('/',$current_alias);
     array_splice($arr_alias, 0, 1);
     $variables['path_alias'] = $arr_alias;
+
+}
+
+
+
+/**
+ * Implements template_preprocess_html().
+ * @param array $variables
+ */
+function origin_preprocess_html(&$variables) {
+
+    // Set is_front variable
+    try {
+        $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+    }
+    catch (Exception $e) {
+        // If the database is not yet available, set the default value.
+        $variables['is_front'] = FALSE;
+    }
 
 }
 
@@ -64,11 +83,16 @@ function origin_preprocess_page(&$variables) {
 function origin_preprocess_node(&$variables) {
 
     // Define useful variables
-    $nid = $variables['node']->id();
+    $node = $variables['node'];
+    $nid = $node->id();
     $variables['nid'] = $nid;
     $view_mode = $variables['view_mode'];
-    $variables["type"] = $variables['node']->getType();
-    $variables['status'] = $variables['node']->isPublished();
+    $variables["type"] = $node->getType();
+    $variables['status'] = $node->isPublished();
+    $variables["created"] = $node->getCreatedTime();
+
+    // Services
+    $entityTypeManager = \Drupal::entityTypeManager();
 
     // Set is_front variable
     try {
@@ -82,45 +106,46 @@ function origin_preprocess_node(&$variables) {
 
     if ($view_mode == "full"){
 
-        // Store Title
-        $variables['title'] = $variables['node']->getTitle();
 
-        // Return content sticky in node variable
-        $variables["sticky"] = $variables['node']->isSticky();
+        // Check if node hide the main image or not
+        $hero_is_displayed = true;
+        if ( isset( $node->field_hide_main_image) ){
+            $hero_is_displayed = ($node->field_hide_main_image->value === "1") ? false : true;
+        }
+        $variables['has_hero_image'] = ((isset($node->field_main_image->entity) || isset($node->field_main_images->entity)) && $hero_is_displayed ) ? true : false;
 
-        // Return date of created node in  node variable
-        $variables["created"] = $variables['node']->getCreatedTime();
 
 
-        // Set includes based on nid
+        /**
+         * Set includes based on nid
+         *
+         * Set custom component twig files to include using array 'custom_include'
+         * $variables['custom_include'][] = '@molecules/block/block-name.twig';
+         */
         switch ($nid){
 
             // Events
             case 2:
                 $controllerName = "EventController";
                 $variables['#attached']['library'][] = 'origin/events';
-                $doNotCache = true;
                 break;
 
             // Activities
             case 3:
                 $controllerName = "ActivityController";
                 $variables['#attached']['library'][] = 'origin/isotope';
-                $doNotCache = true;
                 break;
 
             // Dining
             case 4:
                 $controllerName = "DiningController";
                 $variables['#attached']['library'][] = 'origin/isotope';
-                $doNotCache = true;
                 break;
 
             // Lodging
             case 5:
                 $controllerName = "LodgingController";
                 $variables['#attached']['library'][] = 'origin/isotope';
-                $doNotCache = true;
                 break;
 
             // Articles
@@ -129,18 +154,38 @@ function origin_preprocess_node(&$variables) {
                 $param = \Drupal::request()->query->all();
                 $tag = ( isset ($param['tag']) ) ? $param['tag'] : '';
                 $arguments = array('tag' => $tag);
-                $doNotCache = true;
+                $variables['#attached']['library'][] = 'origin/articles';
                 break;
 
             // Lessons
             case 7:
                 $controllerName = "LessonController";
                 $variables['#attached']['library'][] = 'origin/isotope';
-                $doNotCache = true;
                 break;
 
         }
 
+
+        /**
+         * Custom Blocks
+         * $blocks = [
+         *    [
+         *        'name' => 'block-name',
+         *        'class' => 'custom-block-class'
+         *    ],
+         * ];
+        */
+        if( isset($blocks) ){
+            foreach($blocks as $key => $block){
+                $custom_block = \Drupal\block\Entity\Block::load($block['name']);
+                $variables['custom_blocks'][$key]['block'] = $entityTypeManager
+                    ->getViewBuilder('block')
+                    ->view($custom_block);
+                if(isset($block['class'])){
+                    $variables['custom_blocks'][$key]['class'] = $block['class'];
+                }
+            }
+        }
 
 
         // Set Controller if name is available
@@ -162,18 +207,24 @@ function origin_preprocess_node(&$variables) {
         }
 
 
-
-        // Clear cache of page
-        if( isset($doNotCache)){
-            if ($doNotCache){
-                $renderHelper = \Drupal::service('helper.render_helper');
-                $variables['block_no_cache'] = $renderHelper->renderUncacheBlock();
-            }
-        }
-
-
     }
 
+
+    // Return date of field formatted for From To date
+    $dateFieldHelper = \Drupal::service('helper.date_field_helper');
+    if(isset($node->field_date_range[0])){
+        $rawDateRange = $dateFieldHelper->getRawDates($variables['node'], 'field_date_range');
+        if( $rawDateRange ){
+            $variables["date_from"] = $rawDateRange["from"];
+            $variables["date_to"] = $rawDateRange["to"];
+        }
+    }
+
+    $rawDate = $dateFieldHelper->getRawDates($variables['node'], 'field_date');
+    if( $rawDate ){
+        $variables["date_from"] = $rawDate["from"];
+        $variables["date_to"] = null;
+    }
 
 
 
@@ -187,6 +238,7 @@ function origin_preprocess_field(&$variables){
 
     switch($variables['field_name']){
 
+        // Pass rte class to all Rich Text fields
         case 'body':
         case 'field_copy_first_column':
         case 'field_copy_second_column':
@@ -198,16 +250,13 @@ function origin_preprocess_field(&$variables){
                 if(!empty($variables['element']['#object']->get('field_image_focal_point')->getValue()[0])){
                     $variables['image_focus'] = $variables['element']['#object']->get('field_image_focal_point')->getValue()[0]['value'];
                 }
-                if(!empty($variables['element']['#object']->get('field_credit')->getValue()[0])){
-                    $variables['credit'] = $variables['element']['#object']->get('field_credit')->getValue()[0]['value'];
-                }
             }
             break;
 
+        // Pass custom links to categories - used for filtering lists
         case 'field_category':
-            /*
             foreach($variables['items'] as $key => $item){
-              /*$type = $variables['element']['#object']->getType();
+              $type = $variables['element']['#object']->getType();
                 $tid = $variables['element']['#object']->get('field_category')->getValue()[$key]['target_id'];
 
                 switch($type){
@@ -215,7 +264,7 @@ function origin_preprocess_field(&$variables){
                         $term = \Drupal::entityTypeManager()
                             ->getStorage('taxonomy_term')
                             ->load($tid);
-                        $url = '/the-resort/blog?tag='.$term->getName();
+                        $url = '/articles?tag='.$term->getName();
                         break;
                     default:
                         $url = '';
@@ -226,15 +275,17 @@ function origin_preprocess_field(&$variables){
                     $variables['items'][$key]['url'] = $url;
                 }
 
-            }*/
+            }
             break;
 
+        // Set media as slick slider
         case 'field_medias':
             if(count($variables['items']) > 1){
                 $variables['slider'] = true;
             }
             break;
 
+        // Pass tel: url for phone field
         case 'field_phone':
             foreach($variables['items'] as $key => $item){
                 $url = 'tel:'.$item['content']['#context']['value'];
@@ -242,12 +293,14 @@ function origin_preprocess_field(&$variables){
             }
             break;
 
+        // Remove div from heading fields
         case 'field_heading':
             foreach($variables['items'] as $key => $item){
                 $variables['items'][$key]['element'] = 'span';
             }
             break;
 
+        // Hide time on all day event
         case 'field_date_range':
             foreach($variables['items'] as $key => $item){
 

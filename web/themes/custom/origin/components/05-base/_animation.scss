@@ -1,0 +1,132 @@
+
+$transition-time-fast: 0.3;
+$transition-time: 0.5;
+$transition-time-slower: 0.8;
+$transition-ease-ui: cubic-bezier(0.645, 0.045, 0.355, 1);
+$transition-ease-soft: ease-in-out;
+//$transition-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+$menu-transition-offset-horizontal: 120px;
+$ui-transition-offset-horizontal: 20%;
+$transition-offset-vertical: 30px;
+$transition-scale: 1.1;
+
+@mixin transitions($what: all, $time: $transition-time-fast, $how: $transition-ease-soft, $delay: 0) {
+    transition: $what #{$time}s $how #{$delay}s;
+}
+.transition{
+    @include transitions();
+}
+
+@mixin transitionUI(){
+    @include transitions(all, $transition-time, $transition-ease-ui);
+}
+.transition-ui{
+    @include transitionUI();
+}
+
+@mixin transitionPageElement($time:$transition-time-slower){
+    @include transitions(all, $time, $transition-ease-soft);
+}
+
+@mixin transitionDelay($amount){
+    @include transitions(all, $transition-time, $transition-ease-ui, #{$transition-time*$amount});
+}
+
+@mixin delayOne(){
+    @include transitionDelay(0.3);
+}
+.delay-one{
+    @include delayOne();
+}
+
+@mixin delayTwo(){
+    @include transitionDelay(0.5);
+}
+.delay-two{
+    @include delayTwo();
+}
+
+@mixin fadeIn(){
+    @include breakpoint($bp--tablet-portrait){
+        @include transitionPageElement();
+        opacity:0;
+        &.in-view{ opacity:1; }
+    }
+}
+.fade-in{
+    @include fadeIn();
+}
+
+@mixin fadeInUp($centered: false, $delay: 0){
+    @include breakpoint($bp--tablet-portrait){
+        @include transitionPageElement();
+        opacity:0; transition-delay: #{$delay}s;
+
+        &.in-view{ opacity:1; }
+
+        @if $centered{
+            transform:translateX(-50%) translateY($transition-offset-vertical);
+            &.in-view{ transform:translateX(-50%); }
+        }@else{
+            transform:translateY($transition-offset-vertical);
+            &.in-view{ transform:none; }
+        }
+    }
+}
+.fade-in-up{
+    @include fadeInUp();
+}
+
+@mixin fadeInFromLeft(){
+    @include breakpoint($bp--tablet-portrait){
+        @include transitionPageElement();
+        opacity:0; transform:translateX(-#{$ui-transition-offset-horizontal});
+        &.in-view{ opacity:1; transform:none; }
+    }
+}
+.fade-in-from-left{
+    @include fadeInFromLeft();
+}
+
+@mixin fadeInFromRight(){
+    @include breakpoint($bp--tablet-portrait){
+        @include transitionPageElement();
+        opacity:0; transform:translateX(#{$ui-transition-offset-horizontal});
+        &.in-view{ opacity:1; transform:none; }
+    }
+}
+.fade-in-from-right{
+    @include fadeInFromRight();
+}
+
+// Loader //
+@keyframes animsition-loading{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}
+
+@mixin loader(){
+    position:relative;
+
+    &:after{
+        @include transitions();
+        content: "\020";
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -16px;
+        border-radius: 50%;
+        z-index: 2;
+
+        background-color: transparent;
+        border-top: 5px solid rgba(0,0,0,.2);
+        border-right: 5px solid rgba(0,0,0,.2);
+        border-bottom: 5px solid rgba(0,0,0,.2);
+        border-left: 5px solid #eee;
+        transform: translateZ(0) translateX(-50%) translateY(-50%);
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: .8s;
+        animation-name: animsition-loading;
+    }
+
+}

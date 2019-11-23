@@ -32,7 +32,7 @@
         display: none !important;
     }
     .fs-dropdown-item {
-        @include transition();
+        @include transitions();
         background: #fff !important;
         padding: 10px 20px;
         margin: 0;

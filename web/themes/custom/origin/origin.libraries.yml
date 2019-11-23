@@ -5,7 +5,7 @@ origin:
       dist/style.css:
         preprocess: true
   js:
-    https://cdn.jsdelivr.net/combine/npm/formstone@1.4.6/src/js/core.min.js,npm/formstone@1.4.6/src/js/checkbox.min.js,npm/formstone@1.4.6/src/js/dropdown.min.js,npm/object-fit-images@3.2.3/dist/ofi.min.js: { type: external, minified: true }
+    https://cdn.jsdelivr.net/combine/npm/formstone@1.4.6/src/js/core.min.js,npm/formstone@1.4.6/src/js/checkbox.min.js,npm/formstone@1.4.6/src/js/dropdown.min.js,npm/object-fit-images@3.2.3/dist/ofi.min.js,npm/moment@2.24.0/moment.min.js,npm/jquery-inview@1.1.2/jquery.inview.min.js,npm/slick-carousel@1.8.1,npm/formstone@1.4.0/src/js/cookie.min.js: { type: external, minified: true }
     dist/all.min.js:
       preprocess: true
   dependencies:
@@ -54,3 +54,14 @@ events:
     - core/drupal
     - core/jquery.once
     - core/jquery.ui.datepicker
+    - origin/ajaxload
+
+articles:
+  version: 1.x
+  js:
+    dist/articles.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - origin/ajaxload

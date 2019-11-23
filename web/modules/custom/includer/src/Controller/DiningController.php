@@ -63,7 +63,7 @@ class DiningController extends ContentController {
 
         return [
             '#type' => 'markup',
-            '#markup' => $this->getTermsAsLinks($terms, true, 'category')
+            '#markup' => $this->getTermsAsLinks($terms, false)
         ];
 
     }

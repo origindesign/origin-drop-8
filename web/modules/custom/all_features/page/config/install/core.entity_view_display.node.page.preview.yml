@@ -4,13 +4,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.preview
     - field.field.node.page.body
-    - field.field.node.page.field_email
     - field.field.node.page.field_hide_main_image
     - field.field.node.page.field_main_image
     - field.field.node.page.field_metatags
-    - field.field.node.page.field_other_information
     - field.field.node.page.field_paragraphs
-    - field.field.node.page.field_phone
     - field.field.node.page.field_related_content
     - field.field.node.page.field_subtitle
     - node.type.page
@@ -64,10 +61,8 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_email: true
   field_hide_main_image: true
   field_metatags: true
-  field_other_information: true
   field_paragraphs: true
-  field_phone: true
   field_related_content: true
+  field_website: true

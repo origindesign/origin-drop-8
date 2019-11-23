@@ -73,6 +73,14 @@ class ContentController extends ControllerBase {
     }
 
 
+    /**
+     * @param $vid
+     * @param bool $name
+     * @param string $selectText
+     * @param string $all
+     * @param null $ignoreTids
+     * @return array
+     */
     public function getTermsFromVocabulary ( $vid, $name = false, $selectText = 'Choose Category', $all = '', $ignoreTids = NULL ){
 
         $filters = array(
@@ -100,12 +108,19 @@ class ContentController extends ControllerBase {
     }
 
 
+    /**
+     * @param $terms
+     * @param bool $name
+     * @param string $vocab_name
+     * @param bool $name
+     * @return string
+     */
     public function getTermsAsLinks ( $terms, $name = false, $vocab_name = 'category' ){
 
         $output = '<ul><li><a href="#" class="link-filter active" data-filter-group="'.$vocab_name.'" data-filter="all">All</a> </li>';
 
         foreach($terms as $term){
-            $filter = ( $name ) ? $this->machineName( $term->name ) : $term->tid;
+            $filter = ( $name  ? $this->machineName( $term->name ) : $term->tid );
             $output .= '<li><a href="#" class="link-filter" data-filter-group="'.$vocab_name.'" data-filter=".term-'.$filter.'">'.t($term->name).'</a></li>';
         }
 

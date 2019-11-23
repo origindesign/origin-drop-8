@@ -1,38 +1,86 @@
 
-.media--loading{
-    @include loader();
-    &:after{
-        @include absoluteCenter();
+html:not(.ios9) img.b-lazy{
+    @supports (object-fit: cover){
+        @include transitionPageElement();
+        opacity:0; transition-property:opacity, transform;
+
+        @include breakpoint($bp--medium){
+            transform:scale($transition-scale);
+        }
+
+        &.b-loaded{
+            opacity:1; transform:none;
+        }
     }
+}
+
+.media--loading{
     &:before{
         display:none;
     }
 }
 
-.media {
+.file--application-pdf{
+    padding-left:0; background:none;
+    a{
+        @include fonticon('\e908',20px,$color--primary,50%,0,auto,auto,false,true);
+        padding-left:30px; display:inline-block;
+    }
+}
 
+.field--name-field-media-oembed-video{
+    position:relative;
+    &:after{
+        content: '';
+        display: block;
+        padding-bottom: 56.25%;
+    }
+    iframe{
+        @include cover();
+    }
+}
+
+.media {
     position: relative;
+
+    &:not(.media--type-file){
+        overflow:hidden; width:100%;
+    }
+
+    &.media--type-inline-image{
+        position:static; width:auto; height:auto;
+
+        .media{
+            position:static;
+        }
+
+    }
 
     .blazy &{
         @include cover();
     }
 
-    .image {
+    .image{
         @include cover();
-        position: relative;
+        position:relative;
     }
 
     .field--name-field-media-image{
-
         @include objectFitImage();
 
+        .media{
+            background:$color--background;
+        }
+
     }
 
-}
-
-.file--application-pdf{
-    padding-left:0; background:none;
-    a{
-        //@include icon('\e90d');
+    .field--name-field-credit{
+        position:absolute; top:0; left:0;
     }
+
+    .field--name-field-caption{
+        padding:5px 10px;
+
+    }
+
 }

@@ -4,17 +4,13 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.event
-    - paragraphs.paragraphs_type.image_aside_copy
-    - paragraphs.paragraphs_type.media_slideshow
-    - paragraphs.paragraphs_type.single_column_copy
-    - paragraphs.paragraphs_type.two_columns_copy
   module:
     - entity_reference_revisions
 id: node.event.field_paragraphs
 field_name: field_paragraphs
 entity_type: node
 bundle: event
-label: Paragraphs
+label: 'Page Content'
 description: ''
 required: false
 translatable: false
@@ -23,23 +19,19 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
-    target_bundles:
-      single_column_copy: single_column_copy
-      image_aside_copy: image_aside_copy
-      two_columns_copy: two_columns_copy
-      media_slideshow: media_slideshow
+    negate: 1
+    target_bundles: null
     target_bundles_drag_drop:
       single_column_copy:
-        enabled: true
         weight: -9
+        enabled: false
       image_aside_copy:
-        enabled: true
         weight: -8
+        enabled: false
       two_columns_copy:
-        enabled: true
         weight: -7
+        enabled: false
       media_slideshow:
-        enabled: true
         weight: -6
+        enabled: false
 field_type: entity_reference_revisions

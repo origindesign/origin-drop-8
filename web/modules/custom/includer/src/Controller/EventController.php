@@ -65,7 +65,7 @@ class EventController extends ContentController {
         $form = \Drupal::formBuilder()->getForm('Drupal\efq\Form\FilterForm');
 
         $form["container"] =  array(
-            '#prefix' => '<div class="filter-events">',
+            '#prefix' => '<div class="clearfix filters filter-count-3">',
             '#suffix' => '</div>',
             'from' => array(
                 '#attributes' => [
@@ -105,10 +105,6 @@ class EventController extends ContentController {
         return $form;
 
     }
-
-
-
-
 
 
 }

@@ -140,7 +140,7 @@
 
 
     Drupal.behaviors.ajaxListLoading.displayList = function ( $container, $path, $params ){
-        console.log($params);
+
         let _obj = Drupal.behaviors.ajaxListLoading;
 
         // Handle class for loading icon
@@ -160,12 +160,14 @@
                 $container.html(wrapper);
                 $container.addClass('loaded');
                 Drupal.attachBehaviors();
+                Drupal.blazy.init.revalidate();
 
                 /*
                 console.log($path+'?response_type=ajax');
                 console.log($params);
                 console.log(result);
                 */
+
 
             }
         });

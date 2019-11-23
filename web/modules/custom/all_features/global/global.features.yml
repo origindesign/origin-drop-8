@@ -1,4 +1,0 @@
-excluded:
-  - image.style.max_325x325
-  - media.settings
-required: true

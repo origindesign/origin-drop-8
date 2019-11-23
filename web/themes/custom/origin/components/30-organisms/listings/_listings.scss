@@ -9,6 +9,43 @@
         min-height: 200px;
     }
 
+    .filters{
+        margin-bottom:$row-margin-small;
+
+        &:not(.links){
+            @include breakpoint($bp--tablet-portrait){
+                display:flex; justify-content:center;
+                .form-item{
+                    margin:0; min-width:200px;
+                }
+                &.filter-count-2{
+                    .form-item{
+                        width:50%;
+                    }
+                }
+                &.filter-count-3{
+                    .form-item{
+                        width:33.333%;
+                    }
+                }
+            }
+        }
+
+        &.links{
+            ul{
+                @include reset();
+                display:flex;
+                li{
+                    margin-right:10px;
+                    a{
+                        @include button();
+                    }
+                }
+            }
+        }
+
+    }
+
     &.isotope {
 
         .isoGrid {
@@ -24,6 +61,19 @@
             width: 0;
         }
 
+
+    }
+
+    &.ajax{
+
+        .ajax-list-container{
+            clear:both !important; min-height: 200px;
+
+            &.loading:not(.loaded){
+                @include loader();
+            }
+
+        }
 
     }
 

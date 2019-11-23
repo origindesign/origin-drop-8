@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.media_slideshow.field_heading
+    - field.field.paragraph.media_slideshow.field_medias
+    - paragraphs.paragraphs_type.media_slideshow
+  module:
+    - media_library
+id: paragraph.media_slideshow.default
+targetEntityType: paragraph
+bundle: media_slideshow
+mode: default
+content:
+  field_heading:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_medias:
+    weight: 2
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    type: media_library_widget
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

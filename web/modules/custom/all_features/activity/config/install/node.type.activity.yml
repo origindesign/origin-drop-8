@@ -9,7 +9,7 @@ third_party_settings:
     parent: ''
 name: Activity
 type: activity
-description: 'Use <em>activities</em> for your "Things to Do" content.'
+description: 'Use <em>Activities</em> for your "Things to Do" content.'
 help: ''
 new_revision: false
 preview_mode: 0

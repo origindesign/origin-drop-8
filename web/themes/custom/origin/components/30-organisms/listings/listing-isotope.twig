@@ -1,23 +1,23 @@
 
-<div class="listing isotope {{ additional_classes }}">
+<div class="clearfix row listing isotope {{ additional_classes }} {% if not filter_isotope %} no-filters {% endif %}">
+
+    {% if filter_isotope %}
+        <div class="clearfix filters filter-isotope links">
+            {{ filter_isotope }}
+        </div>
+    {% endif %}
+
+    {% if filter_isotope_select %}
+        <div class="clearfix filters filter-isotope select">
+            {{ filter_isotope_select }}
+        </div>
+    {% endif %}
+
     <div class="content">
-
-        {% if filter_isotope %}
-            <div class="filter-isotope links">
-                {{ filter_isotope }}
-            </div>
-        {% endif %}
-
-        {% if filter_isotope_select %}
-            <div class="filter-isotope select">
-                {{ filter_isotope_select }}
-            </div>
-        {% endif %}
-
         <div class="inner-listing isoGrid">
             {{ content }}
             <div class="no-results">{% trans %}There are no results for your selection, please try again.{% endtrans %}</div>
         </div>
-
     </div>
+
 </div>

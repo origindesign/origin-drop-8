@@ -1,0 +1,52 @@
+
+$slick-button-height: 40px;
+
+.slick-arrows{
+    position:relative;
+}
+
+.slick-arrow{
+    @include transitions();
+    //@include fonticon('\e900',25px,$color--primary,50%,50%,0,auto,true,true);
+    position:absolute; z-index:1; opacity:1 !important; width:$slick-button-height; height:$slick-button-height; transform:translateY(-50%); top:50%;
+
+    &.slick-disabled{
+        opacity:0;
+    }
+
+    &:before{
+        @include transitions();
+        opacity:1 !important; color:$color--primary;
+    }
+
+    &:focus{
+        outline:1px dotted $color--primary !important;
+    }
+
+    &.slick-prev{
+        left:0;
+
+        &:before{
+            display:block;
+            //content:'\e901';
+        }
+
+        @include hover(){
+            &:before{
+                transform:translateX(calc(-50% - 5px)) translateY(-50%);
+            }
+        }
+
+    }
+    &.slick-next{
+        right:0;
+
+        @include hover(){
+            &:before{
+                transform:translateX(calc(-50% + 5px)) translateY(-50%);
+            }
+        }
+
+    }
+
+}

@@ -19,7 +19,12 @@ class ArticleController extends ContentController {
     public function getIncludes () {
 
         $this->result["listing_ajax"] = $this->getNodes($this->arguments["tag"]);
+        $this->result["filter_ajax"] = $this->createFilters();
         $this->result["additional_classes"] = 'article';
+
+        if(isset($this->arguments["tag"]) && $this->arguments["tag"] != ''){
+            $this->result["listing_heading"] = '<h2><span>Tag: '.$this->arguments["tag"].'</span></h2>';
+        }
 
         return $this->result;
 
@@ -31,16 +36,16 @@ class ArticleController extends ContentController {
         if($tag != ''){
             $term = \Drupal::entityTypeManager()
                 ->getStorage('taxonomy_term')
-                ->loadByProperties(['name' => $tag, 'vid' => 'tags']);
+                ->loadByProperties(['name' => $tag, 'vid' => 'article_category']);
             $term = reset($term);
-            $defaultParams = '{"content_type":"article","category":"field_tags--'.$term->id().'","paged":"1-10--restricted-5","sort":"created-DESC"}';
+            $defaultParams = '{"content_type":"article","category":"field_category--'.$term->id().'","paged":"1-10--restricted-5","sort":"created-DESC"}';
         }else{
             $defaultParams = '{"content_type":"article","category":"all","paged":"1-10--restricted-5","sort":"created-DESC"}';
         }
 
         return [
             '#type' => 'markup',
-            '#markup' => "<div class='ajax-list-container ajax-article loading' data-ajax-path='/efq/post' data-default-params='".$defaultParams."'></div>"
+            '#markup' => "<div class='ajax-list-container ajax-articles loading' data-ajax-path='/efq/post' data-default-params='".$defaultParams."'></div>"
         ];
 
     }
@@ -49,7 +54,7 @@ class ArticleController extends ContentController {
 
     protected function createFilters(){
 
-        $categories = $this->getTermsFromVocabulary('tags', 'tid', 'Filter by category', 'all');
+        $categories = $this->getTermsFromVocabulary('article_category', false, 'Filter by category', 'all');
 
         $form = \Drupal::formBuilder()->getForm('Drupal\efq\Form\FilterForm');
 

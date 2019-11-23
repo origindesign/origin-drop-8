@@ -1,0 +1,71 @@
+<?php
+
+use Drupal\Core\Cache\Cache;
+use Drupal\node\Entity\Node;
+
+
+/**
+ * Return node ids to clear cache tags when content of type is created or updated
+ */
+function returnCacheTags($node){
+
+    // Switch on type
+    switch($node->getType()){
+
+        case 'type':
+            $tags = ['node:NID'];
+            break;
+        default:
+            $tags = [];
+            break;
+
+    }
+
+    return $tags;
+
+}
+
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ * Clear listing page cache when new node inserted
+ */
+function includer_node_insert(Node $node) {
+
+    $tags = returnCacheTags($node);
+
+    if (isset($tags) && !empty($tags)) {
+        Cache::invalidateTags($tags);
+    }
+
+}
+
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ * Clear listing page cache when new node updated
+ */
+function includer_node_update(Node $node) {
+
+    $tags = returnCacheTags($node);
+
+    if (isset($tags) && !empty($tags)) {
+        Cache::invalidateTags($tags);
+    }
+
+}
+
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ * Clear listing page cache when new node updated
+ */
+function includer_node_delete(Node $node) {
+
+    $tags = returnCacheTags($node);
+
+    if (isset($tags) && !empty($tags)) {
+        Cache::invalidateTags($tags);
+    }
+
+}

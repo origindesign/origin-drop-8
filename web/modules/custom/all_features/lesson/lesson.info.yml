@@ -3,22 +3,9 @@ description: 'Provides Lesson content type and related configuration. Use <em>Le
 type: module
 core: 8.x
 dependencies:
-  - activity
-  - address
-  - entity_browser_entity_form
   - entity_reference_revisions
   - field
-  - field_group
-  - global
-  - inline_entity_form
-  - link
-  - link_attributes
   - menu_ui
   - metatag
   - node
-  - paragraphs
-  - path
-  - smart_trim
-  - taxonomy
   - text
-  - user

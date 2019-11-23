@@ -1,0 +1,17 @@
+.node--view-mode-teaser {
+
+    &:not(:last-of-type){
+        margin-bottom:$row-margin-small;
+    }
+
+    @include breakpoint($bp--tablet-portrait){
+        display:flex;
+        .image{
+            width:35%;
+        }
+        .copy{
+            width:65%; padding-left:40px;
+        }
+    }
+
+}

@@ -35,8 +35,8 @@ class ActivityController extends ContentController {
         );
 
         $sort = array(
-            "field" => 'title',
-            "direction" => "ASC"
+            "field" => 'field_weight',
+            "direction" => "DESC"
         );
 
         $range = array(
@@ -59,12 +59,31 @@ class ActivityController extends ContentController {
 
     protected function createFilters(){
 
-        $terms = $this->taxoHelper->getTaxoTerms('activity_category');
+        // Get terms
+        $categories = $this->getTermsFromVocabulary('activity_category', false, 'All Categories', 'all');
 
-        return [
-            '#type' => 'markup',
-            '#markup' => $this->getTermsAsLinks($terms, true, 'category')
-        ];
+        $form = \Drupal::formBuilder()->getForm('Drupal\efq\Form\FilterForm');
+
+        $form["container"] =  array(
+            '#prefix' => '<div class="filters filter-count-1">',
+            '#suffix' => '</div>'
+        );
+
+        $form["container"]['category'] = array(
+            '#attributes' => [
+                'id' => 'category',
+                'class' => ['category','filter-list'],
+                'data-filter-group' => "category"
+            ],
+            '#label_attributes' => [
+                'for' => 'category'
+            ],
+            '#title' => t('Category'),
+            '#type' => 'select',
+            '#options' => $categories
+        );
+
+        return $form;
 
     }
 

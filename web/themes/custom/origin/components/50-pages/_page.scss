@@ -1,3 +1,15 @@
+
+a.skip-link{
+    @include button();
+    @include horizontalCenter();
+    @include transitions(opacity);
+    left: -999em; opacity: 0; top: 15px; z-index:9999; position:absolute !important;
+
+    &:focus{
+        left:50% !important; opacity:1;
+    }
+}
+
 main {
     @include clearfix();
     margin-top: 20px;

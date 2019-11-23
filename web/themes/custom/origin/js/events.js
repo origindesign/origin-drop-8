@@ -11,16 +11,16 @@
 
         $('.ajax-events', context).once('events').each(function () {
 
-            let $obj = Drupal.behaviors.events;
+            let _obj = Drupal.behaviors.events;
             let $ajaxLoad = Drupal.behaviors.ajaxListLoading;
 
-            $obj.from = $( ".filterform .from-date" );
-            $obj.to = $( ".filterform .to-date" );
-            $obj.categories = $( ".filterform .categories" );
+            _obj.from = $( ".filterform .from-date" );
+            _obj.to = $( ".filterform .to-date" );
+            _obj.categories = $( ".filterform .categories" );
 
             //  Trigger the display of the list on filter change
             $(".filter-list").on("change", function() {
-                $obj.reloadList();
+                _obj.reloadList();
             });
 
             // Datepicker setup
@@ -28,7 +28,7 @@
             if(Drupal.behaviors.resizer.isMobile){
                 noMonths = 1;
             }
-            $obj.from.datepicker({
+            _obj.from.datepicker({
                 dateFormat: "M d, yy",
                 monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                 changeMonth: true,
@@ -37,11 +37,11 @@
                 yearRange: "c:c+1",
                 numberOfMonths: noMonths,
                 onSelect: function( selectedDate ) {
-                    $obj.to.datepicker( "option", "minDate", selectedDate );
+                    _obj.to.datepicker( "option", "minDate", selectedDate );
                     $(this).change();
                 }
             });
-            $obj.to.datepicker({
+            _obj.to.datepicker({
                 dateFormat: "M d, yy",
                 monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                 changeMonth: true,
@@ -62,7 +62,7 @@
                 }else{
                     // Use defaults
                     params = Drupal.behaviors.ajaxListLoading.params;
-                    $obj.categories.val('all').blur().dropdown("update");
+                    _obj.categories.val('all').blur().dropdown("update");
                 }
 
                 // Animate and reload list
@@ -83,13 +83,13 @@
 
     Drupal.behaviors.events.reloadList = function(){
 
-        let $obj = Drupal.behaviors.events;
+        let _obj = Drupal.behaviors.events;
         let $ajaxLoad = Drupal.behaviors.ajaxListLoading;
 
         let params = '';
-        let from = Date.parse($obj.from.val()).toString('yyyy-MM-dd');
-        let to = Date.parse($obj.to.val()).toString('yyyy-MM-dd');
-        let category = $obj.categories.val();
+        let from = Date.parse(_obj.from.val()).toString('yyyy-MM-dd');
+        let to = Date.parse(_obj.to.val()).toString('yyyy-MM-dd');
+        let category = _obj.categories.val();
 
 
         if(category !== 'all'){
@@ -97,7 +97,7 @@
         }
 
         params = '{"content_type":"event","category":"'+category+'","date":"field_date_range--'+from+','+to+'","sort":"field_date_range-ASC"}';
-
+console.log(params);
 
         // Abort any possible current ajax call
         $ajaxLoad.xhr.abort();

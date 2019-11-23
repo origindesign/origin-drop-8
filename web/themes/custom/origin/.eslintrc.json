@@ -18,7 +18,8 @@
         "Modernizr": true,
         "CKEDITOR": true,
         "TweenMax": true,
-        "objectFitImages": true
+        "objectFitImages": true,
+        "moment": true
     },
     "rules": {
         "no-console": 0,

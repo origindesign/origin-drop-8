@@ -19,7 +19,7 @@ class LessonController extends ContentController {
     public function getIncludes () {
 
         $this->result["listing_isotope"] = $this->getNodes();
-        $this->result["filter_isotope"] = $this->createFiltersSelect();
+        $this->result["filter_isotope"] = $this->createFilters();
         $this->result["additional_classes"] = 'lesson';
 
         return $this->result;
@@ -59,26 +59,6 @@ class LessonController extends ContentController {
 
     protected function createFilters(){
 
-        $markup = '';
-        $arr_filters_vocab = ['age_category', 'level_category'];
-
-        foreach ($arr_filters_vocab as $vocab_name){
-            $terms =   $this->taxoHelper->getTaxoTerms($vocab_name);
-            $markup.= $this->getTermsAsLinks($terms, true, $vocab_name);
-        }
-
-        return [
-            '#type' => 'markup',
-            '#markup' => $markup
-        ];
-
-    }
-
-
-
-
-    protected function createFiltersSelect(){
-
 
         $age_category = $this->getTermsFromVocabulary('age_category', true, 'All', 'all');
         $level_category = $this->getTermsFromVocabulary('level_category', true, 'All', 'all');
@@ -86,7 +66,7 @@ class LessonController extends ContentController {
         $form = \Drupal::formBuilder()->getForm('Drupal\efq\Form\FilterForm');
 
         $form["container"] =  array(
-            '#prefix' => '<div class="filter-lessons">',
+            '#prefix' => '<div class="filter-lessons filter-count-2">',
             '#suffix' => '</div>',
             'age_category' => array(
                 '#attributes' => [

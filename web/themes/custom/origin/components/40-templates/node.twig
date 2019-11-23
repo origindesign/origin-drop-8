@@ -9,18 +9,67 @@
         node.isSticky() ? 'node--sticky',
         not node.isPublished() ? 'node--unpublished',
         view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+        (has_hero_image ? 'has-hero-image' : 'no-hero-image')
     ]
 %}
 
 <article id="node-{{ node.id }}" {{ attributes.addClass(classes) }}>
 
-    {{ title_prefix }}
-    {% if not page %}
-        <h2{{ title_attributes }}>
-            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-        </h2>
+    {% if not node.isPublished() %}
+        <div class="overlay-text content-unpublished">
+            This content is unpublished
+        </div>
     {% endif %}
-    {{ title_suffix }}
+
+
+    {% include "@molecules/hero/hero.twig" %}
+
+
+    {% if listing_above %}
+        {% include "@organisms/listings/listings.twig" %}
+    {% endif %}
+
+
+    <div{{ content_attributes.addClass('node__content') }}>
+
+        {{ content|without(
+            'comment',
+            'links',
+            'field_date_range',
+            'field_subtitle',
+            'field_main_image',
+            'field_related_content_heading'
+        )}}
+
+    </div>
+
+
+    {% if not listing_above %}
+        {% include "@organisms/listings/listings.twig" %}
+    {% endif %}
+
+
+    {% if custom_blocks %}
+
+        {% for block in custom_blocks %}
+            <div class="custom-block container row {{ block['class'] }} ">
+                {{ block['block'] }}
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
+
+    {% if custom_include %}
+
+        {% for include in custom_include %}
+            <div class="custom-include container row">
+                {% include include %}
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
 
     {% if display_submitted %}
         <footer class="node__meta">
@@ -32,16 +81,20 @@
         </footer>
     {% endif %}
 
-    <div{{ content_attributes.addClass('node__content') }}>
-        {{ content }}
-    </div>
 
-    {% include "@organisms/listings/listings.twig" %}
+    {% if content.field_related_content|render %}
+
+        <div class="related-content row">
+
+            {% if content.field_related_content_heading|render %}
+                <h2>{{ content.field_related_content_heading|field_value }}</h2>
+            {% endif %}
+
+            {{ content.field_related_content }}
+
+        </div>
+
+    {% endif %}
+
 
 </article>
-
-
-
-{% if block_no_cache %}
-    {{ block_no_cache }}
-{% endif %}

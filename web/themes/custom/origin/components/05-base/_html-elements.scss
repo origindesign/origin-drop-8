@@ -33,7 +33,7 @@ p, ul, ol{
 }
 
 a {
-    @include transition();
+    @include transitions();
     text-decoration:none;
 
     @include hover(){

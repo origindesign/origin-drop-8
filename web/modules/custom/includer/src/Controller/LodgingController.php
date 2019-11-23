@@ -18,8 +18,7 @@ class LodgingController extends ContentController {
 
     public function getIncludes () {
 
-        $this->result["listing_isotope"] = $this->getNodes();
-        $this->result["filter_isotope"] = $this->createFilters();
+        $this->result["listing_simple"] = $this->getNodes();
         $this->result["additional_classes"] = 'lodging';
 
         return $this->result;
@@ -45,7 +44,7 @@ class LodgingController extends ContentController {
         );
 
 
-        $nodes = $this->efqService->getEntities('lodging', 'card', $conditions, $range, $sort);
+        $nodes = $this->efqService->getEntities('lodging', 'teaser', $conditions, $range, $sort);
 
         if ($nodes){
             return $nodes;
@@ -63,7 +62,7 @@ class LodgingController extends ContentController {
 
         return [
             '#type' => 'markup',
-            '#markup' => $this->getTermsAsLinks($terms, true, 'category')
+            '#markup' => $this->getTermsAsLinks($terms, false)
         ];
 
     }

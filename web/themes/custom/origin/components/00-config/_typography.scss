@@ -64,7 +64,7 @@ $base-line-height: 1.8;
 @mixin fonticon ($content, $size:20px, $color: #000, $top: "", $left: "", $right: "", $bottom: "", $center: false, $middle: false, $elem: before) {
     position:relative;
     &:#{$elem} {
-        @include transition();
+        @include transitions();
         position: absolute;
         content: $content;
         color: $color;

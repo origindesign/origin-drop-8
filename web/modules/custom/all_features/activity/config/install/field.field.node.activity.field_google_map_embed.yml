@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_google_map_embed
+    - node.type.activity
+  module:
+    - text
+id: node.activity.field_google_map_embed
+field_name: field_google_map_embed
+entity_type: node
+bundle: activity
+label: 'Google Map Embed'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

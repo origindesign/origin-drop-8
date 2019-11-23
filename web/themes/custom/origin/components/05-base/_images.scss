@@ -1,7 +1,7 @@
 
 $base-image-padding: 56.25%;
 
-@mixin object-fit($fit: fill, $position: null) {
+@mixin object-fit($fit: cover, $position: 50% 50%) {
     -o-object-fit: $fit;
     object-fit: $fit;
     @if $position {
@@ -13,67 +13,60 @@ $base-image-padding: 56.25%;
     }
 }
 
-@mixin objectFitImage($padding:$base-image-padding, $fit: cover, $position: null) {
+@mixin objectFitImage($padding:$base-image-padding) {
     position: relative;
     display: block;
     padding-bottom:$padding;
     img:not(.b-lazy),
     img.b-lazy.b-loaded {
         @include cover();
-        @include object-fit($fit, $position);
-        .focus-top-left &{ @include object-fit($fit, 0 0); }
-        .focus-top-center &{ @include object-fit($fit, 50% 0); }
-        .focus-top-right &{ @include object-fit($fit, 100% 0); }
-        .focus-middle-left &{ @include object-fit($fit, 0 50%); }
-        .focus-middle-center &{ @include object-fit($fit, 50% 50%); }
-        .focus-middle-right &{ @include object-fit($fit, 100% 50%); }
-        .focus-bottom-left &{ @include object-fit($fit, 0 100%); }
-        .focus-bottom-center &{ @include object-fit($fit, 50% 100%); }
-        .focus-bottom-right &{ @include object-fit($fit, 100% 100%); }
     }
+}
+
+.media .field--name-field-media-image{
     &.focus-top-left{
         img:not(.b-lazy),
         img.b-lazy.b-loaded{
-            @include object-fit($fit, 0 0); }
+            @include object-fit(cover, 0 0); }
     }
     &.focus-top-center{
         img:not(.b-lazy),
         img.b-lazy.b-loaded{
-            @include object-fit($fit, 50% 0); }
+            @include object-fit(cover, 50% 0); }
     }
     &.focus-top-right{
         img:not(.b-lazy),
         img.b-lazy.b-loaded{
-            @include object-fit($fit, 100% 0); }
+            @include object-fit(cover, 100% 0); }
     }
     &.focus-middle-left{
         img:not(.b-lazy),
         img.b-lazy.b-loaded{
-            @include object-fit($fit, 0 50%); }
+            @include object-fit(cover, 0 50%); }
     }
     &.focus-middle-center{
         img:not(.b-lazy),
         img.b-lazy.b-loaded{
-            @include object-fit($fit, 50% 50%); }
+            @include object-fit(cover, 50% 50%); }
     }
     &.focus-middle-right{
         img:not(.b-lazy),
         img.b-lazy.b-loaded{
-            @include object-fit($fit, 100% 50%); }
+            @include object-fit(cover, 100% 50%); }
     }
     &.focus-bottom-left{
         img:not(.b-lazy),
         img.b-lazy.b-loaded{
-            @include object-fit($fit, 0 100%); }
+            @include object-fit(cover, 0 100%); }
     }
     &.focus-bottom-center{
         img:not(.b-lazy),
         img.b-lazy.b-loaded{
-            @include object-fit($fit, 50% 100%); }
+            @include object-fit(cover, 50% 100%); }
     }
     &.focus-bottom-right{
         img:not(.b-lazy),
         img.b-lazy.b-loaded{
-            @include object-fit($fit, 100% 100%); }
+            @include object-fit(cover, 100% 100%); }
     }
 }

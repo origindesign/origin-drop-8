@@ -3,6 +3,9 @@
 {% if content.field_category %}
     {% set extraClasses = extraClasses|merge(termsToClasses(content.field_category|field_value)) %}
 {% endif %}
+{% if content.field_category_2 %}
+    {% set extraClasses = extraClasses|merge(termsToClasses(content.field_category_2|field_value)) %}
+{% endif %}
 
 {%
     set classes = [
@@ -46,11 +49,14 @@
                 <a href="{{ url }}">{{ label }}</a>
             </h3>
 
-            {{ content.field_category }}
-
-            {{ content.field_category_2 }}
-
             {{ content.body }}
+
+            {% if type == 'lesson' %}
+
+                {{ content.field_category }}
+                {{ content.field_category_2 }}
+
+            {% endif %}
 
         </div>
 

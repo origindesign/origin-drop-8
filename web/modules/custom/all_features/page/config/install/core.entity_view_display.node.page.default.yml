@@ -3,21 +3,14 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
-    - field.field.node.page.field_email
     - field.field.node.page.field_hide_main_image
     - field.field.node.page.field_main_image
     - field.field.node.page.field_metatags
-    - field.field.node.page.field_other_information
     - field.field.node.page.field_paragraphs
-    - field.field.node.page.field_phone
     - field.field.node.page.field_related_content
     - field.field.node.page.field_subtitle
-    - field.field.node.page.field_website
     - node.type.page
   module:
-    - entity_reference_revisions
-    - link
-    - metatag
     - text
     - user
 id: node.page.default
@@ -28,90 +21,17 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 1
+    weight: 100
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_email:
-    type: email_mailto
-    weight: 6
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-  field_main_image:
-    type: entity_reference_entity_view
-    weight: 2
-    region: content
-    label: hidden
-    settings:
-      link: true
-      view_mode: default
-    third_party_settings: {  }
-  field_metatags:
-    type: metatag_empty_formatter
-    weight: 9
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-  field_other_information:
-    type: basic_string
-    weight: 8
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-  field_paragraphs:
-    type: entity_reference_revisions_entity_view
-    weight: 3
-    region: content
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-  field_phone:
-    type: string
-    weight: 7
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  field_related_content:
-    type: entity_reference_entity_view
-    weight: 4
-    region: content
-    label: hidden
-    settings:
-      link: true
-      view_mode: default
-    third_party_settings: {  }
-  field_subtitle:
-    type: string
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  field_website:
-    weight: 5
-    label: hidden
-    settings:
-      trim_length: 80
-      target: _blank
-      url_only: false
-      url_plain: false
-      rel: '0'
-    third_party_settings: {  }
-    type: link
-    region: content
   links:
-    weight: 10
+    weight: 101
     region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_hide_main_image: true
+  field_main_image: true
+  field_metatags: true
+  field_paragraphs: true
+  field_related_content: true
+  field_subtitle: true
