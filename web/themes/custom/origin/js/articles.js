@@ -3,7 +3,7 @@
     'use strict';
 
     Drupal.behaviors.articles = {};
-    Drupal.behaviors.articles.categories = '';
+    Drupal.behaviors.articles.category = '';
 
     Drupal.behaviors.articles.attach = function (context) {
 
@@ -12,7 +12,7 @@
             let _obj = Drupal.behaviors.articles;
             let $ajaxLoad = Drupal.behaviors.ajaxListLoading;
 
-            _obj.categories = $( ".filterform .categories" );
+            _obj.category = $( ".filterform .category" );
 
             //  Trigger the display of the list on filter change
             $(".filter-list").on("change", function() {
@@ -30,7 +30,7 @@
                 }else{
                     // Use defaults
                     params = Drupal.behaviors.ajaxListLoading.params;
-                    _obj.categories.val('all').blur().dropdown("update");
+                    _obj.category.val('all').blur().dropdown("update");
                 }
 
                 // Animate and reload list
@@ -55,13 +55,15 @@
         let $ajaxLoad = Drupal.behaviors.ajaxListLoading;
 
         let params = '';
-        let category = _obj.categories.val();
+        let category = _obj.category.val();
+
 
         if(category !== 'all'){
             category = 'field_category--'+category.replace('.term-','');
         }
 
-        params = '{"content_type":"article","category":"'+category+'","sort":"created-DESC"}';
+        params = '{"content_type":"article","category":"'+category+'","paged":"1-10--restricted-5","sort":"created-DESC"}';
+console.log(params);
 
         // Abort any possible current ajax call
         $ajaxLoad.xhr.abort();

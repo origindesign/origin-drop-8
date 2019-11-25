@@ -10,13 +10,13 @@ a.skip-link{
     }
 }
 
-main {
-    @include clearfix();
-    margin-top: 20px;
-}
-
 .layout-container{
     @include container();
+    display: flex; min-height:100vh; flex-direction:column;
+}
+
+.main-content{
+    flex: 1; padding:$row-margin-small 0;
 }
 
 .layout-content{

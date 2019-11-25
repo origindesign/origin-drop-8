@@ -5,11 +5,16 @@ core: 8.x
 dependencies:
   - entity_reference_revisions
   - field
+  - field_group
+  - media_library
+  - menu_ui
   - metatag
   - node
+  - paragraphs
   - path
   - pathauto
   - rdf
   - smart_trim
   - text
   - user
+core_incompatible: false

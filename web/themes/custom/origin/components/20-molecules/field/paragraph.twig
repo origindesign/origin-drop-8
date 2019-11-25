@@ -4,7 +4,9 @@
         'paragraph--type--' ~ paragraph.bundle|clean_class,
         view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
         not paragraph.isPublished() ? 'paragraph--unpublished',
-        content.field_column_style|render ? content.field_column_style[0]["#markup"],
+        content.field_column_style|render ? 'column-style--'~content.field_column_style[0]["#markup"],
+        content.field_width|render ? 'width--'~content.field_width[0]["#markup"],
+        content.field_image_alignment|render ? 'align--'~content.field_image_alignment[0]["#markup"]
     ]
 %}
 
@@ -12,7 +14,11 @@
     <div{{ attributes.addClass(classes) }}>
 
         {% block content %}
-            {{ content }}
+            {{ content|without(
+                'field_column_style',
+                'field_image_alignment',
+                'field_width'
+            )}}
         {% endblock %}
 
     </div>

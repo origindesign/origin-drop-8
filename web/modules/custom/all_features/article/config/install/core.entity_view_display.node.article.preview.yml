@@ -22,7 +22,7 @@ mode: preview
 content:
   body:
     type: smart_trim
-    weight: 2
+    weight: 1
     region: content
     settings:
       trim_length: 250
@@ -41,20 +41,12 @@ content:
     label: hidden
   field_main_image:
     type: entity_reference_entity_view
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      view_mode: medium
-      link: false
-    third_party_settings: {  }
-  field_subtitle:
-    type: string
     weight: 0
     region: content
     label: hidden
     settings:
-      link_to_entity: false
+      view_mode: large
+      link: false
     third_party_settings: {  }
 hidden:
   comment: true
@@ -63,4 +55,5 @@ hidden:
   field_metatags: true
   field_paragraphs: true
   field_related_content: true
+  field_subtitle: true
   links: true

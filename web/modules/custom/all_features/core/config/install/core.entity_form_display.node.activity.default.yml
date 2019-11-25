@@ -9,13 +9,14 @@ dependencies:
     - field.field.node.activity.field_google_map_embed
     - field.field.node.activity.field_main_image
     - field.field.node.activity.field_metatags
+    - field.field.node.activity.field_order_weight
     - field.field.node.activity.field_other_information
     - field.field.node.activity.field_paragraphs
     - field.field.node.activity.field_phone
     - field.field.node.activity.field_related_content
+    - field.field.node.activity.field_related_content_heading
     - field.field.node.activity.field_subtitle
     - field.field.node.activity.field_website
-    - field.field.node.activity.field_weight
     - node.type.activity
   module:
     - address
@@ -79,7 +80,6 @@ third_party_settings:
     group_categories:
       children:
         - field_category
-        - field_weight
       parent_name: group_available_fields
       weight: 21
       format_type: tab
@@ -108,6 +108,7 @@ third_party_settings:
       region: content
     group_related_content:
       children:
+        - field_related_content_heading
         - field_related_content
       parent_name: group_available_fields
       weight: 24
@@ -210,13 +211,21 @@ content:
     type: string_textfield
     region: content
   field_related_content:
-    weight: 29
+    weight: 59
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_related_content_heading:
+    weight: 58
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_subtitle:
     weight: 1
@@ -242,13 +251,6 @@ content:
         title: false
     third_party_settings: {  }
     type: link_attributes
-    region: content
-  field_weight:
-    weight: 33
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
     region: content
   path:
     type: path
@@ -295,8 +297,9 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_order_weight: true

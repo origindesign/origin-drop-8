@@ -8,12 +8,13 @@ dependencies:
     - field.field.node.lesson.field_email
     - field.field.node.lesson.field_main_image
     - field.field.node.lesson.field_metatags
+    - field.field.node.lesson.field_order_weight
     - field.field.node.lesson.field_other_information
     - field.field.node.lesson.field_paragraphs
     - field.field.node.lesson.field_phone
     - field.field.node.lesson.field_related_content
+    - field.field.node.lesson.field_related_content_heading
     - field.field.node.lesson.field_subtitle
-    - field.field.node.lesson.field_weight
     - node.type.lesson
   module:
     - entity_reference_revisions
@@ -28,12 +29,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
   field_category:
-    weight: 12
+    weight: 5
     label: hidden
     settings:
       link: false
@@ -41,7 +42,7 @@ content:
     type: entity_reference_label
     region: content
   field_category_2:
-    weight: 11
+    weight: 4
     label: hidden
     settings:
       link: false
@@ -57,15 +58,15 @@ content:
     region: content
   field_main_image:
     type: entity_reference_entity_view
-    weight: 2
+    weight: 0
     label: hidden
     settings:
-      view_mode: default
+      view_mode: full
       link: false
     third_party_settings: {  }
     region: content
   field_metatags:
-    weight: 9
+    weight: 11
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -96,26 +97,30 @@ content:
     type: string
     region: content
   field_related_content:
-    weight: 4
+    weight: 10
     label: hidden
     settings:
-      link: true
-      view_mode: default
+      view_mode: card
+      link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
-  field_subtitle:
-    weight: 0
+  field_related_content_heading:
+    weight: 9
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  links:
-    weight: 13
-    region: content
-    settings: {  }
+  field_subtitle:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
+    type: string
+    region: content
 hidden:
-  field_weight: true
+  field_order_weight: true
+  links: true

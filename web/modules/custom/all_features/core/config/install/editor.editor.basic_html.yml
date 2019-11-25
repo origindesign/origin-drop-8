@@ -34,10 +34,6 @@ settings:
           items:
             - Table
         -
-          name: Media
-          items:
-            - DrupalImage
-        -
           name: 'Block Formatting'
           items:
             - Format

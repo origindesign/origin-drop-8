@@ -38,4 +38,5 @@ dependencies:
   - tour
   - user
   - views
+  - weight
 core_incompatible: false

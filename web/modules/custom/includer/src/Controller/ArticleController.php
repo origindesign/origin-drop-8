@@ -22,9 +22,9 @@ class ArticleController extends ContentController {
         $this->result["filter_ajax"] = $this->createFilters();
         $this->result["additional_classes"] = 'article';
 
-        if(isset($this->arguments["tag"]) && $this->arguments["tag"] != ''){
+        /*if(isset($this->arguments["tag"]) && $this->arguments["tag"] != ''){
             $this->result["listing_heading"] = '<h2><span>Tag: '.$this->arguments["tag"].'</span></h2>';
-        }
+        }*/
 
         return $this->result;
 
@@ -59,13 +59,15 @@ class ArticleController extends ContentController {
         $form = \Drupal::formBuilder()->getForm('Drupal\efq\Form\FilterForm');
 
         $form["container"] =  array(
-            '#prefix' => '<div class="filter-blog">',
+            '#prefix' => '<div class="filters filter-count-1">',
             '#suffix' => '</div>',
-            'categories' => array(
+            'category' => array(
                 '#attributes' => [
-                    'id' => 'categories',
-                    'class' => ['categories','filter-list'],
-                    'data-filter-group' => "categories"
+                    'id' => 'category',
+                    'class' => ['category','filter-list'],
+                ],
+                '#label_attributes' => [
+                    'for' => 'category'
                 ],
                 '#title' => t('Select a category'),
                 '#type' => 'select',

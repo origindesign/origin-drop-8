@@ -7,15 +7,16 @@ dependencies:
     - field.field.node.activity.field_address
     - field.field.node.activity.field_category
     - field.field.node.activity.field_email
+    - field.field.node.activity.field_google_map_embed
     - field.field.node.activity.field_main_image
     - field.field.node.activity.field_metatags
     - field.field.node.activity.field_other_information
     - field.field.node.activity.field_paragraphs
     - field.field.node.activity.field_phone
     - field.field.node.activity.field_related_content
+    - field.field.node.activity.field_related_content_heading
     - field.field.node.activity.field_subtitle
     - field.field.node.activity.field_website
-    - field.field.node.activity.field_weight
     - node.type.activity
   module:
     - smart_trim
@@ -45,50 +46,31 @@ content:
     third_party_settings: {  }
     region: content
   field_category:
-    weight: 3
+    weight: 2
     label: hidden
-    settings:
-      link: false
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_id
     region: content
   field_main_image:
     type: entity_reference_entity_view
-    weight: 2
+    weight: 0
     label: hidden
     settings:
       view_mode: medium
       link: false
     third_party_settings: {  }
     region: content
-  field_subtitle:
-    weight: 0
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_weight:
-    type: number_integer
-    weight: 4
-    region: content
-    label: hidden
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-  links:
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_address: true
   field_email: true
+  field_google_map_embed: true
   field_metatags: true
   field_other_information: true
   field_paragraphs: true
   field_phone: true
   field_related_content: true
+  field_related_content_heading: true
+  field_subtitle: true
   field_website: true
+  links: true

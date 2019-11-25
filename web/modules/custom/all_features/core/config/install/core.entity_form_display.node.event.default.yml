@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_phone
     - field.field.node.event.field_related_content
+    - field.field.node.event.field_related_content_heading
     - field.field.node.event.field_subtitle
     - field.field.node.event.field_website
     - node.type.event
@@ -79,6 +80,7 @@ third_party_settings:
       region: content
     group_related_content:
       children:
+        - field_related_content_heading
         - field_related_content
       parent_name: group_available_fields
       weight: 13
@@ -246,13 +248,21 @@ content:
     type: string_textfield
     region: content
   field_related_content:
-    weight: 29
+    weight: 57
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_related_content_heading:
+    weight: 56
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_subtitle:
     weight: 1

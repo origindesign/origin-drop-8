@@ -12,3 +12,4 @@ dependencies:
   - metatag
   - node
   - text
+core_incompatible: false

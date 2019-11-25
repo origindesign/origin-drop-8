@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.page.field_metatags
     - field.field.node.page.field_paragraphs
     - field.field.node.page.field_related_content
+    - field.field.node.page.field_related_content_heading
     - field.field.node.page.field_subtitle
     - node.type.page
   module:
@@ -22,7 +23,7 @@ content:
   body:
     label: hidden
     type: smart_trim
-    weight: 2
+    weight: 1
     region: content
     settings:
       trim_length: 250
@@ -47,22 +48,12 @@ content:
       view_mode: medium
       link: false
     third_party_settings: {  }
-  field_subtitle:
-    type: string
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  links:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_hide_main_image: true
   field_metatags: true
   field_paragraphs: true
   field_related_content: true
+  field_related_content_heading: true
+  field_subtitle: true
   field_website: true
+  links: true

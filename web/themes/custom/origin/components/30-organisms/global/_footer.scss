@@ -1,11 +1,5 @@
 
 footer.site-footer {
-    @include clearfix();
     background: $color--background;
     border-top: 1px solid $color--border;
-
-    .navigation {
-        @include grid-span(12, 1);
-    }
-
 }

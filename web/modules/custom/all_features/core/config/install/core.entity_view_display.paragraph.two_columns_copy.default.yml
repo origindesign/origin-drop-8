@@ -8,29 +8,51 @@ dependencies:
     - field.field.paragraph.two_columns_copy.field_heading
     - paragraphs.paragraphs_type.two_columns_copy
   module:
+    - field_group
     - options
     - text
+third_party_settings:
+  field_group:
+    group_content:
+      children:
+        - field_copy_first_column
+        - field_copy_second_column
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      region: content
+      format_settings:
+        id: ''
+        classes: content
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Content
 id: paragraph.two_columns_copy.default
 targetEntityType: paragraph
 bundle: two_columns_copy
 mode: default
 content:
   field_column_style:
-    weight: 3
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_key
     region: content
   field_copy_first_column:
-    weight: 1
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_copy_second_column:
-    weight: 2
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }

@@ -8,9 +8,12 @@ dependencies:
     - field.field.node.page.field_metatags
     - field.field.node.page.field_paragraphs
     - field.field.node.page.field_related_content
+    - field.field.node.page.field_related_content_heading
     - field.field.node.page.field_subtitle
     - node.type.page
   module:
+    - entity_reference_revisions
+    - metatag
     - text
     - user
 id: node.page.default
@@ -21,17 +24,60 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 100
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 101
+  field_main_image:
+    type: entity_reference_entity_view
+    weight: 0
     region: content
+    label: hidden
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings: {  }
+  field_metatags:
+    type: metatag_empty_formatter
+    weight: 6
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_related_content:
+    type: entity_reference_entity_view
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings: {  }
+  field_related_content_heading:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_subtitle:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
   field_hide_main_image: true
-  field_main_image: true
-  field_metatags: true
-  field_paragraphs: true
-  field_related_content: true
-  field_subtitle: true
+  links: true

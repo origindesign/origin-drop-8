@@ -35,7 +35,7 @@ class LessonController extends ContentController {
         );
 
         $sort = array(
-            "field" => 'title',
+            "field" => 'field_order_weight',
             "direction" => "ASC"
         );
 
@@ -66,13 +66,16 @@ class LessonController extends ContentController {
         $form = \Drupal::formBuilder()->getForm('Drupal\efq\Form\FilterForm');
 
         $form["container"] =  array(
-            '#prefix' => '<div class="filter-lessons filter-count-2">',
+            '#prefix' => '<div class="filters filter-count-2">',
             '#suffix' => '</div>',
             'age_category' => array(
                 '#attributes' => [
                     'id' => 'age_category',
                     'class' => ['age_category','filter-list'],
                     'data-filter-group' => "age_category"
+                ],
+                '#label_attributes' => [
+                    'for' => 'age_category'
                 ],
                 '#title' => t('Age'),
                 '#type' => 'select',
@@ -83,6 +86,9 @@ class LessonController extends ContentController {
                     'id' => 'level_category',
                     'class' => ['level_category','filter-list'],
                     'data-filter-group' => "level_category"
+                ],
+                '#label_attributes' => [
+                    'for' => 'level_category'
                 ],
                 '#title' => t('Level'),
                 '#type' => 'select',

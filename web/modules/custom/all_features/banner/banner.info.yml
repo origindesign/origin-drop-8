@@ -11,3 +11,4 @@ dependencies:
   - path
   - text
   - user
+core_incompatible: false

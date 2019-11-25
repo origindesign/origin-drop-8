@@ -8,12 +8,13 @@ dependencies:
     - field.field.node.lesson.field_email
     - field.field.node.lesson.field_main_image
     - field.field.node.lesson.field_metatags
+    - field.field.node.lesson.field_order_weight
     - field.field.node.lesson.field_other_information
     - field.field.node.lesson.field_paragraphs
     - field.field.node.lesson.field_phone
     - field.field.node.lesson.field_related_content
+    - field.field.node.lesson.field_related_content_heading
     - field.field.node.lesson.field_subtitle
-    - field.field.node.lesson.field_weight
     - node.type.lesson
   module:
     - field_group
@@ -41,7 +42,6 @@ third_party_settings:
       region: content
     group_contact_information:
       children:
-        - field_website
         - field_email
         - field_phone
         - field_other_information
@@ -58,6 +58,7 @@ third_party_settings:
       region: content
     group_related_content:
       children:
+        - field_related_content_heading
         - field_related_content
       parent_name: group_available_fields
       weight: 13
@@ -74,7 +75,6 @@ third_party_settings:
       children:
         - field_category
         - field_category_2
-        - field_weight
       parent_name: group_available_fields
       weight: 10
       format_type: tab
@@ -91,7 +91,6 @@ third_party_settings:
         - group_main_copy_image
         - group_categories
         - group_contact_information
-        - group_address
         - group_related_content
       parent_name: ''
       weight: 2
@@ -190,13 +189,21 @@ content:
     type: string_textfield
     region: content
   field_related_content:
-    weight: 29
+    weight: 56
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_related_content_heading:
+    weight: 55
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_subtitle:
     weight: 1
@@ -205,13 +212,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_weight:
-    weight: 37
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
     region: content
   path:
     type: path
@@ -258,8 +258,9 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_order_weight: true

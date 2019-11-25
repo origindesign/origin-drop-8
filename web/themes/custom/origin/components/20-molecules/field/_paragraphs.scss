@@ -1,0 +1,89 @@
+
+.field--name-field-paragraphs{
+    @include rowMargin();
+    position:relative;
+
+    > .field__item{
+        @include rowMargin();
+    }
+
+}
+
+.paragraph{
+
+    &--type--single-column-copy{
+        display:block;
+    }
+
+
+    &--type--two-columns-copy{
+
+        .field--name-field-copy-first-column{
+            margin-bottom:$base-typography-spacing;
+
+            @include breakpoint($bp--tablet-portrait){
+                margin-bottom:0; padding-right:20px;
+            }
+
+        }
+
+        .field--name-field-copy-second-column{
+            @include breakpoint($bp--tablet-portrait){
+                padding-left:20px;
+            }
+        }
+
+        .content{
+            @include breakpoint($bp--tablet-portrait){
+                display:flex;
+            }
+        }
+
+    }
+
+
+    &--type--image-aside-copy{
+
+        @include breakpoint($bp--tablet-landscape){
+            display:flex; flex-direction:row-reverse;
+        }
+
+        .field--name-field-image{
+            margin-bottom:$base-typography-spacing;
+
+            @include breakpoint($bp--tablet-landscape){
+                margin-bottom:0; width:40%;
+            }
+
+        }
+
+        .copy{
+            @include breakpoint($bp--tablet-landscape){
+                width:60%; padding-right:40px;
+            }
+        }
+
+
+        &.align--left{
+
+            @include breakpoint($bp--tablet-landscape){
+                flex-direction:row;
+            }
+
+            .copy{
+                @include breakpoint($bp--tablet-landscape){
+                    padding-left:40px; padding-right:0;
+                }
+            }
+
+        }
+
+    }
+
+
+    &--type--media-slideshow{
+        display:block;
+    }
+
+
+}

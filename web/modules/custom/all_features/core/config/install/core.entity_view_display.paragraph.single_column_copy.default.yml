@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.single_column_copy.field_copy_first_column
+    - field.field.paragraph.single_column_copy.field_heading
     - paragraphs.paragraphs_type.single_column_copy
   module:
     - text
@@ -12,10 +13,18 @@ bundle: single_column_copy
 mode: default
 content:
   field_copy_first_column:
-    weight: 0
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
 hidden: {  }

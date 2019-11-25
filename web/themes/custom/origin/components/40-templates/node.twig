@@ -30,7 +30,7 @@
     {% endif %}
 
 
-    <div{{ content_attributes.addClass('node__content') }}>
+    <div class="row node-content">
 
         {{ content|without(
             'comment',
@@ -38,6 +38,7 @@
             'field_date_range',
             'field_subtitle',
             'field_main_image',
+            'field_related_content',
             'field_related_content_heading'
         )}}
 
@@ -52,7 +53,7 @@
     {% if custom_blocks %}
 
         {% for block in custom_blocks %}
-            <div class="custom-block container row {{ block['class'] }} ">
+            <div class="row custom-block container {{ block['class'] }} ">
                 {{ block['block'] }}
             </div>
         {% endfor %}
@@ -63,7 +64,7 @@
     {% if custom_include %}
 
         {% for include in custom_include %}
-            <div class="custom-include container row">
+            <div class="row custom-include container">
                 {% include include %}
             </div>
         {% endfor %}
@@ -84,7 +85,7 @@
 
     {% if content.field_related_content|render %}
 
-        <div class="related-content row">
+        <div class="row related-content">
 
             {% if content.field_related_content_heading|render %}
                 <h2>{{ content.field_related_content_heading|field_value }}</h2>

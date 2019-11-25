@@ -60,19 +60,21 @@ class EventController extends ContentController {
         // Get current date plus one month
         $from = $now->format("Y-m-d");
         $to = $plusMonth->format("Y-m-d");
-        $categories = $this->getTermsFromVocabulary('events', false, 'Choose Category', 'all');
+        $categories = $this->getTermsFromVocabulary('event_category', false, 'Choose Category', 'all');
 
         $form = \Drupal::formBuilder()->getForm('Drupal\efq\Form\FilterForm');
 
         $form["container"] =  array(
-            '#prefix' => '<div class="clearfix filters filter-count-3">',
+            '#prefix' => '<div class="filters filter-count-3">',
             '#suffix' => '</div>',
             'from' => array(
                 '#attributes' => [
                     'id' => 'from',
                     'class' => ['from-date','filter-list','form-type-date'],
-                    'data-filter-group' => "from",
                     'readonly' => "true"
+                ],
+                '#label_attributes' => [
+                    'for' => 'from'
                 ],
                 '#title' => t('Start Date'),
                 '#type' => 'textfield',
@@ -82,18 +84,22 @@ class EventController extends ContentController {
                 '#attributes' => [
                     'id' => 'to',
                     'class' => ['to-date','filter-list','form-type-date'],
-                    'data-filter-group' => "to",
                     'readonly' => "true"
+                ],
+                '#label_attributes' => [
+                    'for' => 'to'
                 ],
                 '#title' => t('End Date'),
                 '#type' => 'textfield',
                 '#value' => $to
             ),
-            'categories' => array(
+            'category' => array(
                 '#attributes' => [
-                    'id' => 'categories',
-                    'class' => ['categories','filter-list'],
-                    'data-filter-group' => "categories"
+                    'id' => 'category',
+                    'class' => ['category','filter-list']
+                ],
+                '#label_attributes' => [
+                    'for' => 'category'
                 ],
                 '#title' => t('Category'),
                 '#type' => 'select',

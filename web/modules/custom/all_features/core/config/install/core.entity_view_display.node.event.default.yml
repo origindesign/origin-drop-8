@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_phone
     - field.field.node.event.field_related_content
+    - field.field.node.event.field_related_content_heading
     - field.field.node.event.field_subtitle
     - field.field.node.event.field_website
     - node.type.event
@@ -34,12 +35,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
   field_address:
-    weight: 12
+    weight: 10
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -74,14 +75,14 @@ content:
     type: daterange_default
     region: content
   field_email:
-    weight: 9
+    weight: 7
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
   field_google_map_embed:
-    weight: 13
+    weight: 11
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -89,22 +90,22 @@ content:
     region: content
   field_main_image:
     type: entity_reference_entity_view
-    weight: 2
+    weight: 0
     label: hidden
     settings:
-      view_mode: medium
+      view_mode: full
       link: false
     third_party_settings: {  }
     region: content
   field_metatags:
-    weight: 14
+    weight: 15
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
     region: content
   field_other_information:
-    weight: 11
+    weight: 9
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -112,7 +113,7 @@ content:
     region: content
   field_paragraphs:
     type: entity_reference_revisions_entity_view
-    weight: 6
+    weight: 12
     label: hidden
     settings:
       view_mode: default
@@ -120,7 +121,7 @@ content:
     third_party_settings: {  }
     region: content
   field_phone:
-    weight: 10
+    weight: 8
     label: hidden
     settings:
       link_to_entity: false
@@ -128,16 +129,24 @@ content:
     type: string
     region: content
   field_related_content:
-    weight: 7
+    weight: 14
     label: hidden
     settings:
-      link: true
-      view_mode: default
+      view_mode: card
+      link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
+  field_related_content_heading:
+    weight: 13
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_subtitle:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       link_to_entity: false
@@ -145,7 +154,7 @@ content:
     type: string
     region: content
   field_website:
-    weight: 8
+    weight: 6
     label: hidden
     settings:
       trim_length: 80
@@ -156,9 +165,5 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  links:
-    weight: 15
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true

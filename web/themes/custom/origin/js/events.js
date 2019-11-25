@@ -5,7 +5,7 @@
     Drupal.behaviors.events = {};
     Drupal.behaviors.events.from = '';
     Drupal.behaviors.events.to = '';
-    Drupal.behaviors.events.categories = '';
+    Drupal.behaviors.events.category = '';
 
     Drupal.behaviors.events.attach = function (context) {
 
@@ -16,7 +16,7 @@
 
             _obj.from = $( ".filterform .from-date" );
             _obj.to = $( ".filterform .to-date" );
-            _obj.categories = $( ".filterform .categories" );
+            _obj.category = $( ".filterform .category" );
 
             //  Trigger the display of the list on filter change
             $(".filter-list").on("change", function() {
@@ -62,7 +62,7 @@
                 }else{
                     // Use defaults
                     params = Drupal.behaviors.ajaxListLoading.params;
-                    _obj.categories.val('all').blur().dropdown("update");
+                    _obj.category.val('all').blur().dropdown("update");
                 }
 
                 // Animate and reload list
@@ -89,15 +89,14 @@
         let params = '';
         let from = Date.parse(_obj.from.val()).toString('yyyy-MM-dd');
         let to = Date.parse(_obj.to.val()).toString('yyyy-MM-dd');
-        let category = _obj.categories.val();
+        let category = _obj.category.val();
 
 
         if(category !== 'all'){
-            category = 'field_categories--'+category.replace('.term-','');
+            category = 'field_category--'+category.replace('.term-','');
         }
 
         params = '{"content_type":"event","category":"'+category+'","date":"field_date_range--'+from+','+to+'","sort":"field_date_range-ASC"}';
-console.log(params);
 
         // Abort any possible current ajax call
         $ajaxLoad.xhr.abort();

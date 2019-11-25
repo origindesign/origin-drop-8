@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.event.field_category
     - field.field.node.event.field_date_range
     - field.field.node.event.field_email
+    - field.field.node.event.field_google_map_embed
     - field.field.node.event.field_main_image
     - field.field.node.event.field_metatags
     - field.field.node.event.field_other_information
@@ -30,7 +31,7 @@ content:
   body:
     label: hidden
     type: smart_trim
-    weight: 1
+    weight: 2
     settings:
       trim_length: 250
       trim_type: chars
@@ -46,26 +47,8 @@ content:
       more_link: false
     third_party_settings: {  }
     region: content
-  field_all_day:
-    weight: 5
-    label: hidden
-    settings:
-      format: custom
-      format_custom_true: 'All Day'
-      format_custom_false: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_category:
-    weight: 3
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_date_range:
-    weight: 4
+    weight: 1
     label: hidden
     settings:
       separator: '-'
@@ -76,32 +59,24 @@ content:
     region: content
   field_main_image:
     type: entity_reference_entity_view
-    weight: 2
-    label: hidden
-    settings:
-      view_mode: medium
-      link: false
-    third_party_settings: {  }
-    region: content
-  field_subtitle:
     weight: 0
     label: hidden
     settings:
-      link_to_entity: false
+      view_mode: large
+      link: false
     third_party_settings: {  }
-    type: string
     region: content
-  links:
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_address: true
+  field_all_day: true
+  field_category: true
   field_email: true
+  field_google_map_embed: true
   field_metatags: true
   field_other_information: true
   field_paragraphs: true
   field_phone: true
   field_related_content: true
+  field_subtitle: true
   field_website: true
+  links: true

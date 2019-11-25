@@ -1,10 +1,8 @@
 .node--view-mode-card {
+    border: 1px solid $color--border; padding: 20px;
 
-    @include float-span(4);
-
-    & > .wrapper {
-        border: 1px solid $color--border;
-        padding: 20px;
+    .isoGrid &{
+        margin-right:0 !important; margin-left:0 !important; float:none;
     }
 
 }

@@ -6,7 +6,7 @@
     Drupal.behaviors.ajaxListLoading.ajaxPath = '';
     Drupal.behaviors.ajaxListLoading.params = '';
     Drupal.behaviors.ajaxListLoading.filterForm = $('.filterform');
-    Drupal.behaviors.ajaxListLoading.categories = $( ".filterform .categories" );
+    Drupal.behaviors.ajaxListLoading.category = $( ".filterform .category" );
 
     Drupal.behaviors.ajaxListLoading.attach = function (context) {
 
@@ -44,10 +44,10 @@
             let params = $(this).data('params');
             let top = _obj.getTopPosition($('.ajax-list-container'));
 
-            if(_obj.categories.length > 0){
-                let category = _obj.categories.val();
+            if(_obj.category.length > 0){
+                let category = _obj.category.val();
                 if(category.indexOf('all') === -1){
-                    params.category = 'field_categories--'+category.replace('.term-','');
+                    params.category = 'field_category--'+category.replace('.term-','');
                 }
             }
 
@@ -122,17 +122,17 @@
 
 
         // Handle category if exists
-        if(_obj.categories.length > 0){
+        if(_obj.category.length > 0){
             let category;
 
             if(params.category !== 'all'){
-                category = '.term-'+params.category.replace('field_categories--','');
+                category = '.term-'+params.category.replace('field_category--','');
             }else{
                 category = 'all';
             }
 
             // Updates Filters Value on Page
-            _obj.categories.val(category).blur().dropdown("update");
+            _obj.category.val(category).blur().dropdown("update");
         }
 
 

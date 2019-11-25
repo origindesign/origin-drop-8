@@ -35,8 +35,8 @@ class ActivityController extends ContentController {
         );
 
         $sort = array(
-            "field" => 'field_weight',
-            "direction" => "DESC"
+            "field" => 'field_order_weight',
+            "direction" => "ASC"
         );
 
         $range = array(

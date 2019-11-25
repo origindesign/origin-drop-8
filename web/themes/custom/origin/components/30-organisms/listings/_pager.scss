@@ -25,11 +25,11 @@
                         @include visuallyHidden();
                     }
                     &:before{
-                        transform:rotate(90deg);
+                        content:'\003e';
                     }
                     @include hover(){
                         &:before{
-                            transform:rotate(90deg) translateY(5px);
+                            transform:rotate(90deg);
                         }
                     }
                 }
@@ -37,20 +37,15 @@
             &.prev,
             &.pager__item--previous{
                 margin-left:0;
+                a{
+                    &:before{
+                        content:'\003c';
+                    }
+                }
             }
             &.next,
             &.pager__item--next{
                 margin-right:0;
-                a{
-                    &:before{
-                        transform:rotate(-90deg);
-                    }
-                    @include hover(){
-                        &:before{
-                            transform:rotate(-90deg) translateY(5px);
-                        }
-                    }
-                }
             }
 
             a{

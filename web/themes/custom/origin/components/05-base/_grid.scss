@@ -1,30 +1,34 @@
 
+// Global setups
+// ----------------------
+$grid-spacing: 20px;
 
 @mixin global-grid(){
     @include add-grid(12);
-    @include add-gutter(1/3);
+    @include add-gutter(1);
     //@include sgs-change('debug', true);
     //@include background-grid($color: #c3c3c3);
 }
 
 @include global-grid();
 
-@mixin span-cols($cols){
-    @include float-span($cols);
-    &:last-child{
-        @include float-span($cols,'last');
-    }
+.row{
+    @include rowMargin();
 }
 
 @mixin resetGrid(){
     margin-left:0 !important; margin-right:0 !important; float:none !important; clear:none !important; width:auto !important;
 }
 
-@mixin two-col(){
+
+// Float Columns
+// ----------------------
+@mixin two-col-float(){
+    width:100%;
     &:not(:last-child){
-        margin-bottom:$row-margin-small;
+        margin-bottom:$grid-spacing;
     }
-    @include breakpoint($bp--medium){
+    @include breakpoint($bp--tablet-portrait){
         @include float-span(6);
         &:nth-child(odd){
             clear:both;
@@ -40,13 +44,21 @@
     }
 }
 
-@mixin three-col(){
-    @include two-col();
+.two-col-float{
+    @include clearfix();
+    > *{
+        @include two-col-float();
+    }
+}
 
-    @include breakpoint($bp--tablet-portrait){
+@mixin three-col-float(){
+
+    @include two-col-float();
+
+    @include breakpoint($bp--tablet-landscape){
 
         &:nth-child(3n-2){
-            clear:both;
+            clear:both !important;
         }
         &:nth-child(3n-2),
         &:nth-child(3n-1){
@@ -61,6 +73,43 @@
         &:nth-last-child(3){
             margin-bottom:0;
         }
+    }
+
+}
+
+.three-col-float{
+    @include clearfix();
+    > *{
+        @include three-col-float();
+    }
+}
+
+
+// Grid Columns
+// ----------------------
+@mixin three-col-grid(){
+
+    > *{
+        margin-bottom:$grid-spacing;
+    }
+
+    @include breakpoint($bp--medium){
+        display:grid; grid-template-columns: repeat(2, 1fr); grid-gap:$grid-spacing; justify-content:center;
+    }
+
+    @include breakpoint($bp--tablet-portrait){
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+.three-col-grid{
+    @include three-col-grid();
+}
+
+@mixin three-col-flex(){
+    > *{
+        margin-bottom:$grid-spacing;
     }
 
 }

@@ -9,12 +9,14 @@ dependencies:
     - field.field.node.event.field_category
     - field.field.node.event.field_date_range
     - field.field.node.event.field_email
+    - field.field.node.event.field_google_map_embed
     - field.field.node.event.field_main_image
     - field.field.node.event.field_metatags
     - field.field.node.event.field_other_information
     - field.field.node.event.field_paragraphs
     - field.field.node.event.field_phone
     - field.field.node.event.field_related_content
+    - field.field.node.event.field_related_content_heading
     - field.field.node.event.field_subtitle
     - field.field.node.event.field_website
     - node.type.event
@@ -46,27 +48,9 @@ content:
       more_link: false
     third_party_settings: {  }
     region: content
-  field_all_day:
-    type: boolean
-    weight: 5
-    region: content
-    label: hidden
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-  field_category:
-    type: entity_reference_label
-    weight: 3
-    region: content
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
   field_date_range:
     type: daterange_default
-    weight: 4
+    weight: 1
     region: content
     label: hidden
     settings:
@@ -83,25 +67,18 @@ content:
       view_mode: medium
       link: false
     third_party_settings: {  }
-  field_subtitle:
-    type: string
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  links:
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_address: true
+  field_all_day: true
+  field_category: true
   field_email: true
+  field_google_map_embed: true
   field_metatags: true
   field_other_information: true
   field_paragraphs: true
   field_phone: true
   field_related_content: true
+  field_related_content_heading: true
+  field_subtitle: true
   field_website: true
+  links: true

@@ -1,22 +1,4 @@
 
 .site-header{
-    @include clearfix();
-    background: $color--background;
-    border-bottom: 1px solid $color--border;
-
-    .logo{
-        float:left;
-    }
-
-}
-
-
-.main-menu{
-    @include clearfix();
-    float:left;
-
-    .navigation {
-        @include grid-span(12, 1);
-    }
-
+    display:flex; background:$color--background; border-bottom:1px solid $color--border;
 }

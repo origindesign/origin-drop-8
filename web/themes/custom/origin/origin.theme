@@ -50,7 +50,6 @@ function origin_preprocess_html(&$variables) {
 function origin_preprocess_page(&$variables) {
 
     $entityTypeManager = \Drupal::entityTypeManager();
-    $moduleHandler = \Drupal::service('module_handler');
     $config = \Drupal::config('system.site');
 
     $variables['site_logo'] = '/'.drupal_get_path('theme', 'origin') . '/logo.svg';
@@ -296,7 +295,7 @@ function origin_preprocess_field(&$variables){
         // Remove div from heading fields
         case 'field_heading':
             foreach($variables['items'] as $key => $item){
-                $variables['items'][$key]['element'] = 'span';
+                $variables['items'][$key]['element'] = 'h2';
             }
             break;
 
@@ -319,6 +318,10 @@ function origin_preprocess_field(&$variables){
                 }
 
             }
+            break;
+
+        case 'field_related_content':
+            $variables['extra_classes'] = ['three-col-grid'];
             break;
 
     }

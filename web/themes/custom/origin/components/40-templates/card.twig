@@ -21,46 +21,41 @@
 
 <{{ element ?: "article" }} {{ attributes.addClass(classes).addClass(extraClasses) }}>
 
-    <div class="wrapper">
+    {{ title_suffix }}
 
-        {{ title_suffix }}
-
-            {% if content.field_main_image|render %}
-                <a href="{{ url }}" class="image">
-                    {{ content.field_main_image }}
-                </a>
-            {% else %}
-                <a href="{{ url }}" class="image">
-                    {% include "@molecules/media/media-placeholder.twig"
-                        with {
-                            "src": "/" ~ base_path ~ directory ~ "/images/thumb-placeholder.jpg",
-                            "alt": "Placeholder",
-                            "style": "medium"
-                        }
-                    %}
+    {% if content.field_main_image|render %}
+        <a href="{{ url }}" class="image">
+            {{ content.field_main_image }}
+        </a>
+    {% else %}
+        <a href="{{ url }}" class="image">
+            {% include "@molecules/media/media-placeholder.twig"
+                with {
+                "src": "/" ~ base_path ~ directory ~ "/images/thumb-placeholder.jpg",
+                "alt": "Placeholder",
+                "style": "medium"
+            }
+            %}
 
 
-                </a>
-            {% endif %}
+        </a>
+    {% endif %}
 
-        <div class="copy">
+    <div class="copy">
 
-            <h3>
-                <a href="{{ url }}">{{ label }}</a>
-            </h3>
+        <h3>
+            <a href="{{ url }}">{{ label }}</a>
+        </h3>
 
-            {{ content.body }}
+        {{ content.body }}
 
-            {% if type == 'lesson' %}
+        {% if type == 'lesson' %}
 
-                {{ content.field_category }}
-                {{ content.field_category_2 }}
+            {{ content.field_category }}
+            {{ content.field_category_2 }}
 
-            {% endif %}
-
-        </div>
+        {% endif %}
 
     </div>
-
 
 </{{ element ?: "article" }}>

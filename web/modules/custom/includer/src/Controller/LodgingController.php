@@ -34,7 +34,7 @@ class LodgingController extends ContentController {
         );
 
         $sort = array(
-            "field" => 'title',
+            "field" => 'field_order_weight',
             "direction" => "ASC"
         );
 
