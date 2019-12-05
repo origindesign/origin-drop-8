@@ -1,8 +1,13 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - paragraphs_library
+third_party_settings:
+  paragraphs_library:
+    allow_library_conversion: true
 id: two_columns_copy
 label: 'Two Columns Copy'
-icon_uuid: db76247b-8cda-4194-818c-f36028e7f0fe
+icon_uuid: null
 description: ''
 behavior_plugins: {  }

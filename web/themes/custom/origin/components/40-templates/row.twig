@@ -1,0 +1,42 @@
+{%
+    set classes = [
+        'node',
+        'node--type-' ~ node.bundle|clean_class,
+        node.isPromoted() ? 'node--promoted',
+        node.isSticky() ? 'node--sticky',
+        not node.isPublished() ? 'node--unpublished',
+        view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+        content.field_type[0]['#plain_text']
+    ]
+%}
+
+<{{ element ?: "article" }} {{ attributes.addClass(classes) }}>
+
+
+    {{ title_suffix }}
+
+    <div class="cell title">
+
+        {% if content.field_type[0]['#plain_text'] == 'Trail' %}
+            <div class="cell level {{ content.field_level[0]['#plain_text']|machine }}" title="{{ content.field_level[0]['#plain_text'] }}">
+                {{ content.field_level[0]['#plain_text'] }}
+            </div>
+        {% endif %}
+
+        {{ label|field_value }}
+
+    </div>
+
+    <div class="cell status {{ content.field_status[0]['#plain_text']|machine }}" title="{{ content.field_status[0]['#plain_text'] }}">
+        {{ content.field_status }}
+    </div>
+
+    {% if content.field_condition|render %}
+        <div class="cell conditions">
+            {{ content.field_condition[0]['#plain_text'] }}
+        </div>
+    {% endif %}
+
+
+</{{ element ?: "article" }}>
+

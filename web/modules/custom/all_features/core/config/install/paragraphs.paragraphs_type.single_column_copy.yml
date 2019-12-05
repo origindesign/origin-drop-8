@@ -1,8 +1,13 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - paragraphs_library
+third_party_settings:
+  paragraphs_library:
+    allow_library_conversion: true
 id: single_column_copy
 label: 'Single Column Copy'
-icon_uuid: a2f25267-1674-486c-a702-331dc8a93ea6
+icon_uuid: null
 description: ''
 behavior_plugins: {  }

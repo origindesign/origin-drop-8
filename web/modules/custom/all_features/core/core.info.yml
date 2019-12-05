@@ -27,6 +27,7 @@ dependencies:
   - node
   - options
   - paragraphs
+  - paragraphs_library
   - path
   - rdf
   - responsive_image

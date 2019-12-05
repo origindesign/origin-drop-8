@@ -1,0 +1,68 @@
+.node--view-mode-row {
+    @include clearfix();
+    border-bottom:$border; line-height:1; padding:10px 0; position:relative;
+
+    &.Trail{
+        .cell.title{
+            padding-left:25px;
+        }
+    }
+    &.Lift{
+        .cell.title{
+            width:85%;
+        }
+    }
+
+    .cell{
+        float:left;
+
+        &.level{
+            @include fonticon('',15px,#000,50%,0,auto,auto,false,true);
+            width:25px; text-indent:-999em; position:absolute; left:0; top:9px;
+
+            &.beginner:before{
+                content:'\e90b'; color:#12aa5f;
+            }
+            &.intermediate:before{
+                content:'\e909'; color:#29abdf;
+            }
+            &.advanced:before{
+                content:'\e90a';
+            }
+            &.expert:before{
+                content:'\e90e';
+            }
+
+        }
+        &.title{
+            width:60%; padding-right:5px;
+        }
+        &.conditions,
+        &.status{
+            float:right; width:25%;
+        }
+        &.status{
+            @include fonticon('',15px,#000,50%,50%,auto,auto,true,true);
+            width:35px; float:right; text-indent:-999em;
+
+            &:before{
+                width:35px;
+            }
+            &.open:before{
+                content:'\e90c'; color:#12aa5f; font-size:13px;
+            }
+            &.closed:before{
+                content:'\e90d'; color:#bd2132;
+            }
+            &.scheduled:before{
+                content:'\e910'; color:$color--primary;
+            }
+            &.on-hold:before{
+                content:'\e90f'; color:#F57723;
+            }
+
+        }
+
+    }
+
+}

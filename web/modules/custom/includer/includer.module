@@ -12,8 +12,20 @@ function returnCacheTags($node){
     // Switch on type
     switch($node->getType()){
 
-        case 'type':
-            $tags = ['node:NID'];
+        case 'activity':
+            $tags = ['node:3'];
+            break;
+        case 'dining':
+            $tags = ['node:4'];
+            break;
+        case 'lodging':
+            $tags = ['node:5'];
+            break;
+        case 'lesson':
+            $tags = ['node:7'];
+            break;
+        case 'lift_trail':
+            $tags = ['node:22'];
             break;
         default:
             $tags = [];

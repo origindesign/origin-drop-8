@@ -1,5 +1,89 @@
 <?php
 
+use Drupal\Core\Cache\Cache;
+use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
+
+
+
+/** Alter event repeat node before render
+ *
+ * @param array $build
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ * @param \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display
+ * @param $view_mode
+ */
+function origin_extend_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+
+    // if event and reference field has been set
+    if($entity->getType() == 'event' && $entity->get('field_event_reference')->getValue()){
+
+        // Setup services and vars
+        $entityTypeManager = \Drupal::service('entity_type.manager');
+        $node_storage = $entityTypeManager->getStorage('node');
+        $nid = $entity->get('field_event_reference')->getValue()[0]['target_id'];
+        $referenced_node = $node_storage->load($nid);
+
+        // If node exists
+        if(isset($referenced_node->nid)){
+
+            // Override fields
+            $build['body'] = $referenced_node->body->view($view_mode);
+            $build['field_address'] = $referenced_node->field_address->view($view_mode);
+            $build['field_all_day'] = $referenced_node->field_all_day->view($view_mode);
+            $build['field_email'] = $referenced_node->field_email->view($view_mode);
+            $build['field_google_map_embed'] = $referenced_node->field_google_map_embed->view($view_mode);
+            $build['field_main_image'] = $referenced_node->field_main_image->view($view_mode);
+            $build['field_other_information'] = $referenced_node->field_other_information->view($view_mode);
+            $build['field_paragraphs'] = $referenced_node->field_paragraphs->view($view_mode);
+            $build['field_phone'] = $referenced_node->field_phone->view($view_mode);
+            $build['field_related_content'] = $referenced_node->field_related_content->view($view_mode);
+            $build['field_related_content_heading'] = $referenced_node->field_related_content_heading->view($view_mode);
+            $build['field_subtitle'] = $referenced_node->field_subtitle->view($view_mode);
+            $build['field_website'] = $referenced_node->field_website->view($view_mode);
+
+        }
+
+    }
+
+}
+
+
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function origin_extend_node_insert(Node $node){
+
+    // Clear the cache tag to reference node
+    if ($node->getType() == 'event') {
+        $ref_nid = $node->field_event_reference->target_id;
+        if (!empty($ref_nid)) {
+            $tags = ['node:' . $ref_nid];
+            Cache::invalidateTags($tags);
+        }
+    }
+
+}
+
+
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function origin_extend_preprocess_node(&$variables) {
+    // add cache tags from other event related nodes
+    if ($variables['node']->getType() == 'event' && !empty($variables['all_dates'])) {
+        foreach ($variables['all_dates'] as $nid => $node_obj) {
+            if (is_numeric($nid) && is_object($node_obj)) {
+                $variables['#cache']['tags'][] = 'node:' . $nid;
+            }
+        }
+    }
+}
+
+
+
 /**
  * Add css to admin pages to format Paragraphs fields
  * @param array $attachments
@@ -11,40 +95,5 @@ function origin_extend_page_attachments(array &$attachments) {
         $attachments['#attached']['library'][] = 'origin_extend/admin-css';
         return;
     }
-
-}
-
-
-/** Add thumbnail to image and video media bundles inline entity form
- * @param $fields
- * @param $context
- */
-
-function origin_extend_inline_entity_form_table_fields_alter(&$fields, $context) {
-
-    $bundles = ['image','video'];
-
-    if ($context['entity_type'] == 'media' && array_intersect($bundles, $context['allowed_bundles'])) {
-
-        $fields['thumbnail'] = [
-            'type' => 'field',
-            'label' => t('Thumbnail'),
-            'display_options' => array(
-                'label' => 'hidden',
-                'type' => 'image',
-                'settings' => [
-                    'image_style' => 'thumbnail',
-                ],
-            ),
-            'weight' => 10,
-        ];
-
-    }
-
-    // If 'bundle' is set, reorder to first col
-    if(isset($fields['bundle'])){
-        $fields['bundle']['weight'] = 0;
-    }
-
 
 }

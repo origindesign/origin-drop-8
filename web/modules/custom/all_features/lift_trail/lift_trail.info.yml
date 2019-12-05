@@ -3,6 +3,11 @@ description: 'Provides Lift &amp; Trail content type and related configuration. 
 type: module
 core: 8.x
 dependencies:
+  - field
   - menu_ui
   - node
+  - taxonomy
+  - user
+  - views
+  - views_bulk_operations
 core_incompatible: false

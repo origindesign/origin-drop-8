@@ -1,8 +1,13 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - paragraphs_library
+third_party_settings:
+  paragraphs_library:
+    allow_library_conversion: true
 id: image_aside_copy
 label: 'Image Aside Copy'
-icon_uuid: e2b43de6-2153-4d24-be68-22b824b23a11
+icon_uuid: null
 description: ''
 behavior_plugins: {  }

@@ -12,4 +12,6 @@ dependencies:
   - metatag
   - node
   - text
+  - user
+  - views
 core_incompatible: false

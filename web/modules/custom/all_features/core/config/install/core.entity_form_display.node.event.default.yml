@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.event.field_category
     - field.field.node.event.field_date_range
     - field.field.node.event.field_email
+    - field.field.node.event.field_event_reference
     - field.field.node.event.field_google_map_embed
     - field.field.node.event.field_main_image
     - field.field.node.event.field_metatags
@@ -116,7 +117,7 @@ third_party_settings:
         - group_address
         - group_related_content
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: tabs
       format_settings:
         id: ''
@@ -151,11 +152,12 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
+      show_summary: false
     third_party_settings: {  }
     region: content
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -192,6 +194,16 @@ content:
     third_party_settings: {  }
     type: email_default
     region: content
+  field_event_reference:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_google_map_embed:
     weight: 55
     settings:
@@ -208,7 +220,7 @@ content:
     type: media_library_widget
     region: content
   field_metatags:
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
@@ -223,20 +235,21 @@ content:
     region: content
   field_paragraphs:
     type: paragraphs
-    weight: 3
+    weight: 4
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
+      title: 'Content Block'
+      title_plural: 'Content Blocks'
       edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: _none
       closed_mode: summary
       autocollapse: none
       closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
       features:
         duplicate: duplicate
         collapse_edit_all: collapse_edit_all
+        add_above: add_above
     third_party_settings: {  }
     region: content
   field_phone:
@@ -253,6 +266,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
@@ -291,7 +305,7 @@ content:
     region: content
   path:
     type: path
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -299,21 +313,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 8
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 10
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     region: content
     third_party_settings: {  }
   title:
@@ -326,15 +340,16 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -93,6 +93,7 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
+      show_summary: false
     third_party_settings: {  }
   comment:
     type: comment_default
@@ -112,6 +113,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete_tags
     region: content
@@ -133,18 +135,19 @@ content:
     weight: 3
     region: content
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
+      title: 'Content Block'
+      title_plural: 'Content Blocks'
       edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
       closed_mode: summary
       autocollapse: none
       closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
       features:
         duplicate: duplicate
         collapse_edit_all: collapse_edit_all
+        add_above: add_above
     third_party_settings: {  }
   field_related_content:
     type: entity_reference_autocomplete
@@ -154,6 +157,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
   field_related_content_heading:
     weight: 27
@@ -214,6 +218,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
   url_redirects:
     weight: 12

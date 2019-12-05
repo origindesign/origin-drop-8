@@ -10,9 +10,6 @@
 // Helpful mixins, http://bourbon.io/docs/
 @import "../node_modules/bourbon/app/assets/stylesheets/bourbon";
 
-// Import Fonts from Google Fonts
-@import url("//fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap");
-
 // Import all component styles.
 @import "../components/**/*";
 
