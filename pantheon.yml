@@ -12,6 +12,11 @@ workflows:
         type: webphp
         description: 'Run composer install & drupal-scaffold'
         script: private/scripts/deploy_product/composer-install.php
+  clear_cache:
+    after:
+      - type: webphp
+        description: Turn on AdvAgg with drush
+        script: private/scripts/cache/cache.php
   sync_code:
     after:
       - type: webphp
