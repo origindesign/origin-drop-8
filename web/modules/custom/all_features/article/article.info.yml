@@ -6,6 +6,7 @@ dependencies:
   - comment
   - entity_reference_revisions
   - field
+  - image
   - menu_ui
   - metatag
   - node

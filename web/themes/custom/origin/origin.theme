@@ -105,7 +105,6 @@ function origin_preprocess_node(&$variables) {
 
     if ($view_mode == "full"){
 
-
         // Check if node hide the main image or not
         $hero_is_displayed = true;
         if ( isset( $node->field_hide_main_image) ){
