@@ -3,6 +3,7 @@ description: 'Provides Article content type and related configuration. Use <em>A
 type: module
 core: 8.x
 dependencies:
+  - activity
   - comment
   - entity_reference_revisions
   - field

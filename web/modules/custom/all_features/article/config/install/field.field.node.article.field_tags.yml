@@ -10,9 +10,9 @@ field_name: field_tags
 entity_type: node
 bundle: article
 label: Tags
-description: ''
+description: 'Enter a comma-separated list. For example: Amsterdam, Mexico City, "Cleveland, Ohio"'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -21,8 +21,6 @@ settings:
     target_bundles:
       tags: tags
     sort:
-      field: name
-      direction: asc
+      field: _none
     auto_create: true
-    auto_create_bundle: ''
 field_type: entity_reference

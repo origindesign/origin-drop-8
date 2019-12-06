@@ -42,6 +42,14 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
+  field_tags:
+    type: entity_reference_label
+    weight: 10
+    region: content
+    settings:
+      link: true
+    third_party_settings: {  }
+    label: above
   links:
     weight: 100
     region: content
