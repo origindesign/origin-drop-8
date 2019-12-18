@@ -2,10 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.activity
-    - node.type.dining
-    - node.type.lesson
-    - node.type.lodging
     - system.menu.admin
   module:
     - node
@@ -234,11 +230,7 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value:
-            activity: activity
-            dining: dining
-            lesson: lesson
-            lodging: lodging
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -247,6 +239,8 @@ display:
             description: ''
             use_operator: false
             operator: type_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: type
             required: false
             remember: false
@@ -257,8 +251,6 @@ display:
               administrator: '0'
               site_admin: '0'
             reduce: true
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
