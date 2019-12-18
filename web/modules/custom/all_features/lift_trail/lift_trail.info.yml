@@ -6,6 +6,7 @@ dependencies:
   - field
   - menu_ui
   - node
+  - path
   - taxonomy
   - user
   - views

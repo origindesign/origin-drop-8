@@ -5,9 +5,15 @@ core: 8.x
 dependencies:
   - entity_reference_revisions
   - field
+  - field_group
+  - media_library
   - menu_ui
   - metatag
   - node
+  - paragraphs
+  - path
+  - smart_trim
+  - taxonomy
   - text
   - user
   - views

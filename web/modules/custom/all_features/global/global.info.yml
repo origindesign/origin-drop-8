@@ -1,21 +1,34 @@
-name: Activity
-description: 'Provides Activity content type and related configuration. Use <em>Activities</em> for your "Things to Do" content.'
+name: Global
+description: 'Site wide config'
 type: module
 core: 8.x
 dependencies:
   - address
+  - advagg
+  - advagg_bundler
+  - blazy
+  - block
+  - ckeditor
+  - comment
+  - editor
   - entity_reference_revisions
   - field
   - field_group
+  - file
+  - filter
+  - help
+  - image
   - link
-  - link_attributes
+  - media
   - media_library
-  - menu_ui
   - metatag
   - node
+  - options
   - paragraphs
+  - paragraphs_library
   - path
-  - smart_trim
+  - responsive_image
+  - system
   - taxonomy
   - text
   - user

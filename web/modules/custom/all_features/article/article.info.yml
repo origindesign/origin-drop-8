@@ -7,12 +7,18 @@ dependencies:
   - comment
   - entity_reference_revisions
   - field
+  - field_group
+  - file
   - image
+  - media_library
   - menu_ui
   - metatag
   - node
+  - paragraphs
+  - path
   - rdf
   - smart_trim
+  - taxonomy
   - text
   - user
 core_incompatible: false

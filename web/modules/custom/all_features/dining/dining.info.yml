@@ -6,10 +6,17 @@ dependencies:
   - address
   - entity_reference_revisions
   - field
+  - field_group
   - link
+  - link_attributes
+  - media_library
   - menu_ui
   - metatag
   - node
+  - paragraphs
+  - path
+  - smart_trim
+  - taxonomy
   - text
   - user
   - views
