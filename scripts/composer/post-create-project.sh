@@ -6,7 +6,7 @@ docker-compose run -w /var/www/html/web php drush pm-enable origin --yes --stric
 docker-compose run -w /var/www/html/web php drush pm-enable global --yes --strict=0
 docker-compose run -w /var/www/html/web php drush pm-enable article page --yes --strict=0
 docker-compose run -w /var/www/html/web php drush pm-uninstall block_content --yes --strict=0
-docker-compose run -w /var/www/html/web php drush features-import core activity article banner dining event lesson lift_trail lodging page --yes --strict=0
+docker-compose run -w /var/www/html/web php drush features-import page article global --yes --strict=0
 docker-compose run -w /var/www/html/web php drush config-set system.theme default origin --yes --strict=0
 docker-compose run -w /var/www/html/web php drush pm-uninstall bartik --yes --strict=0
 docker-compose run -w /var/www/html/web php drush cr --strict=0
