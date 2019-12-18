@@ -3,13 +3,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_related_content
-    - node.type.activity
-    - node.type.article
-    - node.type.banner
-    - node.type.dining
     - node.type.event
-    - node.type.lesson
-    - node.type.lodging
     - node.type.page
 id: node.event.field_related_content
 field_name: field_related_content
@@ -25,16 +19,9 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      activity: activity
-      article: article
-      banner: banner
-      dining: dining
-      event: event
-      lesson: lesson
-      lodging: lodging
       page: page
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: event
+    auto_create_bundle: lodging
 field_type: entity_reference

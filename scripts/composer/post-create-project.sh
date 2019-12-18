@@ -4,7 +4,7 @@ docker-compose run -w /var/www/html/web php drush pm-enable config_direct_save s
 docker-compose run -w /var/www/html/web php drush pm-enable efq helper includer --yes --strict=0
 docker-compose run -w /var/www/html/web php drush pm-enable origin --yes --strict=0
 docker-compose run -w /var/www/html/web php drush pm-enable global --yes --strict=0
-docker-compose run -w /var/www/html/web php drush pm-enable activity page article event lesson banner lift_trail lodging dining --yes --strict=0
+docker-compose run -w /var/www/html/web php drush pm-enable page activity article event lesson banner lift_trail lodging dining --yes --strict=0
 docker-compose run -w /var/www/html/web php drush pm-uninstall block_content --yes --strict=0
 docker-compose run -w /var/www/html/web php drush features-import page article global --yes --strict=0
 docker-compose run -w /var/www/html/web php drush config-set system.theme default origin --yes --strict=0
