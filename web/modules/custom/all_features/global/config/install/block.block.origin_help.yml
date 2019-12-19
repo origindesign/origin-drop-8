@@ -8,7 +8,7 @@ dependencies:
 id: origin_help
 theme: origin
 region: content
-weight: -6
+weight: -5
 provider: null
 plugin: help_block
 settings:

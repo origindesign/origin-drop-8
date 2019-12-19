@@ -8,7 +8,7 @@ dependencies:
 id: origin_powered
 theme: origin
 region: disabled
-weight: 3
+weight: 2
 provider: null
 plugin: system_powered_by_block
 settings:

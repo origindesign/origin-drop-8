@@ -6,7 +6,7 @@ dependencies:
 id: origin_local_actions
 theme: origin
 region: content
-weight: -5
+weight: -4
 provider: null
 plugin: local_actions_block
 settings:

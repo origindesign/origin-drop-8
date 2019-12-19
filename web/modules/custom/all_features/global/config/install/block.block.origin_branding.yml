@@ -8,7 +8,7 @@ dependencies:
 id: origin_branding
 theme: origin
 region: disabled
-weight: 0
+weight: -1
 provider: null
 plugin: system_branding_block
 settings:
