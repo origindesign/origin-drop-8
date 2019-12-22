@@ -10,6 +10,7 @@ dependencies:
   - block
   - ckeditor
   - comment
+  - contact
   - editor
   - entity_reference_revisions
   - field
@@ -19,18 +20,25 @@ dependencies:
   - help
   - image
   - link
+  - linkit
   - media
   - media_library
+  - menu_link_content
+  - menu_ui
   - metatag
   - node
   - options
   - paragraphs
   - paragraphs_library
   - path
+  - rdf
   - responsive_image
+  - search
+  - shortcut
   - system
   - taxonomy
   - text
+  - tour
   - user
   - views
   - weight
