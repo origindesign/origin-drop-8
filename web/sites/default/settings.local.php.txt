@@ -119,7 +119,3 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
-
-$config_directories = array(
-    CONFIG_SYNC_DIRECTORY => dirname(DRUPAL_ROOT) . '/config',
-);

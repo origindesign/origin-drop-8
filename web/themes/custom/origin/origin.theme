@@ -130,16 +130,16 @@ function origin_preprocess_node(&$variables) {
 
             case 'event':
                 if(isset($variables['node']->field_event_reference[0])) {
-                    $ref_nid = $variables['node']->field_event_reference[0]->target_id;
+                    //$ref_nid = $variables['node']->field_event_reference[0]->target_id;
                     $user = \Drupal::currentUser();
                     if($user->hasPermission('edit any event content')){
                         $variables['edit_event_master'] = true;
                     }
                 }else{
-                    $ref_nid = $nid;
+                    //$ref_nid = $nid;
                 }
 
-                $controllerName = "EventNodeController"; $arguments = array('ref_nid' => $ref_nid);
+                //$controllerName = "EventNodeController"; $arguments = array('ref_nid' => $ref_nid);
                 break;
 
         }

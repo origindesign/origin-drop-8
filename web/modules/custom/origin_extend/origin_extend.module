@@ -53,33 +53,47 @@ function origin_extend_node_view(array &$build, \Drupal\Core\Entity\EntityInterf
 /**
  * Implements hook_ENTITY_TYPE_insert().
  */
-function origin_extend_node_insert(Node $node){
+function origin_extend_node_presave(Node $node){
 
-    // Clear the cache tag to reference node
+    // Clear cache tags for referenced nodes
     if ($node->getType() == 'event') {
+
+        // Get nid of reference node if set
         $ref_nid = $node->field_event_reference->target_id;
-        if (!empty($ref_nid)) {
-            $tags = ['node:' . $ref_nid];
-            Cache::invalidateTags($tags);
+        // Else et nid of current node
+        if (empty($ref_nid)) {
+            $ref_nid = $node->id();
         }
+
+        // Select all nodes with reference set to $ref_nid and $ref_nid
+        $conditions['group'] = array(
+            "andor" => "OR",
+            'grouping' => array(
+                "nid" => array( $ref_nid, '='),
+                "field_event_reference.target_id" => array( $ref_nid, '='),
+            )
+        );
+
+        $range = array(
+            "start" => 0,
+            "length" => 1000
+        );
+
+        // Get list of nids
+        $efq = \Drupal::service('efq.query_entities');
+        $nodes = $efq->getNidsOnly('event', $conditions, $range);
+
+        // Set cache tags list
+        $tags = [];
+        foreach($nodes as $nid){
+            $tags[] = 'node:'.$nid;
+        }
+
+        // Clear the cache tags
+        Cache::invalidateTags($tags);
+
     }
 
-}
-
-
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function origin_extend_preprocess_node(&$variables) {
-    // add cache tags from other event related nodes
-    if ($variables['node']->getType() == 'event' && !empty($variables['all_dates'])) {
-        foreach ($variables['all_dates'] as $nid => $node_obj) {
-            if (is_numeric($nid) && is_object($node_obj)) {
-                $variables['#cache']['tags'][] = 'node:' . $nid;
-            }
-        }
-    }
 }
 
 
