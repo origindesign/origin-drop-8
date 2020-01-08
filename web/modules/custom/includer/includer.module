@@ -42,22 +42,7 @@ function returnCacheTags($node){
  * Implements hook_ENTITY_TYPE_insert().
  * Clear listing page cache when new node inserted
  */
-function includer_node_insert(Node $node) {
-
-    $tags = returnCacheTags($node);
-
-    if (isset($tags) && !empty($tags)) {
-        Cache::invalidateTags($tags);
-    }
-
-}
-
-
-/**
- * Implements hook_ENTITY_TYPE_update().
- * Clear listing page cache when new node updated
- */
-function includer_node_update(Node $node) {
+function includer_node_presave(Node $node) {
 
     $tags = returnCacheTags($node);
 
