@@ -1,0 +1,72 @@
+uuid: 915e6641-bbeb-4ddd-9e10-df3e5d5510bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.two_columns_copy.field_column_style
+    - field.field.paragraph.two_columns_copy.field_copy_first_column
+    - field.field.paragraph.two_columns_copy.field_copy_second_column
+    - field.field.paragraph.two_columns_copy.field_heading
+    - paragraphs.paragraphs_type.two_columns_copy
+  module:
+    - field_group
+    - options
+    - text
+third_party_settings:
+  field_group:
+    group_content:
+      children:
+        - field_copy_first_column
+        - field_copy_second_column
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      region: content
+      format_settings:
+        id: ''
+        classes: content
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Content
+_core:
+  default_config_hash: 3yr2O6t823JZ4tPWw35yHyywUivw5O3m4mX7IrTZup0
+id: paragraph.two_columns_copy.default
+targetEntityType: paragraph
+bundle: two_columns_copy
+mode: default
+content:
+  field_column_style:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_copy_first_column:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_copy_second_column:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

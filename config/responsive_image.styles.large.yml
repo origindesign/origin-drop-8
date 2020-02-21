@@ -1,0 +1,37 @@
+uuid: 6b82fd58-ed82-4c64-8ed2-042c7b3573a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.scale_1024
+    - image.style.scale_1280
+    - image.style.scale_1440
+    - image.style.scale_1920
+    - image.style.scale_320
+    - image.style.scale_480
+    - image.style.scale_640
+    - image.style.scale_800
+  theme:
+    - origin
+_core:
+  default_config_hash: zDgLV43qgGFqnDsE_NLSwsbAdQ40gTOQbVgIHDBwkpY
+id: large
+label: Large
+image_style_mappings:
+  -
+    breakpoint_id: origin.small
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 1440px) 1440px, 100vw'
+      sizes_image_styles:
+        - scale_1024
+        - scale_1280
+        - scale_1440
+        - scale_1920
+        - scale_320
+        - scale_480
+        - scale_640
+        - scale_800
+breakpoint_group: origin
+fallback_image_style: scale_320

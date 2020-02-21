@@ -1,0 +1,23 @@
+uuid: 1443b75d-b965-4c07-bb9c-3a101471fa05
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 5oZ6lV78jDA9LoIRiUlv0_BA6cPEPVQst6SlpYVhXWQ
+id: default
+label: Default
+description: ''
+matchers:
+  beb2c32c-73e5-4312-b666-30fa587b5b67:
+    uuid: beb2c32c-73e5-4312-b666-30fa587b5b67
+    id: 'entity:node'
+    weight: 0
+    settings:
+      bundles: {  }
+      group_by_bundle: true
+      include_unpublished: false
+      substitution_type: canonical
+      metadata: '[node:title]'
+      limit: 100

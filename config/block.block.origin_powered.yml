@@ -1,0 +1,22 @@
+uuid: f6c7be04-7722-4c55-8c48-1a64a694e4c6
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - origin
+_core:
+  default_config_hash: nd9kcXR3Rg-ZxJIcoLAMiASkySvhC1EISHnbzQxh3WM
+id: origin_powered
+theme: origin
+region: disabled
+weight: 2
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

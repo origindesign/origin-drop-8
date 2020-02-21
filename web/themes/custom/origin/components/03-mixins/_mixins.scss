@@ -37,7 +37,7 @@
     }
 }
 
-@mixin margin($px,$direction){
+@mixin margin($px,$direction: side){
     @if $direction == top{
         margin-top:$px; margin-bottom:$px;
     }

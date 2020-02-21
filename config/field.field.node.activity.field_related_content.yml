@@ -1,0 +1,30 @@
+uuid: ff39e427-2051-4821-934c-3e02c03e35f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_content
+    - node.type.activity
+    - node.type.page
+_core:
+  default_config_hash: G3VnyCeALoKlL7IbeAZECS8H5d5MyNLbCuEDP8bCUKw
+id: node.activity.field_related_content
+field_name: field_related_content
+entity_type: node
+bundle: activity
+label: 'Related Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      page: page
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: activity
+field_type: entity_reference

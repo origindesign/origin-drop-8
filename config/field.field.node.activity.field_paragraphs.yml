@@ -1,0 +1,40 @@
+uuid: d33cb0b1-bedd-4098-bcaa-50474a63a0c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.activity
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: '-R1PjGDOsIkrG2ch2gM7O3ja8OQ37BufSFxVoaF99X0'
+id: node.activity.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: activity
+label: 'Page Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 1
+    target_bundles: null
+    target_bundles_drag_drop:
+      single_column_copy:
+        weight: -9
+        enabled: false
+      image_aside_copy:
+        weight: -8
+        enabled: false
+      two_columns_copy:
+        weight: -7
+        enabled: false
+      media_slideshow:
+        weight: -6
+        enabled: false
+field_type: entity_reference_revisions

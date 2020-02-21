@@ -1,0 +1,21 @@
+uuid: 5852f097-7464-409b-9aac-2d29f24bc213
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price_call_out
+    - node.type.banner
+_core:
+  default_config_hash: FHh55KIE_aO-Wzys44s7hiA7vL5EhZwn7cxgrGeLZi8
+id: node.banner.field_price_call_out
+field_name: field_price_call_out
+entity_type: node
+bundle: banner
+label: 'Price / Call Out'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

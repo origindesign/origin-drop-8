@@ -1,0 +1,25 @@
+uuid: 492cd9db-c590-45a5-b325-6b6849896069
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - origin
+_core:
+  default_config_hash: h2bSATBK6slmdARBjmFl8kw36MtmkysxKthsAdJxREs
+id: origin_branding
+theme: origin
+region: disabled
+weight: -1
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

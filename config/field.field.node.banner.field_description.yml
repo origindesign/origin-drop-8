@@ -1,0 +1,23 @@
+uuid: eaf0e389-1aa3-4f01-b6cb-53b570cea904
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.banner
+  module:
+    - text
+_core:
+  default_config_hash: wmM89QokD3MARZYdGzGU7L8ydybV2h79_CVezuASU1U
+id: node.banner.field_description
+field_name: field_description
+entity_type: node
+bundle: banner
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

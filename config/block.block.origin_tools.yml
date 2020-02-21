@@ -1,0 +1,27 @@
+uuid: 6da23a74-4dc1-4e5b-8ad0-f6835fbed19f
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - origin
+_core:
+  default_config_hash: _hQ6Zbik7WVfP8YRfcJrQnkb4tAAXWZ29i40-6jnLjc
+id: origin_tools
+theme: origin
+region: disabled
+weight: 0
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

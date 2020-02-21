@@ -1,0 +1,61 @@
+uuid: f75694d3-0896-4a53-be98-b3e5f69ba912
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page.body
+    - field.field.node.page.field_hide_main_image
+    - field.field.node.page.field_main_image
+    - field.field.node.page.field_metatags
+    - field.field.node.page.field_paragraphs
+    - field.field.node.page.field_related_content
+    - field.field.node.page.field_related_content_heading
+    - field.field.node.page.field_subtitle
+    - node.type.page
+  module:
+    - smart_trim
+    - user
+_core:
+  default_config_hash: cSv5lDnbIgDug475Hdz3woED2XMqYv3awI-J9u1JLbY
+id: node.page.teaser
+targetEntityType: node
+bundle: page
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 1
+    region: content
+    settings:
+      trim_length: 250
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+    third_party_settings: {  }
+  field_main_image:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: medium
+      link: false
+    third_party_settings: {  }
+hidden:
+  field_hide_main_image: true
+  field_metatags: true
+  field_paragraphs: true
+  field_related_content: true
+  field_related_content_heading: true
+  field_subtitle: true
+  links: true

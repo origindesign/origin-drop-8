@@ -1,0 +1,28 @@
+uuid: 4b43e12e-1cc2-4b4b-8ab7-328fdfa9d166
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_range
+    - node.type.event
+  module:
+    - datetime_range
+_core:
+  default_config_hash: xtpITttF6m-z8WF5dbtcsvQI97Se7daldglR3cHNZks
+id: node.event.field_date_range
+field_name: field_date_range
+entity_type: node
+bundle: event
+label: 'Date & Times'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+    default_end_date_type: relative
+    default_end_date: '+1 day'
+default_value_callback: ''
+settings: {  }
+field_type: daterange
