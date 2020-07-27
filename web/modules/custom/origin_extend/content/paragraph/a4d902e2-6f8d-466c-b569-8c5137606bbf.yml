@@ -14,9 +14,6 @@ default:
   behavior_settings:
     -
       value: {  }
-  revision_translation_affected:
-    -
-      value: true
   field_column_style:
     -
       value: columns-even

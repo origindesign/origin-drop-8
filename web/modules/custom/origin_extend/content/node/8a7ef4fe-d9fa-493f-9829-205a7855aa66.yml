@@ -1,0 +1,45 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 8a7ef4fe-d9fa-493f-9829-205a7855aa66
+  bundle: page
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: '403 Error'
+  created:
+    -
+      value: 1595892440
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: /403-error
+      langcode: en
+      pathauto: 1
+  field_hide_main_image:
+    -
+      value: false
+  field_related_content_heading:
+    -
+      value: 'Related Content'
+  field_subtitle:
+    -
+      value: 'Permission denied'

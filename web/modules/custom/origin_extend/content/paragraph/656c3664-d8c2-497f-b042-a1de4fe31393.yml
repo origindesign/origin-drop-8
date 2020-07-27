@@ -16,6 +16,9 @@ default:
   behavior_settings:
     -
       value: {  }
+  revision_translation_affected:
+    -
+      value: true
   field_heading:
     -
       value: 'Media & Slideshow'

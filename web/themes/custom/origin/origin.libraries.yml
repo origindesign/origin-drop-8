@@ -14,7 +14,6 @@ origin:
     - core/jquery.once
     - core/modernizr
     - jquery_ui_datepicker/datepicker
-    - blazy/load
 
 isotope:
   version: 1.x
