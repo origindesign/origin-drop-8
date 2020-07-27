@@ -9,9 +9,8 @@ dependencies:
     - field.field.media.image.field_media_image
     - field.field.media.image.field_tags
     - media.type.image
-    - responsive_image.styles.full
   module:
-    - blazy
+    - image
 _core:
   default_config_hash: jOwnt_yq6AKAfqU6f0xKnxEkFQ2eTPJWxrk3WMLbL68
 id: media.image.default
@@ -20,53 +19,13 @@ bundle: image
 mode: default
 content:
   field_media_image:
-    label: hidden
+    weight: 2
+    label: above
     settings:
       image_style: ''
-      responsive_image_style: full
-      media_switch: ''
-      thumbnail_style: ''
-      ratio: ''
-      sizes: ''
-      breakpoints:
-        xs:
-          image_style: ''
-          width: ''
-        sm:
-          image_style: ''
-          width: ''
-        md:
-          image_style: ''
-          width: ''
-        lg:
-          image_style: ''
-          width: ''
-        xl:
-          image_style: ''
-          width: ''
-      current_view_mode: default
-      background: false
-      caption:
-        title: '0'
-        alt: '0'
-      icon: ''
-      layout: ''
-      view_mode: ''
-      cache: 0
-      optionset: default
-      skin: ''
-      style: ''
-      box_caption: ''
-      box_caption_custom: ''
-      box_style: ''
-      box_media_style: ''
-      grid: 0
-      grid_header: ''
-      grid_medium: 0
-      grid_small: 0
+      image_link: ''
     third_party_settings: {  }
-    type: blazy
-    weight: 1
+    type: image
     region: content
 hidden:
   created: true

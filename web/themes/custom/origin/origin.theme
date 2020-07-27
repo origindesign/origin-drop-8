@@ -149,7 +149,12 @@ function origin_preprocess_node(&$variables) {
          * Set includes based on nid
          *
          * Set custom component twig files to include using array 'custom_include'
-         * $variables['custom_include'][] = '@molecules/block/block-name.twig';
+         * $variables['custom_include'] = [
+              [
+                'path' => '@molecules/blocks/path-to-twig.twig',
+                'class' => 'custom-class',
+              ]
+            ];
          */
         switch ($nid){
 

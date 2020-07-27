@@ -64,8 +64,8 @@
     {% if custom_include %}
 
         {% for include in custom_include %}
-            <div class="row custom-include container">
-                {% include include %}
+            <div class="row custom-include container {{ include['class'] }}">
+                {% include include['path'] %}
             </div>
         {% endfor %}
 

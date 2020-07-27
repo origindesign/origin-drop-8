@@ -34,3 +34,6 @@ if (file_exists($local_settings)) {
  * modifying settings.php.
  */
 $settings['install_profile'] = 'standard';
+
+// Force unused files to be deleted
+$config['file.settings']['make_unused_managed_files_temporary'] = TRUE;

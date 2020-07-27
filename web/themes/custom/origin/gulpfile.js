@@ -93,7 +93,7 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.init())
         .pipe(sassGlob())
         .pipe(sass())
-        .pipe(postcss([ autoprefixer() ]))
+        .pipe(postcss([ autoprefixer({ grid: 'autoplace' }) ]))
         .pipe(gulpIf('*.css', cssnano()))
         .pipe(cleanCSS())
         .pipe(sourcemaps.write())

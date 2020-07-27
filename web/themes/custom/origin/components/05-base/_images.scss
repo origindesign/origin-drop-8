@@ -24,6 +24,7 @@ $base-image-padding: 56.25%;
 }
 
 .media .field--name-field-media-image{
+    position:absolute;
     &.focus-top-left{
         img:not(.b-lazy),
         img.b-lazy.b-loaded{

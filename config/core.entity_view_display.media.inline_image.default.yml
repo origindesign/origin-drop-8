@@ -5,10 +5,9 @@ dependencies:
   config:
     - field.field.media.inline_image.field_media_image_1
     - field.field.media.inline_image.field_tags
-    - image.style.scale_800
     - media.type.inline_image
   module:
-    - blazy
+    - image
 _core:
   default_config_hash: zeqOd-aJGjaYRTXmg_cQ936d7jbXQMFRzKEdAWCEz2I
 id: media.inline_image.default
@@ -17,59 +16,13 @@ bundle: inline_image
 mode: default
 content:
   field_media_image_1:
-    weight: 0
-    label: hidden
+    weight: 1
+    label: above
     settings:
-      image_style: scale_800
-      thumbnail_style: ''
-      responsive_image_style: ''
-      media_switch: ''
-      ratio: ''
-      sizes: ''
-      breakpoints:
-        xs:
-          image_style: ''
-          width: ''
-          breakpoint: ''
-        sm:
-          image_style: ''
-          width: ''
-          breakpoint: ''
-        md:
-          image_style: ''
-          width: ''
-          breakpoint: ''
-        lg:
-          image_style: ''
-          width: ''
-          breakpoint: ''
-        xl:
-          image_style: ''
-          width: ''
-          breakpoint: ''
-      current_view_mode: default
-      background: false
-      caption:
-        title: '0'
-        alt: '0'
-      iframe_lazy: true
-      icon: ''
-      layout: ''
-      view_mode: ''
-      cache: 0
-      optionset: default
-      skin: ''
-      style: ''
-      box_caption: ''
-      box_caption_custom: ''
-      box_style: ''
-      box_media_style: ''
-      grid: 0
-      grid_header: ''
-      grid_medium: 0
-      grid_small: 0
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    type: blazy
+    type: image
     region: content
 hidden:
   created: true
