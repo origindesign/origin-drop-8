@@ -18,21 +18,10 @@ dependencies with [Composer](https://getcomposer.org/).
 
 ```shell
 docker-compose up -d
-composer create-project
-```
-- If at the end of the process you have drush issues in the output, it means that composer installed drush incorrectly from outside the container
-- Delete /vendor/drush and /vendor/bin/drush*
-- Re-install drush from within the container
-````
-docker-composer exec php sh
 composer install
-exit
-composer create-project
-````
+```
 
-- This should install Drupal, all required modules (contrib and custom), a set of features as well as the main Origin theme.
-- The admin password should be displayed in the console when Drupal is installed. Make sure to copy it (username is admin)
-- Navigating to <http://[name-of-your-project].docker.localhost:8000> to see the site
+- Navigating to <http://[name-of-your-project].docker.localhost:8000> and install Drupal using existing configuration
 - Create .drush and .ssh folders in the container
 ````
 docker-compose exec php sh
