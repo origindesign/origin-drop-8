@@ -1,7 +1,6 @@
 module:
   address: 0
   admin_toolbar: 0
-  admin_toolbar_search: 0
   admin_toolbar_tools: 0
   advagg: 0
   advagg_bundler: 0
@@ -22,6 +21,7 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
+  default_content: 0
   devel: 0
   dynamic_page_cache: 0
   editor: 0
@@ -29,19 +29,20 @@ module:
   efq: 0
   entity_reference_revisions: 0
   entity_usage: 0
-  features: 0
-  features_ui: 0
   field: 0
   field_group: 0
   field_ui: 0
   file: 0
   filter: 0
+  hal: 0
   help: 0
   helper: 0
   history: 0
   hsts: 0
   image: 0
   includer: 0
+  jquery_ui: 0
+  jquery_ui_datepicker: 0
   link: 0
   link_attributes: 0
   linkit: 0
@@ -66,8 +67,10 @@ module:
   responsive_image: 0
   role_delegation: 0
   search: 0
+  serialization: 0
   shortcut: 0
   simple_block: 0
+  sitemap: 0
   smart_trim: 0
   system: 0
   taxonomy: 0
@@ -78,6 +81,7 @@ module:
   tour: 0
   twig_field_value: 0
   update: 0
+  upgrade_status: 0
   user: 0
   view_unpublished: 0
   views_bulk_edit: 0

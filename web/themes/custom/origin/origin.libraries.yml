@@ -13,7 +13,7 @@ origin:
     - core/drupal
     - core/jquery.once
     - core/modernizr
-    - core/jquery.ui.datepicker
+    - jquery_ui_datepicker/datepicker
     - blazy/load
 
 isotope:
@@ -53,7 +53,7 @@ events:
     - core/jquery
     - core/drupal
     - core/jquery.once
-    - core/jquery.ui.datepicker
+    - jquery_ui_datepicker/datepicker
     - origin/ajaxload
 
 articles:

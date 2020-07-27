@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: fb30218e-e4fd-4591-a455-6f32e52d8fdf
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: 19889_en_1.jpg
+  uri:
+    -
+      value: 'public://2019-11/19889_en_1_0.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 838602
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1574124621

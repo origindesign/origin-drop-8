@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Activity Category'
-vid: activity_category
-description: ''
-weight: 0

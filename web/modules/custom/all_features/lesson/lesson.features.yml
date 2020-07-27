@@ -1,4 +1,0 @@
-excluded:
-  - views.view.order_content
-required:
-  - taxonomy.vocabulary.level_category

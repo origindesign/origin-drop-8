@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Age Category'
-vid: age_category
-description: ''
-weight: 0

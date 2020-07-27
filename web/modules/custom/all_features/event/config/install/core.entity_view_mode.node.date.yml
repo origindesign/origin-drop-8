@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - node
-id: node.date
-label: Date
-targetEntityType: node
-cache: true

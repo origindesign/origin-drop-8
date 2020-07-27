@@ -1,0 +1,30 @@
+_meta:
+  version: '1.0'
+  entity_type: paragraph
+  uuid: a4d902e2-6f8d-466c-b569-8c5137606bbf
+  bundle: two_columns_copy
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1574718306
+  behavior_settings:
+    -
+      value: {  }
+  field_column_style:
+    -
+      value: columns-even
+  field_copy_first_column:
+    -
+      value: "<p>Bro ipsum dolor sit amet bomb ripper bail snake bite mute granny gear backside slash cornice bail face plant line. Brain bucket reverse camber backside noodle, yard sale face plant rail snake bite sucker hole skid euro crank dirtbag park rigid. Face shots Whistler gorby, death cookies gaper north shore bro whip frozen chicken heads chowder spin gnar ripper. Brain bucket death cookies gnar, park rat spin frozen chicken heads frozen chicken heads smear steeps afterbang ollie switch bunny slope poaching.</p>\r\n\r\n<p>Beater Whistler 180, pow epic glades apres Whistler slash poaching chain suck bunny slope death cookies. ACL avie Whistler gnar euro stomp table top dirtbag presta Bike freshies. Schwag sharkbite chowder air, line gondy DH rock roll ride pinner gondy park rat. 180 nose press sucker hole acro brain bucket. First tracks white room road rash, fatty epic white room deck brain bucket ripping. Rail ripping frozen chicken heads, lid switch pipe hammer stunt stoked park rat caballerial carve huckfest clipless. Bike cornice yard sale, gnar heli liftie dope gear jammer avie.</p>\r\n"
+      format: basic_html
+  field_copy_second_column:
+    -
+      value: "<p>Beater Whistler 180, pow epic glades apres Whistler slash poaching chain suck bunny slope death cookies. ACL avie Whistler gnar euro stomp table top dirtbag presta Bike freshies. Schwag sharkbite chowder air, line gondy DH rock roll ride pinner gondy park rat. 180 nose press sucker hole acro brain bucket. First tracks white room road rash, fatty epic white room deck brain bucket ripping. Rail ripping frozen chicken heads, lid switch pipe hammer stunt stoked park rat caballerial carve huckfest clipless. Bike cornice yard sale, gnar heli liftie dope gear jammer avie.</p>\r\n\r\n<p>McTwist laps big ring park bomb hole shreddin park white room schwag. Carve slash bear trap spread eagle corduroy lid punter BB whip free ride snake bite hammerhead switch bomb hole glades. 360 free ride north shore, air rip rigid presta couloir Skate whip yard sale japan air titanium. Stoked Snowboard air, bail pipe first tracks pow brain bucket pinner whip big ring bonk steeps glades bomb. Tele betty death cookies skid, euro rip north shore core shot mute McTwist huckfest bomb hole huck sucker hole.</p>\r\n"
+      format: basic_html
+  field_heading:
+    -
+      value: 'Two Columns Copy'

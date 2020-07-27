@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Lifts & Trails Type'
-vid: lifts_trails_type
-description: ''
-weight: 0

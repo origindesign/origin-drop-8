@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: Status
-vid: status
-description: ''
-weight: 0
