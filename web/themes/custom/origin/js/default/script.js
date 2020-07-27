@@ -30,11 +30,18 @@
         // Global call only triggered once
         $('body').once('global').each(function () {
 
-            // Objectfit polyfill
-            objectFitImages();
+            let _obj = Drupal.behaviors.global;
 
-            // Match heights
-            //$('.match-height').matchHeight();
+            // IOS 9 fix
+            if (/iP(hone|od|ad)/.test(navigator.platform)) {
+                let v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+                let vArr = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+
+                if (vArr[0] === 9) {
+                    _obj.html.addClass('ios9');
+                }
+
+            }
 
             // PDF new window
             $('a[href*="pdf"]').attr('target','_blank');

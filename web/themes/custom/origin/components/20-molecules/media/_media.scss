@@ -1,23 +1,6 @@
 
-html:not(.ios9) img.b-lazy{
-    @supports (object-fit: cover){
-        @include transitionPageElement();
-        opacity:0; transition-property:opacity, transform;
-
-        @include breakpoint($bp--medium){
-            transform:scale($transition-scale);
-        }
-
-        &.b-loaded{
-            opacity:1; transform:none;
-        }
-    }
-}
-
-.media--loading{
-    &:before{
-        display:none;
-    }
+.cke_widget_element{
+    width:100%;
 }
 
 .file--application-pdf{
@@ -54,15 +37,6 @@ html:not(.ios9) img.b-lazy{
             position:static;
         }
 
-    }
-
-    .blazy &{
-        @include cover();
-    }
-
-    .image{
-        @include cover();
-        position:relative;
     }
 
     .field--name-field-media-image{

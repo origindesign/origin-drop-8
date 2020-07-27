@@ -370,6 +370,17 @@ function origin_preprocess_field(&$variables){
 
 
 
+/** Preprocess responsive image to add attributes for LazySizes Parent Fit plugin
+ * @param $variables
+ */
+function origin_preprocess_responsive_image(&$variables) {
+  $variables['img_element']['#attributes']['data-parent-fit'] = 'cover';
+  $variables['img_element']['#attributes']['data-aspectratio'] = strval($variables['width']/$variables['height']);
+  $variables['img_element']['#attributes']['style'] = 'max-width:'.$variables['width'].'px';
+}
+
+
+
 /**
  * Implements hook_page_attachments_HOOK_alter().
  * @param array $page

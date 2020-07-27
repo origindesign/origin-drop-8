@@ -31,7 +31,6 @@ settings:
             - NumberedList
             - Outdent
             - Indent
-            - Blockquote
         -
           name: Table
           items:

@@ -3,9 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.full
+    - core.entity_view_mode.media.inline
   module:
     - editor
+    - lazy
     - linkit
     - media
 _core:
@@ -20,7 +21,7 @@ filters:
     status: true
     weight: -49
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ol start type class=""> <dl> <dt> <dd><h3 id class=""><h4 id class=""> <h5 id class=""><br> <span class=""> <img src alt data-entity-type data-entity-uuid data-entity-substitution data-align data-caption width height> <drupal-entity data-entity-type data-entity-uuid data-entity-substitution data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button> <div class=""> <p class=""> <figure class=""> <figcaption><ul id type class=" "> <li class=""> <a href hreflang data-entity-type data-entity-uuid data-entity-substitution target class="" name id data-entity-type data-entity-uuid data-entity-substitution> <table><thead><tbody><tr><th rowspan colspan><td rowspan colspan><caption><tfoot rowspan colspan> <drupal-entity data-* data-entity-type, data-entity-uuid, data-entity-embed-display, data-entity-embed-display-settings, data-align, data-caption, data-embed-button, alt, title> <iframe width height src frameborder allowfullscreen><drupal-media data-entity-type data-entity-uuid>'
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ol start type class=""> <dl> <dt> <dd><h3 id class=""><h4 id class=""> <h5 id class=""><br> <span class=""> <img src alt data-entity-type data-entity-uuid data-entity-substitution data-align data-caption width height> <drupal-entity data-entity-type data-entity-uuid data-entity-substitution data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button> <div class=""> <p class=""> <figure class=""> <figcaption><ul id type class=" "> <li class=""> <a href hreflang data-entity-type data-entity-uuid data-entity-substitution target class="" name id data-entity-type data-entity-uuid data-entity-substitution> <table><thead><tbody><tr><th rowspan colspan><td rowspan colspan><caption><tfoot rowspan colspan> <drupal-entity data-* data-entity-type, data-entity-uuid, data-entity-embed-display, data-entity-embed-display-settings, data-align, data-caption, data-embed-button, alt, title> <iframe width height src frameborder allowfullscreen><drupal-media data-entity-type data-entity-uuid data-view-mode alt> <hr>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -38,7 +39,7 @@ filters:
   filter_html_image_secure:
     id: filter_html_image_secure
     provider: filter
-    status: true
+    status: false
     weight: -46
     settings: {  }
   editor_file_reference:
@@ -85,9 +86,15 @@ filters:
     status: true
     weight: 100
     settings:
-      default_view_mode: full
-      allowed_view_modes:
-        full: full
+      default_view_mode: inline
       allowed_media_types:
-        image: image
-        remote_video: remote_video
+        file: file
+        inline_image: inline_image
+      allowed_view_modes:
+        inline: inline
+  lazy_filter:
+    id: lazy_filter
+    provider: lazy
+    status: true
+    weight: 20
+    settings: {  }

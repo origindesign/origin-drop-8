@@ -17,57 +17,72 @@ $base-image-padding: 56.25%;
     position: relative;
     display: block;
     padding-bottom:$padding;
-    img:not(.b-lazy),
-    img.b-lazy.b-loaded {
+    img:not(.lazyautosizes),
+    img.lazyautosizes.lazyloaded {
         @include cover();
+    }
+    .lazysizes-display-clone{
+        height:100% !important;
+    }
+}
+
+@mixin objectFitReset(){
+    padding-bottom:0 !important;
+    img{
+        position:static !important; object-fit:unset !important; object-position:initial !important; font-family:'Arial', sans-serif !important;
+        &[style*="hidden"]{
+            position:absolute !important;
+        }
     }
 }
 
 .media .field--name-field-media-image{
-    position:absolute;
+    img{
+        position:absolute;
+    }
     &.focus-top-left{
-        img:not(.b-lazy),
-        img.b-lazy.b-loaded{
+        img:not(.lazyautosizes),
+        img.lazyautosizes.lazyloaded {
             @include object-fit(cover, 0 0); }
     }
     &.focus-top-center{
-        img:not(.b-lazy),
-        img.b-lazy.b-loaded{
+        img:not(.lazyautosizes),
+        img.lazyautosizes.lazyloaded {
             @include object-fit(cover, 50% 0); }
     }
     &.focus-top-right{
-        img:not(.b-lazy),
-        img.b-lazy.b-loaded{
+        img:not(.lazyautosizes),
+        img.lazyautosizes.lazyloaded {
             @include object-fit(cover, 100% 0); }
     }
     &.focus-middle-left{
-        img:not(.b-lazy),
-        img.b-lazy.b-loaded{
+        img:not(.lazyautosizes),
+        img.lazyautosizes.lazyloaded {
             @include object-fit(cover, 0 50%); }
     }
     &.focus-middle-center{
-        img:not(.b-lazy),
-        img.b-lazy.b-loaded{
+        img:not(.lazyautosizes),
+        img.lazyautosizes.lazyloaded {
             @include object-fit(cover, 50% 50%); }
     }
     &.focus-middle-right{
-        img:not(.b-lazy),
-        img.b-lazy.b-loaded{
+        img:not(.lazyautosizes),
+        img.lazyautosizes.lazyloaded {
             @include object-fit(cover, 100% 50%); }
     }
     &.focus-bottom-left{
-        img:not(.b-lazy),
-        img.b-lazy.b-loaded{
+        img:not(.lazyautosizes),
+        img.lazyautosizes.lazyloaded {
             @include object-fit(cover, 0 100%); }
     }
     &.focus-bottom-center{
-        img:not(.b-lazy),
-        img.b-lazy.b-loaded{
+        img:not(.lazyautosizes),
+        img.lazyautosizes.lazyloaded {
             @include object-fit(cover, 50% 100%); }
     }
     &.focus-bottom-right{
-        img:not(.b-lazy),
-        img.b-lazy.b-loaded{
+        img:not(.lazyautosizes),
+        img.lazyautosizes.lazyloaded {
             @include object-fit(cover, 100% 100%); }
     }
 }

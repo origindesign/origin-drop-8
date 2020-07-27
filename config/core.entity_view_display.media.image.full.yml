@@ -10,8 +10,9 @@ dependencies:
     - field.field.media.image.field_media_image
     - field.field.media.image.field_tags
     - media.type.image
+    - responsive_image.styles.auto
   module:
-    - image
+    - lazy
     - options
 _core:
   default_config_hash: 9XRq_v2ekuX85JspBRJxFcigGR9SRGRCIDev7g5XjTk
@@ -36,13 +37,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_media_image:
-    weight: 3
-    label: above
+    weight: 0
+    label: hidden
     settings:
-      image_style: ''
+      responsive_image_style: auto
       image_link: ''
     third_party_settings: {  }
-    type: image
+    type: lazy_responsive_image
     region: content
 hidden:
   created: true
