@@ -20,9 +20,9 @@ class LiftsTrailsController extends ContentController {
 
 
         $this->result["listing_simple"][] = $this->renderTitle("Lifts");
-        $this->result["listing_simple"][] = $this->getNodes( 20 );
+        $this->result["listing_simple"][] = $this->getNodes( 15 );
         $this->result["listing_simple"][] = $this->renderTitle("Trails");
-        $this->result["listing_simple"][] = $this->getNodes( 21 );
+        $this->result["listing_simple"][] = $this->getNodes( 16 );
         $this->result["additional_classes"] = 'simple lifts-trails';
 
         return $this->result;
