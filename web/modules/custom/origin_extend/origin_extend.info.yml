@@ -3,23 +3,3 @@ type: module
 description: 'Module extending others with specifics to this site'
 package: Custom
 core_version_requirement: ^8.8 || ^9
-default_content:
-  node:
-    - 2fce6edb-4993-4006-af41-c097eab77317
-    - bcb92b67-181d-4f01-99b8-baefea29b8a9
-    - 10e89832-5346-46c4-8139-07e6552d4e75
-    - b2931f7a-5555-4359-8a0a-8aa075adb8c0
-    - 31f4a0da-ac5d-4edc-82ac-ac4e82cf16b5
-    - 01dd98d8-08b0-49c8-aac0-d39bf16bd545
-    - acd19a03-31a4-4230-96d3-cb197bbfa3d6
-    - 7a8fed5b-81d3-40fb-badb-5572fd7c7ec1
-    - 8a7ef4fe-d9fa-493f-9829-205a7855aa66
-  paragraph:
-    - 737a06ad-05b7-4db7-bf36-c8f0e964af93
-    - a4d902e2-6f8d-466c-b569-8c5137606bbf
-    - 448a09a5-21d8-4a5f-b299-0e0eabbae432
-    - 656c3664-d8c2-497f-b042-a1de4fe31393
-  media:
-    - b0625814-d2bc-4981-9b37-65134f22d315
-  file:
-    - fb30218e-e4fd-4591-a455-6f32e52d8fdf
