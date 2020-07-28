@@ -27,7 +27,6 @@
         "drupal/console": "^1",
         "drupal/core": "^8.7",
         "drupal/ctools": "^3.0",
-        "drupal/default_content": "^2.0@alpha",
         "drupal/devel": "^4.0",
         "drupal/editor_advanced_link": "^1.4",
         "drupal/entity_usage": "^2.0@beta",
