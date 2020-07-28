@@ -12,5 +12,6 @@ _core:
 id: two_columns_copy
 label: 'Two Columns Copy'
 icon_uuid: null
+icon_default: null
 description: ''
 behavior_plugins: {  }

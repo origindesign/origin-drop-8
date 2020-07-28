@@ -12,5 +12,6 @@ _core:
 id: media_slideshow
 label: 'Media & Slideshow'
 icon_uuid: null
+icon_default: null
 description: ''
 behavior_plugins: {  }

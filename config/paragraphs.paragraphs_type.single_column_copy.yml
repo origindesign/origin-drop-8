@@ -12,5 +12,6 @@ _core:
 id: single_column_copy
 label: 'Single Column Copy'
 icon_uuid: null
+icon_default: null
 description: ''
 behavior_plugins: {  }

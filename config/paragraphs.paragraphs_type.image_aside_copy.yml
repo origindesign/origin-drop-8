@@ -12,5 +12,6 @@ _core:
 id: image_aside_copy
 label: 'Image Aside Copy'
 icon_uuid: null
+icon_default: null
 description: ''
 behavior_plugins: {  }

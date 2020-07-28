@@ -27,6 +27,10 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_caption: true
+  field_credit: true
+  field_image_focal_point: true
   field_media_image: true
+  field_tags: true
   name: true
   uid: true
