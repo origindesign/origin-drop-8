@@ -160,7 +160,6 @@
                 $container.html(wrapper);
                 $container.addClass('loaded');
                 Drupal.attachBehaviors();
-                Drupal.blazy.init.revalidate();
 
                 /*
                 console.log($path+'?response_type=ajax');

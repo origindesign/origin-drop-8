@@ -102,7 +102,6 @@
                             total.text(slick.slideCount);
                         })
                         .on('afterChange', function(event, slick, currentSlide){
-                            Drupal.blazy.init.revalidate();
                             current.text(currentSlide+1);
                         })
                         .slick({

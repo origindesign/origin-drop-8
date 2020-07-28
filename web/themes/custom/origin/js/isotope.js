@@ -132,7 +132,7 @@
         // Update Isotope
         _obj.isotope.isotope({ filter: filterValue })
             .on('layoutComplete', function(){
-                Drupal.blazy.init.revalidate();
+                //Drupal.blazy.init.revalidate();
             });
 
         // No results
