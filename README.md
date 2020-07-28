@@ -92,7 +92,7 @@ ddrush sql-sync @local @dev
 ddrush -r . rsync @local:sites/default/files/ @dev:%files
 ```
 - This way, the local and the dev site are using the same UUID so we can use config manager
-- If drush fails because of permission errors, skip this and continue. Push your first commit, let circle build a new version of Drush to push to Pantheon, then revisit this setup after.
+- If drush fails because of permission errors, skip this and continue through the next steps to push your first commit, let circle build a new version of Drush to push to Pantheon, then revisit this setup after.
 
 ## 4. Pushing to Github
 
