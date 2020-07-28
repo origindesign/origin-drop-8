@@ -3,8 +3,8 @@ name: 'Origin Drop'
 mail: web@origindesign.ca
 slogan: ''
 page:
-  403: ''
-  404: ''
+  403: /node/33
+  404: /node/32
   front: /node
 admin_compact_mode: false
 weight_select_max: 100
