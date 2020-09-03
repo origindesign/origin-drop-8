@@ -112,14 +112,16 @@ git push -u origin master
 ## 5. Configuring Circle CI
 
 In Circle CI, create a new project based on your Github new repo. In the environement variables enter the following:
+- TERMINUS_SITE: The machine name of the Pantheon site that will be used to test your site.
+- TEST_SITE_NAME: Used to set the name of the test site when installing Drupal.
+
+These additional environment variables will be added through a context origin-pantheon-git set in /.circleci/config.yml
+
 - TERMINUS_TOKEN: The Terminus Machine token
 - GITHUB_TOKEN: Used by CircleCI to post comments on pull requests.
-- TERMINUS_SITE: The name of the Pantheon site that will be used to test your site.
-- TEST_SITE_NAME: Used to set the name of the test site when installing Drupal.
 - ADMIN_EMAIL: Used to configure the email address to use when installing Drupal.
 - ADMIN_PASSWORD: Used to set the password for the uid 1 user during site installation.
 - GIT_EMAIL: Used to configure the git user’s email address for commits we make.
-- THEME_PATH: In case you want to use the Pattern Lab theme system, enter the full path of the theme so it can run npm
 
 Then in the SSH permissions, enter your SSH key and launch a build. The build will:
 - Pull the repo from github
