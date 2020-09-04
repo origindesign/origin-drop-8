@@ -1,6 +1,6 @@
 $base-font-size: 16;
 $mobile-font-size: 15;
-$base-typography-spacing: 30px;
+$base-typography-spacing: 1em;
 $base-line-height: 1.8;
 
 @mixin fontsize($fontSize: $base-font-size){
