@@ -92,3 +92,7 @@ $base-line-height: 1.8;
         @if $center and $middle{ transform:translate(-50%,-50%); }
     }
 }
+
+@mixin fonticonSize($size){
+    font-size:$size; width:$size; height:$size; line-height:$size;
+}
