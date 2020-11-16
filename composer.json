@@ -50,7 +50,7 @@
         "drupal/token": "^1.0",
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^2.4",
-        "drupal/upgrade_status": "^2.9",
+        "drupal/upgrade_status": "^3.0",
         "drupal/view_unpublished": "^1.0",
         "drupal/views_bulk_edit": "^2.4",
         "drupal/views_bulk_operations": "^3.3",
