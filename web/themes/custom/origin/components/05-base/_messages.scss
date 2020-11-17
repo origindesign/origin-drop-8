@@ -3,33 +3,3 @@
     @include maxWidth();
     margin:40px auto;
 }
-
-.block-local-tasks-block {
-
-    position: fixed;
-    top: 450px;
-    left: 0;
-    width: 120px;
-    z-index: 10000;
-
-    & > .contextual { display: none; }
-
-    ul.tabs {
-        li {
-            display: block;
-            a {
-                @include fontsize();
-                @include transitions();
-                text-transform: uppercase;
-                color: #fff;
-                display: block;
-                padding: 5px 10px;
-                text-align: center;
-                background: rgba(0, 0, 0, 0.8);
-                &:hover { background: #000000; }
-            }
-
-        }
-    }
-
-}
