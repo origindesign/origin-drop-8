@@ -64,9 +64,9 @@ git push --force origin master
 Replace ssh://ID@ID.drush.in:2222/~/repository.git with the URL from the middle of the SSH clone URL from the Connection Info popup dialog on your dashboard.
 
 - Once it's pushed in the repository, go back in the Pantheon Dashboard and set your site to sftp mode. Navigate to your Dev site and install drupal as normal.
-- Visit the Pantheon main dashboard and download the drush alias
-- Create a new alias file and copy the definitions from the Pantheon alias file for your site, removing the site name from the alias definitions so you have an alias for each environment named: local, dev, test, live
-- Copy the alias file from from your local machine to the php container drush directory:
+- Visit the Pantheon main dashboard and set your site back to git mode
+- Create a new alias file and copy the information from the Pantheon Dashboard Connection popup so you have an alias for each environment named: local, dev, test, live
+- Copy the alias file from your local machine to the php container drush directory:
 ```shell
 cd ~/.drush
 docker cp [name-of-your-project].aliases.drushrc.php [name-of-your-project]_php:/root/.drush
@@ -126,6 +126,6 @@ These additional environment variables will be added through a context origin-pa
 Then in the SSH permissions, enter your SSH key and launch a build. The build will:
 - Pull the repo from github
 - Build an artifact
-- Create e new multidev environement on Pantheon
+- Create a new multidev environment on Pantheon
 - Run the test set in the new environement
-- If the tests pass, it will push the code on dev
+- If the tests pass, it will push the code to dev
