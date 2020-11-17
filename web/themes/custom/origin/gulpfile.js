@@ -11,11 +11,11 @@ const gulpIf = require('gulp-if'); // Used to create conditions for checking if 
 const sourcemaps = require('gulp-sourcemaps'); // Allow better debugging in browser
 const sasslint = require('gulp-sass-lint'); // Clean CSS syntax writing (see .sass-lint.yml to check the rules)
 const eslint = require('gulp-eslint'); // Clean JS syntax writing
-const autoprefixer = require('autoprefixer'); // Add autoprefixer to css so we can write W3C css rules without the need of browser prefix (ie: webkit...)
+const autoprefixer = require('autoprefixer'); // Add autoprefixer to css to write css without need of browser prefix
 const postcss = require('gulp-postcss'); // Used to trigger autoprefixer
 const del = require('del'); // Cleaning up generated files
 const babel = require('gulp-babel'); // Javascript Compiler
-const runSequence = require('run-sequence'); // Sequence runner to combine tasks in between them
+const runSequence = require('gulp4-run-sequence') // Sequence runner to combine tasks in between them
 const cssnano = require('gulp-cssnano'); // Minify css
 
 
@@ -42,7 +42,7 @@ gulp.task('clean:dist', function() {
 
 // Validate Sass syntax
 gulp.task('sass:lint', function() {
-    gulp.src(paths.scss)
+    return gulp.src(paths.scss)
         .pipe(sasslint())
         .pipe(sasslint.format())
         .pipe(sasslint.failOnError());
@@ -103,8 +103,8 @@ gulp.task('sass', function() {
 
 // Watch sass and js files
 gulp.task('watch', function () {
-    gulp.watch(paths.scss, ['sass', 'sass:lint']);
-    gulp.watch(paths.js.all, ['javascript', 'javascript:custom', 'javascript:lint']);
+    gulp.watch(paths.scss, gulp.series('sass', 'sass:lint'));
+    gulp.watch(paths.js.all, gulp.series('javascript', 'javascript:custom', 'javascript:lint'));
 });
 
 

@@ -361,7 +361,7 @@ function origin_preprocess_field(&$variables){
             break;
 
         case 'field_related_content':
-            $variables['extra_classes'] = ['three-col-grid'];
+            $variables['extra_classes'] = ['three-col-flex'];
             break;
 
     }

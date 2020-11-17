@@ -7,7 +7,9 @@
     {% if has_hero_image %}
 
         <h1>{{ label|field_value }}</h1>
-        <h2>{{ content.field_subtitle }}</h2>
+        {% if content.field_subtitle|render %}
+            <h2>{{ content.field_subtitle|field_value }}</h2>
+        {% endif %}
 
         {% if type == "event" %}
             <div class="date-detail">
@@ -20,15 +22,15 @@
             </div>
         {% endif %}
 
-        <div class="image">
-            {{ content.field_main_image }}
-        </div>
+        {{ content.field_main_image }}
 
 
     {% else %}
 
         <h1>{{ label|field_value }}</h1>
-        <h2>{{ content.field_subtitle }}</h2>
+        {% if content.field_subtitle|render %}
+            <h2>{{ content.field_subtitle|field_value }}</h2>
+        {% endif %}
 
     {% endif %}
 

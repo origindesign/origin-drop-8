@@ -6,8 +6,6 @@ $grid-spacing: 20px;
 @mixin global-grid(){
     @include add-grid(12);
     @include add-gutter(1);
-    //@include sgs-change('debug', true);
-    //@include background-grid($color: #c3c3c3);
 }
 
 @include global-grid();
@@ -52,11 +50,11 @@ $grid-spacing: 20px;
 }
 
 @mixin three-col-float(){
-
+    
     @include two-col-float();
-
+    
     @include breakpoint($bp--tablet-landscape){
-
+        
         &:nth-child(3n-2){
             clear:both !important;
         }
@@ -74,7 +72,7 @@ $grid-spacing: 20px;
             margin-bottom:0;
         }
     }
-
+    
 }
 
 .three-col-float{
@@ -85,20 +83,78 @@ $grid-spacing: 20px;
 }
 
 
+// Flex Columns
+// ----------------------
+@mixin two-col-flex(){
+    
+    @include breakpoint($bp--tablet-portrait){
+        display:flex; flex-wrap:wrap;
+    }
+    
+    > *{
+        width:100%;
+        &:not(:last-child){
+            margin-bottom:$grid-spacing;
+        }
+        @include breakpoint($bp--tablet-portrait){
+            width:50%;
+            &:last-child,
+            &:nth-last-child(2){
+                margin-bottom:0;
+            }
+        }
+    }
+    
+}
+
+.two-col-float{
+    @include two-col-flex();
+}
+
+@mixin three-col-flex(){
+    @include two-col-flex();
+
+    @include breakpoint($bp--tablet-landscape){
+    
+        > *{
+            width:calc(100%/3);
+            
+            &:last-child,
+            &:nth-last-child(2),
+            &:nth-last-child(3){
+                margin-bottom:0;
+            }
+            
+        }
+       
+    }
+
+}
+
+.three-col-flex{
+    @include three-col-flex();
+}
+
+
 // Grid Columns
 // ----------------------
 @mixin three-col-grid(){
 
     > *{
         margin-bottom:$grid-spacing;
+    
+        @include breakpoint($bp--medium){
+            justify-self:center;
+        }
+        
     }
 
     @include breakpoint($bp--medium){
-        display:grid; grid-template-columns: repeat(2, 1fr); grid-gap:$grid-spacing; justify-content:center;
+        display:grid; grid-template-rows:auto; grid-template-columns: repeat(2, 1fr); grid-gap:$grid-spacing;
     }
 
     @include breakpoint($bp--tablet-portrait){
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows:auto; grid-template-columns: repeat(3, 1fr);
     }
 
 }
