@@ -27,9 +27,16 @@ h4 { @include h4(); }
 h5 { @include h5(); }
 h6 { @include h6(); }
 
-p, ul, ol{
-    @include marginResets();
-    margin:$base-typography-spacing 0;
+.rte{
+    p, ul, ol{
+        @include marginResets();
+        margin:$base-typography-spacing 0;
+    }
+    ul, ol{
+        ul, ol{
+            margin-bottom:1em !important;
+        }
+    }
 }
 
 a {

@@ -16,16 +16,16 @@
     "require": {
         "php": ">=7.2",
         "bower-asset/lazysizes": "^5.2",
-        "composer/installers": "^1.0.20",
+        "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.0",
-        "drupal-composer/drupal-scaffold": "^2.0.1",
         "drupal/address": "^1.3",
         "drupal/admin_toolbar": "^2.0",
         "drupal/advagg": "^4.0",
         "drupal/components": "^2.0",
         "drupal/config_direct_save": "^1.0",
-        "drupal/console": "^1",
         "drupal/core": "^8.7",
+        "drupal/core-composer-scaffold": "^8.8.1",
+        "drupal/core-recommended": "^8.8",
         "drupal/ctools": "^3.0",
         "drupal/devel": "^4.0",
         "drupal/editor_advanced_link": "^1.4",
@@ -56,32 +56,34 @@
         "drupal/views_bulk_operations": "^3.3",
         "drupal/weight": "^3.1",
         "drupal/xmlsitemap": "^1.0@alpha",
-        "drush-ops/behat-drush-endpoint": "^0.0.5",
+        "drush-ops/behat-drush-endpoint": "^9.3",
         "drush/drush": "8.*",
-        "hirak/prestissimo": "^0.3.8",
         "kint-php/kint": "^3.3",
-        "oomphinc/composer-installers-extender": "^1.0",
+        "oomphinc/composer-installers-extender": "~2",
         "origindesign/efq": "^2.0",
         "origindesign/helper": "^2.0",
-        "pantheon-systems/quicksilver-pushback": "~1",
-        "rvtraveller/qs-composer-installer": "^1.1",
-        "tinify/tinify": "1.4.*",
-        "webflo/drupal-core-strict": "^8"
+        "pantheon-systems/drupal-integrations": "^8",
+        "pantheon-systems/quicksilver-pushback": "^2",
+        "tinify/tinify": "1.4.*"
     },
     "require-dev": {
-        "mikey179/vfsstream": "^1.2",
-        "behat/behat": "3.*",
+        "behat/behat": "^3.1",
         "behat/mink": "^1.7",
         "behat/mink-extension": "^2.2",
-        "behat/mink-goutte-driver": "^1.2",
-        "jcalderonzumba/gastonjs": "^1.0.2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "dmore/behat-chrome-extension": "^1.3",
+        "drupal/coder": "^8.3.1",
+        "drupal/drupal-driver": "^2.1",
+        "drupal/drupal-extension": "^4.1",
+        "genesis/behat-fail-aid": "^2.1",
         "jcalderonzumba/mink-phantomjs-driver": "^0.3.1",
-        "drupal/drupal-extension": "^3.1",
-        "phpunit/phpunit": "^4.8",
+        "mikey179/vfsstream": "^1.2",
+        "phpunit/phpunit": "^6.5",
+        "squizlabs/php_codesniffer": "^3.4.0",
         "symfony/css-selector": "^2.8"
     },
     "conflict": {
-            "drupal/drupal": "*"
+        "drupal/drupal": "*"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -96,7 +98,12 @@
             "composer install --optimize-autoloader --no-dev"
         ],
         "lint": "find web/modules/custom web/themes/custom -name '*.php' -exec php -l {} \\;",
-        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "code-sniff": [
+            "./vendor/bin/phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/modules/custom",
+            "./vendor/bin/phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/themes/custom",
+            "./vendor/bin/phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/modules/custom",
+            "./vendor/bin/phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/themes/custom"
+        ],
         "prepare-for-pantheon": "DrupalProject\\composer\\ScriptHandler::prepareForPantheon",
         "post-install-cmd": [
             "@drupal-scaffold",
@@ -106,43 +113,48 @@
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-create-project-cmd": [
-            "@drupal-scaffold",
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-            "bash scripts/composer/post-create-project.sh"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
     "extra": {
-        "installer-types": ["bower-asset", "npm-asset"],
         "installer-paths": {
-            "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library", "type:bower-asset", "type:npm-asset"],
-            "web/modules/contrib/{$name}": ["type:drupal-module"],
-            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "web/themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/contrib/{$name}": ["type:drupal-drush"]
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ]
         },
         "build-env": {
             "install-cms": [
-                "drush site-install standard --account-mail={account-mail} --account-name={account-name} --account-pass={account-pass} --site-mail={site-mail} --site-name={site-name} --yes",
-                "drush pm-enable config_direct_save simple_block admin_toolbar features --yes",
-                "drush pm-uninstall block_content --yes"
+                "drush site-install standard --account-mail={account-mail} --account-name={account-name} --account-pass={account-pass} --site-mail={site-mail} --site-name={site-name} --yes"
             ],
             "export-configuration": "drush config-export --yes"
         },
         "drupal-scaffold": {
-            "source": "https://raw.githubusercontent.com/pantheon-systems/drops-8-scaffolding/{version}/{path}",
-            "includes": [
-                "sites/default/default.services.pantheon.preproduction.yml",
-                "sites/default/settings.pantheon.php"
+            "allowed-packages": [
+                "pantheon-systems/drupal-integrations"
             ],
-            "excludes": [
-                ".csslintrc",
-                ".editorconfig",
-                ".eslintignore",
-                ".eslintrc.json",
-                ".htaccess",
-                "web.config"
-            ]
+            "locations": {
+                "web-root": "./web"
+            },
+            "file-mapping": {
+                "[project-root]/.editorconfig": false
+            }
         }
     },
     "config": {
@@ -152,6 +164,6 @@
         "platform": {
             "php": "7.4"
         },
-        "process-timeout":0
+        "process-timeout": 0
     }
 }

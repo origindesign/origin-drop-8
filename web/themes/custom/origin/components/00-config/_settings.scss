@@ -6,6 +6,9 @@ $content-width: 700px;
 $admin-bar: 39px;
 $admin-bar-open: 79px;
 
+// Breakpoint will output fallback selectors in this stylesheet
+@include breakpoint-set("no query fallbacks", true);
+
 // Sign posts
 $width-small: 360px;
 $width-medium: 600px;
