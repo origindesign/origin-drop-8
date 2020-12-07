@@ -21,6 +21,7 @@ isotope:
     - core/jquery
     - core/drupal
     - core/jquery.once
+    - origin/forms
 
 ajaxload:
   version: 1.x
