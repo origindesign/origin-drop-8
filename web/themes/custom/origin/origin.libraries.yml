@@ -2,8 +2,7 @@ origin:
   version: 1.x
   css:
     theme:
-      dist/style.css:
-        preprocess: true
+      dist/style.css: {}
   js:
     https://cdn.jsdelivr.net/npm/jquery-inview@1.1.2/jquery.inview.min.js: { type: external, minified: true }
     dist/all.min.js: {}
