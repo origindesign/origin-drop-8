@@ -34,7 +34,6 @@ lazysizes:
   plugins:
     object-fit: object-fit
     parent-fit: parent-fit
-    unveilhooks: unveilhooks
 _core:
   default_config_hash: xyl-p4A82Xm3kNZhEa_8OQtiLdONJ6f1ulqtRZZlEMM
 cssEffect: true

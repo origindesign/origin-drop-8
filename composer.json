@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": ">=7.4",
         "bower-asset/lazysizes": "^5.2",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.0",
@@ -106,7 +106,6 @@
         ],
         "prepare-for-pantheon": "DrupalProject\\composer\\ScriptHandler::prepareForPantheon",
         "post-install-cmd": [
-            "@drupal-scaffold",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-update-cmd": [
@@ -117,6 +116,10 @@
         ]
     },
     "extra": {
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
@@ -153,7 +156,8 @@
                 "web-root": "./web"
             },
             "file-mapping": {
-                "[project-root]/.editorconfig": false
+                "[project-root]/.editorconfig": false,
+                "[web-root]/sites/development.services.yml": false
             }
         }
     },

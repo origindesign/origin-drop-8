@@ -5,9 +5,8 @@ origin:
       dist/style.css:
         preprocess: true
   js:
-    https://cdn.jsdelivr.net/combine/npm/formstone@1.4.6/src/js/core.min.js,npm/formstone@1.4.6/src/js/checkbox.min.js,npm/formstone@1.4.6/src/js/dropdown.min.js,npm/object-fit-images@3.2.3/dist/ofi.min.js,npm/moment@2.24.0/moment.min.js,npm/jquery-inview@1.1.2/jquery.inview.min.js,npm/slick-carousel@1.8.1,npm/formstone@1.4.0/src/js/cookie.min.js: { type: external, minified: true }
-    dist/all.min.js:
-      preprocess: true
+    https://cdn.jsdelivr.net/npm/jquery-inview@1.1.2/jquery.inview.min.js: { type: external, minified: true }
+    dist/all.min.js: {}
   dependencies:
     - core/jquery
     - core/drupal
@@ -28,11 +27,13 @@ isotope:
 ajaxload:
   version: 1.x
   js:
+    https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js: { type: external, minified: true }
     dist/ajaxload.js: { }
   dependencies:
     - core/jquery
     - core/drupal
     - core/jquery.once
+    - origin/forms
 
 smallpipe:
   version: 1.x
@@ -46,7 +47,6 @@ smallpipe:
 events:
   version: 1.x
   js:
-    https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js: { type: external, minified: true }
     dist/events.js: { }
   dependencies:
     - core/jquery
@@ -64,3 +64,23 @@ articles:
     - core/drupal
     - core/jquery.once
     - origin/ajaxload
+
+slick:
+  version: 1.x
+  js:
+    https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1: { type: external, minified: true }
+    dist/slick.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+
+forms:
+  version: 1.x
+  js:
+    https://cdn.jsdelivr.net/combine/npm/formstone@1.4.18-1/src/js/core.min.js,npm/formstone@1.4.18-1/src/js/checkbox.min.js,npm/formstone@1.4.18-1/src/js/dropdown.min.js: { type: external, minified: true }
+    dist/forms.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once

@@ -116,8 +116,8 @@
             let to = date[1].split('-');
 
             // Updates Filters Value on Page
-            fromSelect.val(moment(Date.parse(from[1]+'-'+from[0]+'-'+from[2])).format('MMM D, YYYY'));
-            toSelect.val(moment(Date.parse(to[1]+'-'+to[0]+'-'+to[2])).format('MMM D, YYYY'));
+            fromSelect.val(Date.parse(from[1]+'-'+from[0]+'-'+from[2]).toString('MMM d, yyyy'));
+            toSelect.val(Date.parse(to[1]+'-'+to[0]+'-'+to[2]).toString('MMM d, yyyy'));
         }
 
 
