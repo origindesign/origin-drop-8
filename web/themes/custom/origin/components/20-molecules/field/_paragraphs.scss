@@ -1,7 +1,5 @@
 
 .field--name-field-paragraphs{
-    @include rowMargin();
-    position:relative;
 
     > .field__item{
         @include rowMargin();

@@ -11,11 +11,6 @@
 %}
 
 
-{% if paragraph.bundle == 'media_slideshow' %}
-    {{ attach_library('origin/slick') }}
-{% endif %}
-
-
 {% block paragraph %}
     <div{{ attributes.addClass(classes) }} id="paragraph-{{ paragraph.id() }}">
 

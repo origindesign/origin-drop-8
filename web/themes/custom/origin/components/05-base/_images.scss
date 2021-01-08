@@ -37,9 +37,8 @@ $base-image-padding: 56.25%;
 }
 
 .media .field--name-field-media-image{
-    img{
-        position:absolute;
-    }
+    @include objectFitImage();
+   
     &.focus-top-left{
         img:not(.lazyautosizes),
         img.lazyautosizes.lazyloaded {

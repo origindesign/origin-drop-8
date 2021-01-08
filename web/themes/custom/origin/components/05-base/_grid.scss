@@ -1,21 +1,86 @@
 
 // Global setups
 // ----------------------
-$grid-spacing: 20px;
+$grid-column-gap: 2em;
+$grid-row-gap: 2em;
 
-@mixin global-grid(){
-    @include add-grid(12);
-    @include add-gutter(1);
+.horizontal-center{
+    @include horizontalCenter();
 }
-
-@include global-grid();
-
+.container{
+    @include container();
+}
+.content-container{
+    @include content-container();
+}
 .row{
     @include rowMargin();
+}
+.row-padding{
+    @include rowPadding();
 }
 
 @mixin resetGrid(){
     margin-left:0 !important; margin-right:0 !important; float:none !important; clear:none !important; width:auto !important;
+}
+
+
+// Grid
+// ----------------------
+
+
+
+
+// Flex Columns
+// ----------------------
+@mixin two-col-flex(){
+    
+    @include breakpoint($bp--tablet-portrait){
+        display:flex; flex-wrap:wrap;
+    }
+    
+    > *{
+        width:100%;
+        &:not(:last-child){
+            margin-bottom:$grid-row-gap;
+        }
+        @include breakpoint($bp--tablet-portrait){
+            width:50%;
+            &:last-child,
+            &:nth-last-child(2){
+                margin-bottom:0;
+            }
+        }
+    }
+    
+}
+
+.two-col-flex{
+    @include two-col-flex();
+}
+
+@mixin three-col-flex(){
+    @include two-col-flex();
+    
+    @include breakpoint($bp--tablet-landscape){
+        
+        > *{
+            width:calc(100%/3);
+            
+            &:last-child,
+            &:nth-last-child(2),
+            &:nth-last-child(3){
+                margin-bottom:0;
+            }
+            
+        }
+        
+    }
+    
+}
+
+.three-col-flex{
+    @include three-col-flex();
 }
 
 
@@ -24,7 +89,7 @@ $grid-spacing: 20px;
 @mixin two-col-float(){
     width:100%;
     &:not(:last-child){
-        margin-bottom:$grid-spacing;
+        margin-bottom:$grid-row-gap;
     }
     @include breakpoint($bp--tablet-portrait){
         @include float-span(6);
@@ -80,92 +145,4 @@ $grid-spacing: 20px;
     > *{
         @include three-col-float();
     }
-}
-
-
-// Flex Columns
-// ----------------------
-@mixin two-col-flex(){
-    
-    @include breakpoint($bp--tablet-portrait){
-        display:flex; flex-wrap:wrap;
-    }
-    
-    > *{
-        width:100%;
-        &:not(:last-child){
-            margin-bottom:$grid-spacing;
-        }
-        @include breakpoint($bp--tablet-portrait){
-            width:50%;
-            &:last-child,
-            &:nth-last-child(2){
-                margin-bottom:0;
-            }
-        }
-    }
-    
-}
-
-.two-col-float{
-    @include two-col-flex();
-}
-
-@mixin three-col-flex(){
-    @include two-col-flex();
-
-    @include breakpoint($bp--tablet-landscape){
-    
-        > *{
-            width:calc(100%/3);
-            
-            &:last-child,
-            &:nth-last-child(2),
-            &:nth-last-child(3){
-                margin-bottom:0;
-            }
-            
-        }
-       
-    }
-
-}
-
-.three-col-flex{
-    @include three-col-flex();
-}
-
-
-// Grid Columns
-// ----------------------
-@mixin three-col-grid(){
-
-    > *{
-        margin-bottom:$grid-spacing;
-    
-        @include breakpoint($bp--medium){
-            justify-self:center;
-        }
-        
-    }
-
-    @include breakpoint($bp--medium){
-        display:grid; grid-template-rows:auto; grid-template-columns: repeat(2, 1fr); grid-gap:$grid-spacing;
-    }
-
-    @include breakpoint($bp--tablet-portrait){
-        grid-template-rows:auto; grid-template-columns: repeat(3, 1fr);
-    }
-
-}
-
-.three-col-grid{
-    @include three-col-grid();
-}
-
-@mixin three-col-flex(){
-    > *{
-        margin-bottom:$grid-spacing;
-    }
-
 }

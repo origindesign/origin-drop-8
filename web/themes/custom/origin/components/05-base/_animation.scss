@@ -4,10 +4,8 @@ $transition-time: 0.5;
 $transition-time-slower: 0.8;
 $transition-ease-ui: cubic-bezier(0.645, 0.045, 0.355, 1);
 $transition-ease-soft: ease-in-out;
-//$transition-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
-$menu-transition-offset-horizontal: 120px;
-$ui-transition-offset-horizontal: 20%;
-$transition-offset-vertical: 30px;
+$transition-offset-horizontal: 20%;
+$transition-offset-vertical: 2em;
 $transition-scale: 1.1;
 
 @mixin transitions($what: all, $time: $transition-time-fast, $how: $transition-ease-soft, $delay: 0) {
@@ -25,25 +23,7 @@ $transition-scale: 1.1;
 }
 
 @mixin transitionPageElement($time:$transition-time-slower){
-    @include transitions(all, $time, $transition-ease-soft);
-}
-
-@mixin transitionDelay($amount){
-    @include transitions(all, $transition-time, $transition-ease-ui, #{$transition-time*$amount});
-}
-
-@mixin delayOne(){
-    @include transitionDelay(0.3);
-}
-.delay-one{
-    @include delayOne();
-}
-
-@mixin delayTwo(){
-    @include transitionDelay(0.5);
-}
-.delay-two{
-    @include delayTwo();
+    transition-duration: #{$time}s;
 }
 
 @mixin fadeIn(){
@@ -80,7 +60,7 @@ $transition-scale: 1.1;
 @mixin fadeInFromLeft(){
     @include breakpoint($bp--tablet-portrait){
         @include transitionPageElement();
-        opacity:0; transform:translateX(-#{$ui-transition-offset-horizontal});
+        opacity:0; transform:translateX(-#{$transition-offset-horizontal});
         &.in-view{ opacity:1; transform:none; }
     }
 }
@@ -91,7 +71,7 @@ $transition-scale: 1.1;
 @mixin fadeInFromRight(){
     @include breakpoint($bp--tablet-portrait){
         @include transitionPageElement();
-        opacity:0; transform:translateX(#{$ui-transition-offset-horizontal});
+        opacity:0; transform:translateX(#{$transition-offset-horizontal});
         &.in-view{ opacity:1; transform:none; }
     }
 }

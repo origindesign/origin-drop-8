@@ -1,6 +1,6 @@
 
 //  Google Fonts
-@import url("//fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap");
 
 // ICOMOON
 /*@font-face {
@@ -11,6 +11,5 @@
     src: url('https://s3.amazonaws.com/icomoon.io/42560/-----/icomoon.woff2?nwa800') format('woff2'), url('https://s3.amazonaws.com/icomoon.io/42560/-----/icomoon.woff?nwa800') format('woff');
 }*/
 
-$font--family--regular: "Roboto", sans-serif;
-
-$font--main: $font--family--regular;
+$font--regular: 'Roboto', sans-serif;
+$font--heading: 'Anton', sans-serif;

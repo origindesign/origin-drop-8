@@ -41,20 +41,7 @@
         &:first-child { padding-top: 20px; }
         &:last-child { padding-bottom: 20px; }
     }
-
-
-    /* MULTIPLE */
-    &.fs-dropdown-multiple {
-        border: none;
-        border-radius: 0;
-        select {
-            z-index: -1;
-        }
-        .fs-dropdown-options {
-            width: auto;
-            border: none;
-        }
-    }
+    
 }
 
 
@@ -71,7 +58,7 @@ $checkbox-height: 30px;
     margin-bottom: 0;
     float: none !important;
     line-height: $checkbox-height;
-    font-family: $font--main;
+    font-family: $font--regular;
 }
 .fs-checkbox.fs-light {
 

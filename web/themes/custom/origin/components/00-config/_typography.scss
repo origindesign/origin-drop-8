@@ -1,59 +1,77 @@
 $base-font-size: 16;
-$mobile-font-size: 15;
+$medium-font-size: 15;
+$small-font-size: 14;
 $base-typography-spacing: 1em;
 $base-line-height: 1.8;
 
-@mixin fontsize($fontSize: $base-font-size){
-    font-size: #{$fontSize}px;
-    font-size: #{$fontSize / 10}rem;
+@mixin fontsize($fontsize: $base-font-size){
+    font-size: #{$fontsize}px;
+    font-size: #{$fontsize / 10}rem;
 }
 
 @mixin body-copy() {
-    @include fontsize($mobile-font-size);
-    line-height:$base-line-height; font-family:$font--main;
-    @include breakpoint($bp--tablet-portrait){
+    @include fontsize($small-font-size);
+    line-height:$base-line-height; font-family:$font--regular;
+    @include breakpoint($bp--typography){
+        @include fontsize($medium-font-size);
+    }
+    @include breakpoint($bp--large-layout){
         @include fontsize();
     }
 }
 
+@mixin heading($fontsize: $base-font-size){
+    @include fontsize($fontsize);
+    font-family:$font--heading; font-weight:600; text-transform:uppercase;
+}
+
 @mixin h1() {
-    @include fontsize(25);
+    @include heading(25);
     line-height:1; margin:0;
-    @include breakpoint($bp--tablet-portrait){
+    @include breakpoint($bp--typography){
         @include fontsize(30);
+    }
+    @include breakpoint($bp--large-layout){
+        @include fontsize(40);
     }
 }
 
 @mixin h2() {
-    @include fontsize(24);
+    @include heading(24);
     line-height:1; margin:0 0 $base-typography-spacing 0;
-    @include breakpoint($bp--tablet-portrait){
+    @include breakpoint($bp--typography){
         @include fontsize(28);
+    }
+    @include breakpoint($bp--large-layout){
+        @include fontsize(30);
     }
 }
 
 @mixin h3() {
-    @include fontsize(23);
+    @include heading(23);
     line-height:1; margin:0 0 $base-typography-spacing 0;
-    @include breakpoint($bp--tablet-portrait){
+    @include breakpoint($bp--typography){
         @include fontsize(26);
+    }
+    @include breakpoint($bp--large-layout){
+        @include fontsize(28);
     }
 }
 
 @mixin h4() {
-    @include fontsize(22);
+    @include heading(22);
     line-height:1; margin:0;
-    @include breakpoint($bp--tablet-portrait){
+    @include breakpoint($bp--typography){
         @include fontsize(24);
+    }
+    @include breakpoint($bp--large-layout){
+        @include fontsize(26);
     }
 }
 
 @mixin h5() {
-    @include fontsize(20);
+    @include heading(20);
     line-height:1; margin:0;
-    @include breakpoint($bp--tablet-portrait){
-        @include fontsize(20);
-    }
 }
 
 @mixin h6() {
