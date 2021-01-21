@@ -20,19 +20,15 @@ ckeditor_stylesheets:
   - dist/style.css
 
 # Components
-component-libraries:
-  atoms:
-    paths:
+components:
+  namespaces:
+    atoms:
       - components/10-atoms
-  molecules:
-    paths:
+    molecules:
       - components/20-molecules
-  organisms:
-    paths:
+    organisms:
       - components/30-organisms
-  templates:
-    paths:
+    templates:
       - components/40-templates
-  pages:
-    paths:
+    pages:
       - components/50-pages

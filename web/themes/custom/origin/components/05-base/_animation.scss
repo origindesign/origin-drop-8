@@ -6,7 +6,6 @@ $transition-ease-ui: cubic-bezier(0.645, 0.045, 0.355, 1);
 $transition-ease-soft: ease-in-out;
 $transition-offset-horizontal: 20%;
 $transition-offset-vertical: 2em;
-$transition-scale: 1.1;
 
 @mixin transitions($what: all, $time: $transition-time-fast, $how: $transition-ease-soft, $delay: 0) {
     transition: $what #{$time}s $how #{$delay}s;
