@@ -6,8 +6,8 @@ dependencies:
     - field.field.media.inline_image.field_media_image_1
     - field.field.media.inline_image.field_tags
     - media.type.inline_image
-    - responsive_image.styles.auto
   module:
+    - image
     - lazy
 _core:
   default_config_hash: zeqOd-aJGjaYRTXmg_cQ936d7jbXQMFRzKEdAWCEz2I
@@ -20,10 +20,14 @@ content:
     weight: 1
     label: hidden
     settings:
-      responsive_image_style: auto
       image_link: ''
-    third_party_settings: {  }
-    type: lazy_responsive_image
+      image_style: ''
+    third_party_settings:
+      lazy:
+        placeholder_style: ''
+        lazy_image: '0'
+        data_uri: false
+    type: image
     region: content
 hidden:
   created: true
