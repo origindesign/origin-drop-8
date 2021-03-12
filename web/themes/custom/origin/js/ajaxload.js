@@ -155,8 +155,9 @@
             data: $params,
             success: function(result) {
 
+                let html = $(result).find('#block-origin-content').html();
                 let wrapper = $( "<div/>", { 'class': 'wrapper'});
-                wrapper.html(result);
+                wrapper.html('<div class="block block-system block-system-main-block">' + html + '</div>');
                 $container.html(wrapper);
                 $container.addClass('loaded');
                 Drupal.attachBehaviors();
