@@ -1,10 +1,97 @@
 
-.visually-hidden{
-    @include visuallyHidden();
-}
+// Display
+// -----------------------------------
 .clearfix {
     @include clearfix();
 }
-.relative{
-    position: relative;
+.visually-hidden{
+    @include visuallyHidden();
 }
+.reset{
+    @include reset();
+    ul{
+        @include reset();
+    }
+}
+.cover{
+    @include cover();
+}
+.pseudo{
+    position: relative;
+    &:before,
+    &:after{
+        @include pseudo();
+        @include transitions();
+    }
+}
+.display{
+    &-none{
+        display: none;
+    }
+    &-block{
+        display: block;
+    }
+}
+.position{
+    &-relative{
+        position: relative;
+    }
+    &-absolute{
+        position: absolute; width: 100%;
+    }
+}
+.z-index{
+    &-20{
+        z-index: 20;
+    }
+}
+
+
+// Flex / Grid
+// -----------------------------------
+.display{
+    &-flex{
+        display: flex;
+    }
+    &-grid{
+        display: grid;
+    }
+}
+
+
+// Fonts
+// -----------------------------------
+.text{
+    &-color{
+        &-primary{
+            color: $color--primary;
+        }
+    }
+}
+.font{
+    &-weight-bold{
+        font-weight: bold;
+    }
+}
+
+// Margins / Padding
+// -----------------------------------
+.padding{
+    &-base{
+        padding: 2em;
+    }
+}
+
+.margin{
+    &-base{
+        margin-top: $base-typography-spacing;
+    }
+}
+
+
+// Backgrounds
+// -----------------------------------
+
+
+// Border
+// -----------------------------------

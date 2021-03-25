@@ -26,9 +26,7 @@ content:
       image_link: ''
     third_party_settings:
       lazy:
-        placeholder_style: ''
         lazy_image: '0'
-        data_uri: false
     type: responsive_image
     region: content
 hidden:

@@ -6,12 +6,12 @@
 
         $('body', context).once('smallPipe').each(function () {
 
-            $(".ajax-block").each( function(){
+            $(".ajax-block").each(function(){
 
                 let $that = $(this);
                 let $ajaxUrl = $that.data('ajax-url');
                 let $uid = (new Date().getTime()).toString(36);
-                let $newUrl = $ajaxUrl+"/"+$uid;
+                let $newUrl = $ajaxUrl + "/" + $uid;
                 $that.addClass('loading');
 
                 Drupal.behaviors.smallPipe.xhr = $.ajax({

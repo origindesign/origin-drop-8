@@ -1,0 +1,48 @@
+name: [jobcode]
+recipe: pantheon
+config:
+  framework: drupal8
+  site: [pantheon-machine-name]
+  id: [pantheon-id]
+  #edge: false
+  #cache: false
+services:
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+  node:
+    type: node:10
+    globals:
+      gulp-cli: latest
+      yarn: latest
+proxy:
+  pma:
+    - pma-[jobcode].lndo.site
+tooling:
+  push:
+    description: Push only database to dev
+    options:
+      code:
+        default: none
+      files:
+        default: none
+      database:
+        default: dev
+  pull:
+    description: Pull only database
+    options:
+      code:
+        default: none
+      files:
+        default: none
+      database:
+        default: live
+  npm:
+    service: node
+  node:
+    service: node
+  gulp:
+    service: node
+  yarn:
+    service: node

@@ -65,6 +65,11 @@ module:
   redis: 0
   responsive_image: 0
   role_delegation: 0
+  schema_article: 0
+  schema_metatag: 0
+  schema_organization: 0
+  schema_web_page: 0
+  schema_web_site: 0
   search: 0
   serialization: 0
   shortcut: 0

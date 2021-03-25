@@ -12,7 +12,7 @@
             let _obj = Drupal.behaviors.articles;
             let $ajaxLoad = Drupal.behaviors.ajaxListLoading;
 
-            _obj.category = $( ".filterform .category" );
+            _obj.category = $(".filterform .category");
 
             //  Trigger the display of the list on filter change
             $(".filter-list").on("change", function() {
@@ -34,9 +34,9 @@
                 }
 
                 // Animate and reload list
-                let top = $('.filter-ajax').offset().top-200;
+                let top = $('.filter-ajax').offset().top - 200;
                 $('html, body').animate(
-                    {scrollTop: top}, '500', function() {
+                    { scrollTop: top }, '500', function() {
                         $ajaxLoad.displayList($ajaxLoad.ajaxContainer, $ajaxLoad.ajaxPath, params);
                     }
                 );
@@ -59,11 +59,11 @@
 
 
         if(category !== 'all'){
-            category = 'field_category--'+category.replace('.term-','');
+            category = 'field_category--' + category.replace('.term-', '');
         }
 
-        params = '{"content_type":"article","category":"'+category+'","paged":"1-10--restricted-5","sort":"created-DESC"}';
-console.log(params);
+        params = '{"content_type":"article","category":"' + category + '","paged":"1-10--restricted-5","sort":"created-DESC"}';
+        // console.log(params);
 
         // Abort any possible current ajax call
         $ajaxLoad.xhr.abort();
@@ -72,7 +72,7 @@ console.log(params);
         $ajaxLoad.displayList($ajaxLoad.ajaxContainer, $ajaxLoad.ajaxPath, $.parseJSON(params));
 
         // Set history state
-        window.history.pushState({params:params},null,window.location);
+        window.history.pushState({ params: params }, null, window.location);
 
     };
 

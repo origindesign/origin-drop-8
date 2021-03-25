@@ -6,11 +6,11 @@ alter_tag:
   img: img
   iframe: iframe
 formatters:
-  lazy_image: lazy_image
   lazy_responsive_image: lazy_responsive_image
+  lazy_image: '0'
 skipClass: no-lazy
 disabled_paths: /rss.xml
-placeholderSrc: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
+placeholderSrc: ''
 preferNative: false
 lazysizes:
   lazyClass: lazyload
@@ -32,8 +32,9 @@ lazysizes:
   ricTimeout: 0
   throttleDelay: 125
   plugins:
+    aspectratio: aspectratio
     object-fit: object-fit
     parent-fit: parent-fit
+    unveilhooks: unveilhooks
 _core:
   default_config_hash: xyl-p4A82Xm3kNZhEa_8OQtiLdONJ6f1ulqtRZZlEMM
-cssEffect: true

@@ -11,7 +11,7 @@
     Drupal.behaviors.listing.selectFilter = Drupal.behaviors.listing.isoContainer.find(".filter-isotope select"); // When filters are select dropdown
 
 
-    Drupal.behaviors.listing.attach  = function (context) {
+    Drupal.behaviors.listing.attach = function (context) {
 
         let _obj = Drupal.behaviors.listing;
 
@@ -44,10 +44,10 @@
                     let filter = that.val();
                     let filterGroup = that.attr('data-filter-group');
 
-                    if ( filter !== 'all' ){
-                        _obj.filterArr[ filterGroup ] = filter;
+                    if (filter !== 'all'){
+                        _obj.filterArr[filterGroup] = filter;
                     }else{
-                        delete _obj.filterArr[ filterGroup ];
+                        delete _obj.filterArr[filterGroup];
                     }
 
                     _obj.onChangeFilters();
@@ -56,7 +56,7 @@
 
 
                 // Click on filter link on isotope
-                _obj.linkFilter.on( 'click', function(event) {
+                _obj.linkFilter.on('click', function(event) {
 
                     event.preventDefault();
                     event.stopPropagation();
@@ -67,10 +67,10 @@
 
                     that.addClass("active").parent('li').siblings().find('a').removeClass('active');
 
-                    if ( filter !== 'all' ){
-                        _obj.filterArr[ filterGroup ] = filter;
+                    if (filter !== 'all'){
+                        _obj.filterArr[filterGroup] = filter;
                     }else{
-                        delete _obj.filterArr[ filterGroup ];
+                        delete _obj.filterArr[filterGroup];
                     }
 
                     _obj.onChangeFilters();
@@ -115,9 +115,9 @@
         let _obj = Drupal.behaviors.listing;
 
         // Set Hash that will trigger updateList method
-        window.location.hash = _obj.createHashFilters( _obj.filterArr );
+        window.location.hash = _obj.createHashFilters(_obj.filterArr);
 
-        //Drupal.attachBehaviors();
+        // Drupal.attachBehaviors();
 
     };
 
@@ -127,16 +127,13 @@
     Drupal.behaviors.listing.filterList = function(){
 
         let _obj = Drupal.behaviors.listing;
-        let filterValue = _obj.concatValues( _obj.filterArr );
+        let filterValue = _obj.concatValues(_obj.filterArr);
 
         // Update Isotope
-        _obj.isotope.isotope({ filter: filterValue })
-            .on('layoutComplete', function(){
-                //Drupal.blazy.init.revalidate();
-            });
+        _obj.isotope.isotope({ filter: filterValue });
 
         // No results
-        if ( !_obj.isotope.data('isotope').filteredItems.length ) {
+        if (!_obj.isotope.data('isotope').filteredItems.length) {
             $('.isoGrid .no-results').fadeIn();
         }else{
             $('.isoGrid .no-results').hide();
@@ -161,10 +158,10 @@
                 let filterItem = $('.link-filter[data-filter-group="' + group + '"][data-filter="' + term + '"]');
                 let filterSelect = $('.filter-isotope .filter-list[data-filter-group="' + group + '"]');
 
-                if( filterItem.length > 0 ){
+                if(filterItem.length > 0){
                     filterItem.click();
                 }
-                if( filterSelect.length > 0 ) {
+                if(filterSelect.length > 0) {
                     filterSelect.val(term).change().blur().dropdown("update");
                 }
 
@@ -197,22 +194,22 @@
 
 
 
-    Drupal.behaviors.listing.concatValues = function( obj ){
+    Drupal.behaviors.listing.concatValues = function(obj){
         let result = '';
         Object.keys(obj).forEach(function(prop) {
-            result += obj[ prop ];
+            result += obj[prop];
         });
         return result;
     };
 
 
-    Drupal.behaviors.listing.createHashFilters = function( obj ){
+    Drupal.behaviors.listing.createHashFilters = function(obj){
 
         let result = '#/';
         let size = Object.keys(obj).length;
 
         if (size !== 0){
-            result += $.param( obj );
+            result += $.param(obj);
         }else{
             result += 'all';
         }

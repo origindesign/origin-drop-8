@@ -11,7 +11,7 @@
         $("input[type=checkbox], input[type=radio]").checkbox();
         $("select:not([class^='ui'])").dropdown();
         $('div.webform-document-file').removeAttr('id');
-        $('.form-type-date input').attr('readonly','readonly');
+        $('.form-type-date input').attr('readonly', 'readonly');
 
     };
 

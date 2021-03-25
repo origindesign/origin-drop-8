@@ -18,8 +18,8 @@
         "Modernizr": true,
         "CKEDITOR": true,
         "TweenMax": true,
-        "objectFitImages": true,
-        "moment": true
+        "inView": true,
+        "ScrollMagic": true
     },
     "rules": {
         "no-console": 0,
@@ -53,6 +53,12 @@
         "brace-style": [0],
         "prefer-template": [0],
         "operator-linebreak": [0],
-        "comma-dangle": [0]
+        "comma-dangle": [0],
+        "operator-assignment": [0],
+        "linebreak-style": [0],
+        "keyword-spacing": [0],
+        "space-before-blocks": [0],
+        "space-before-function-paren": [0],
+        "newline-per-chained-call": [0]
     }
 }

@@ -1,0 +1,12 @@
+uuid: 0a81a7ec-d2d3-4a29-9fab-4266d6fc77a7
+langcode: en
+status: true
+dependencies: {  }
+id: node__lodging
+label: 'Content: Lodging'
+tags:
+  schema_web_page_description: '[node:summary]'
+  schema_web_page_id: '[current-page:url]/#webpage'
+  schema_web_page_in_language: en-US
+  schema_web_page_publisher: 'a:2:{s:5:"@type";s:12:"Organization";s:3:"@id";s:23:"[site:url]#organization";}'
+  schema_web_page_type: ItemPage

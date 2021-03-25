@@ -1,0 +1,12 @@
+uuid: 46a03d64-9d59-43e5-b4e4-7f2f8b5ae120
+langcode: en
+status: true
+dependencies: {  }
+id: node__event
+label: 'Content: Event'
+tags:
+  schema_web_page_description: '[node:summary]'
+  schema_web_page_id: '[current-page:url]#webpage'
+  schema_web_page_in_language: en-US
+  schema_web_page_publisher: 'a:2:{s:5:"@type";s:12:"Organization";s:3:"@id";s:23:"[site:url]#organization";}'
+  schema_web_page_type: ItemPage

@@ -99,6 +99,85 @@ function origin_extend_node_presave(Node $node){
 
 
 /**
+ * Implements hook_token_info().
+ * Setup tokens to be used in Schema
+ */
+function origin_extend_token_info() {
+  $type = [
+    'name' => t('Schema'),
+    'description' => t('Tokens for SEO Schema'),
+  ];
+  $schema = [
+    'logo' => ['name' => t("Logo"), 'description' => t('URL to the sites logo')],
+    'phone' => ['name' => t("Phone"), 'description' => t('Phone number')],
+    'social' => ['name' => t("Social"), 'description' => t('Social URLs')],
+    'street_address' => ['name' => t("Street address"), 'description' => t('Street address')],
+    'city' => ['name' => t("City"), 'description' => t('City')],
+    'region' => ['name' => t("Region"), 'description' => t('Region')],
+    'postcode' => ['name' => t("Postcode"), 'description' => t('Postcode')],
+    'lat' => ['name' => t("Lat"), 'description' => t('Geolocation: Lat')],
+    'lng' => ['name' => t("Lng"), 'description' => t('Geolocation: Lng')],
+  ];
+  return [
+    'types' => ['schema' => $type],
+    'tokens' => ['schema' => $schema],
+  ];
+}
+
+
+
+/**
+ * Implements hook_tokens().
+ * Return token values based on active theme
+ */
+function origin_extend_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  // Get theme
+  $config = \Drupal::config('system.theme');
+  $theme = $config->get('default');
+  $base_theme_path = drupal_get_path('theme', $theme);
+
+  $logo = $base_theme_path.'/logo.svg';
+  $phone = '';
+  $social = '';
+  $streetAddress = '';
+  $city = '';
+  $region = '';
+  $postcode = '';
+  $lat = '';
+  $lng = '';
+
+  if ($type == 'schema') {
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'logo':
+          $replacements[$original] = $logo; break;
+        case 'phone':
+          $replacements[$original] = $phone; break;
+        case 'social':
+          $replacements[$original] = $social; break;
+        case 'street_address':
+          $replacements[$original] = $streetAddress; break;
+        case 'city':
+          $replacements[$original] = $city; break;
+        case 'region':
+          $replacements[$original] = $region; break;
+        case 'postcode':
+          $replacements[$original] = $postcode; break;
+        case 'lat':
+          $replacements[$original] = $lat; break;
+        case 'lng':
+          $replacements[$original] = $lng; break;
+      }
+    }
+  }
+  return $replacements;
+}
+
+
+
+/**
  * Add css to admin pages to format Paragraphs fields
  * @param array $attachments
  *

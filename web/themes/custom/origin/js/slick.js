@@ -9,7 +9,7 @@
 
         $('body').once('slick').each(function () {
 
-            $('.paragraph--type--media-slideshow').each( function(){
+            $('.paragraph--type--media-slideshow').each(function(){
 
                 let $this = $(this);
                 let slider = $this.find('.field--name-field-medias');
@@ -25,7 +25,7 @@
                             total.text(slick.slideCount);
                         })
                         .on('afterChange', function(event, slick, currentSlide){
-                            current.text(currentSlide+1);
+                            current.text(currentSlide + 1);
                         })
                         .slick({
                             adaptiveHeight: true,

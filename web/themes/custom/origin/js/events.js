@@ -14,9 +14,9 @@
             let _obj = Drupal.behaviors.events;
             let $ajaxLoad = Drupal.behaviors.ajaxListLoading;
 
-            _obj.from = $( ".filterform .from-date" );
-            _obj.to = $( ".filterform .to-date" );
-            _obj.category = $( ".filterform .category" );
+            _obj.from = $(".filterform .from-date");
+            _obj.to = $(".filterform .to-date");
+            _obj.category = $(".filterform .category");
 
             //  Trigger the display of the list on filter change
             $(".filter-list").on("change", function() {
@@ -36,8 +36,8 @@
                 showAnim: "fadeIn",
                 yearRange: "c:c+1",
                 numberOfMonths: noMonths,
-                onSelect: function( selectedDate ) {
-                    _obj.to.datepicker( "option", "minDate", selectedDate );
+                onSelect: function(selectedDate) {
+                    _obj.to.datepicker("option", "minDate", selectedDate);
                     $(this).change();
                 }
             });
@@ -66,9 +66,9 @@
                 }
 
                 // Animate and reload list
-                let top = $('.filter-ajax').offset().top-200;
+                let top = $('.filter-ajax').offset().top - 200;
                 $('html, body').animate(
-                    {scrollTop: top}, '500', function() {
+                    { scrollTop: top }, '500', function() {
                         $ajaxLoad.displayList($ajaxLoad.ajaxContainer, $ajaxLoad.ajaxPath, params);
                     }
                 );
@@ -93,10 +93,10 @@
 
 
         if(category !== 'all'){
-            category = 'field_category--'+category.replace('.term-','');
+            category = 'field_category--' + category.replace('.term-','');
         }
 
-        params = '{"content_type":"event","category":"'+category+'","date":"field_date_range--'+from+','+to+'","sort":"field_date_range-ASC"}';
+        params = '{"content_type":"event","category":"' + category + '","date":"field_date_range--' + from + ',' + to + '","sort":"field_date_range-ASC"}';
 
         // Abort any possible current ajax call
         $ajaxLoad.xhr.abort();
@@ -105,7 +105,7 @@
         $ajaxLoad.displayList($ajaxLoad.ajaxContainer, $ajaxLoad.ajaxPath, $.parseJSON(params));
 
         // Set history state
-        window.history.pushState({params:params},null,window.location);
+        window.history.pushState({ params: params }, null, window.location);
 
     };
 

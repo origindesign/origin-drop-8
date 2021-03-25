@@ -43,6 +43,7 @@
         "drupal/redirect": "^1.2",
         "drupal/redis": "^1.0",
         "drupal/role_delegation": "^1.0",
+        "drupal/schema_metatag": "^2.1",
         "drupal/simple_block": "^1.0@beta",
         "drupal/sitemap": "^2.0",
         "drupal/smart_trim": "^1.1",
@@ -158,6 +159,11 @@
             "file-mapping": {
                 "[project-root]/.editorconfig": false,
                 "[web-root]/sites/development.services.yml": false
+            }
+        },
+        "patches": {
+            "drupal/schema_metatag": {
+                "Illegal offset type in Drupal\\schema_metatag\\SchemaMetatagClient->objectInfo()": "https://www.drupal.org/files/issues/2020-09-30/schema_metatag-undefined_index_objectinfo-3174103-2.patch"
             }
         }
     },

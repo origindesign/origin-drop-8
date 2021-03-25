@@ -1,6 +1,5 @@
 (function resizerScript($, Drupal) {
 
-
     'use strict';
 
     // Windows Resize Behavior
@@ -28,12 +27,12 @@
             let $obj = Drupal.behaviors.resizer;
 
             // Store previous status of device
-            let $previousIsMobile =  $obj.isMobile;
-            let $previousIsTabletLandscape =  $obj.isTabletLandscape;
-            let $previousIsDesktop =  $obj.isDesktop;
+            let $previousIsMobile = $obj.isMobile;
+            let $previousIsTabletLandscape = $obj.isTabletLandscape;
+            let $previousIsDesktop = $obj.isDesktop;
 
             // If Mobile
-            if ( $(".hamburger", context).css("display") === 'block') {
+            if ($(".hamburger", context).css("display") === 'block') {
                 $obj.isMobile = true;
                 $obj.isTabletPortrait = false;
                 $obj.isTabletLandscape = false;
