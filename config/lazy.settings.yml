@@ -10,7 +10,7 @@ formatters:
   lazy_image: '0'
 skipClass: no-lazy
 disabled_paths: /rss.xml
-placeholderSrc: ''
+placeholderSrc: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
 preferNative: false
 lazysizes:
   lazyClass: lazyload
@@ -38,3 +38,4 @@ lazysizes:
     unveilhooks: unveilhooks
 _core:
   default_config_hash: xyl-p4A82Xm3kNZhEa_8OQtiLdONJ6f1ulqtRZZlEMM
+cssEffect: true

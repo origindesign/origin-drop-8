@@ -4,9 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_library
+    - field.field.media.remote_video.field_media_image
     - field.field.media.remote_video.field_media_oembed_video
     - field.field.media.remote_video.field_tags
+    - image.style.thumbnail
     - media.type.remote_video
+  module:
+    - image
 _core:
   default_config_hash: TBgPW-uaXRaICBwLaVc16rXpRiLSknDIdF9q0XL7qso
 id: media.remote_video.media_library
@@ -14,9 +18,17 @@ targetEntityType: media
 bundle: remote_video
 mode: media_library
 content:
+  field_media_image:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
   field_media_oembed_video:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
@@ -24,7 +36,7 @@ content:
     third_party_settings: {  }
   field_tags:
     type: entity_reference_autocomplete_tags
-    weight: 1
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS

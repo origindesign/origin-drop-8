@@ -83,3 +83,12 @@ forms:
     - core/drupal
     - core/jquery.once
     - jquery_ui_datepicker/datepicker
+
+video:
+  version: 1.x
+  js:
+    dist/video.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once

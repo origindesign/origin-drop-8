@@ -63,7 +63,7 @@ From the root of the project rename:
 .lando.txt to .lando.yml
 ````
 Update .lando.yml config
-- Replace [jobcode] with the 3 letter Origin job code for the project, this will determine your lando sites local URL: https://[jobcode].lndo.site
+- Replace [jobcode] (lines 1 and 21) with the 3 letter Origin job code for the project, this will determine your lando sites local URL: https://[jobcode].lndo.site
 - Replace [pantheon-machine-name] with the Pantheon machine name for your site
 - Replace [pantheon-id] with the numeric Pantheon ID. This can be retrieved from the dashboard URL
 
@@ -91,7 +91,7 @@ git push -u origin master
 lando pull --database=dev
 ```
 - This way, the local and the dev site are using the same UUID so we can use config manager
-- If drush fails because of permission errors, skip this and continue through the next steps to push your first commit, let circle build a new version of Drush to push to Pantheon, then revisit this setup after.
+- If drush fails because of permission errors, skip this and continue through the next steps to push your first commit, let circle build a new version of Drush to push to Pantheon, then revisit this step after.
 
 ## 5. Configuring Circle CI
 
