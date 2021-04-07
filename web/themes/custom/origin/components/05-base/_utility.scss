@@ -24,6 +24,9 @@
         @include transitions();
     }
 }
+.horizontal-center{
+    @include horizontalCenter();
+}
 .display{
     &-none{
         display: none;

@@ -15,7 +15,7 @@
     {{ title_suffix }}
 
     {% if content.field_main_image|render %}
-        <a href="{{ url }}" class="image">
+        <a href="{{ url }}" class="image" tabindex="-1" aria-hidden="true">
             {{ content.field_main_image }}
         </a>
     {% else %}

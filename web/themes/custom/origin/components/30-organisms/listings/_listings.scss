@@ -55,8 +55,13 @@
         }
 
         .iso-gutter {
-            display: block;
-            width: 0;
+            display: block; width: 0;
+            @include breakpoint($bp--tablet-portrait){
+                width: 2%;
+            }
+            @include breakpoint($bp--large-layout){
+                width: 1%;
+            }
         }
 
     }

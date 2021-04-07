@@ -1,12 +1,7 @@
 
 // Global setups
 // ----------------------
-$grid-column-gap: 2em;
-$grid-row-gap: 2em;
 
-.horizontal-center{
-    @include horizontalCenter();
-}
 .container{
     @include container();
 }
@@ -18,10 +13,6 @@ $grid-row-gap: 2em;
 }
 .row-padding{
     @include rowPadding();
-}
-
-@mixin resetGrid(){
-    margin-left:0 !important; margin-right:0 !important; float:none !important; clear:none !important; width:auto !important;
 }
 
 
@@ -42,7 +33,7 @@ $grid-row-gap: 2em;
     > *{
         width:100%;
         &:not(:last-child){
-            margin-bottom:$grid-row-gap;
+            margin-bottom:$row-gap;
         }
         @include breakpoint($bp--tablet-portrait){
             width:50%;
@@ -86,50 +77,37 @@ $grid-row-gap: 2em;
 
 // Float Columns
 // ----------------------
-@mixin two-col-float(){
+@mixin three-col-float(){
     width:100%;
     &:not(:last-child){
-        margin-bottom:$grid-row-gap;
+        margin-bottom:$row-gap;
     }
+
     @include breakpoint($bp--tablet-portrait){
-        @include float-span(6);
+        float: left; width: 49%;
         &:nth-child(odd){
             clear:both;
         }
         &:nth-child(even){
-            @include float-span(6,'last');
-            clear:none;
+            float: right; clear:none;
         }
         &:last-child,
         &:nth-last-child(2){
             margin-bottom:0;
         }
     }
-}
 
-.two-col-float{
-    @include clearfix();
-    > *{
-        @include two-col-float();
-    }
-}
-
-@mixin three-col-float(){
-    
-    @include two-col-float();
-    
     @include breakpoint($bp--tablet-landscape){
-        
+        width: 32.666%;
         &:nth-child(3n-2){
             clear:both !important;
         }
         &:nth-child(3n-2),
         &:nth-child(3n-1){
-            @include float-span(4);
+            float: left;
         }
         &:nth-child(3n){
-            @include float-span(4,last);
-            clear:none !important;
+            float: right; clear:none !important;
         }
         &:last-child,
         &:nth-last-child(2),
@@ -137,7 +115,7 @@ $grid-row-gap: 2em;
             margin-bottom:0;
         }
     }
-    
+
 }
 
 .three-col-float{

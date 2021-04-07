@@ -1,9 +1,9 @@
 {% set extraClasses = [] %}
 
-{% if content.field_category %}
+{% if content.field_category|render %}
     {% set extraClasses = extraClasses|merge(termsToClasses(content.field_category|field_value)) %}
 {% endif %}
-{% if content.field_category_2 %}
+{% if content.field_category_2|render %}
     {% set extraClasses = extraClasses|merge(termsToClasses(content.field_category_2|field_value)) %}
 {% endif %}
 
@@ -24,7 +24,7 @@
     {{ title_suffix }}
 
     {% if content.field_main_image|render %}
-        <a href="{{ url }}" class="image">
+        <a href="{{ url }}" class="image" tabindex="-1" aria-hidden="true">
             {{ content.field_main_image }}
         </a>
     {% else %}

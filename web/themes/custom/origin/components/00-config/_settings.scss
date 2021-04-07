@@ -38,8 +38,10 @@ $bp--condensed-layout: 1px $width-condensed-layout;
 $bp--large-layout: $bp--tablet-landscape;
 
 // Basic layout
-$row-margin-small: 40px;
-$row-margin: 70px;
+$row-margin-small: 4em;
+$row-margin: 7em;
+$column-gap: 2em;
+$row-gap: 2em;
 
 // Interface
 $outline-offset: 2px;
