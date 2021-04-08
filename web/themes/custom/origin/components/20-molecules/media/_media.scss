@@ -6,7 +6,7 @@
 .file--application-pdf{
     padding-left:0; background:none;
     a{
-        @include fonticon('\e908',20px,$color--primary,50%,0,auto,auto,false,true);
+        @include fonticon('\e908',20px,$color--text,50%,0,auto,auto,false,true);
         padding-left:30px; display:inline-block;
     }
 }
@@ -24,11 +24,6 @@
 }
 
 .media {
-    position: relative;
-
-    &:not(.media--type-file){
-        overflow:hidden; width:100%;
-    }
 
     &.media--type-inline-image{
         position:static; width:auto; height:auto;

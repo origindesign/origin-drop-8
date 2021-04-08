@@ -379,6 +379,7 @@ function origin_preprocess_field(&$variables){
 
           if( $all_day === '1' ){
             $variables['hide_time'] = true;
+            $variables['items'][$key]['content_override'] = 'All Day';
           }
 
         }

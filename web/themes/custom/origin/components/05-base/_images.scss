@@ -13,6 +13,12 @@ $base-image-padding: 56.25%;
     }
 }
 
+@mixin object-position($position: 50% 50%) {
+    -o-object-position: $position !important;
+    object-position: $position !important;
+    font-family: "object-position: #{$position}" !important;
+}
+
 @mixin objectFitImage($padding:$base-image-padding) {
     position: relative;
     display: block;
@@ -37,51 +43,38 @@ $base-image-padding: 56.25%;
 }
 
 .media .field--name-field-media-image{
-    @include objectFitImage();
-   
+    img{
+        position:absolute;
+        &:not(.lazyautosizes),
+        &.lazyautosizes.lazyloaded {
+            @include object-fit(cover, 50% 50%); }
+
+    }
     &.focus-top-left{
-        img:not(.lazyautosizes),
-        img.lazyautosizes.lazyloaded {
-            @include object-fit(cover, 0 0); }
+        img{ @include object-position(0 0); }
     }
     &.focus-top-center{
-        img:not(.lazyautosizes),
-        img.lazyautosizes.lazyloaded {
-            @include object-fit(cover, 50% 0); }
+        img{ @include object-position(50% 0); }
     }
     &.focus-top-right{
-        img:not(.lazyautosizes),
-        img.lazyautosizes.lazyloaded {
-            @include object-fit(cover, 100% 0); }
+        img{ @include object-position(100% 0); }
     }
     &.focus-middle-left{
-        img:not(.lazyautosizes),
-        img.lazyautosizes.lazyloaded {
-            @include object-fit(cover, 0 50%); }
+        img{ @include object-position(0 50%); }
     }
     &.focus-middle-center{
-        img:not(.lazyautosizes),
-        img.lazyautosizes.lazyloaded {
-            @include object-fit(cover, 50% 50%); }
+        img{ @include object-position(50% 50%); }
     }
     &.focus-middle-right{
-        img:not(.lazyautosizes),
-        img.lazyautosizes.lazyloaded {
-            @include object-fit(cover, 100% 50%); }
+        img{ @include object-position(100% 50%); }
     }
     &.focus-bottom-left{
-        img:not(.lazyautosizes),
-        img.lazyautosizes.lazyloaded {
-            @include object-fit(cover, 0 100%); }
+        img{ @include object-position(0 100%); }
     }
     &.focus-bottom-center{
-        img:not(.lazyautosizes),
-        img.lazyautosizes.lazyloaded {
-            @include object-fit(cover, 50% 100%); }
+        img{ @include object-position(50% 100%); }
     }
     &.focus-bottom-right{
-        img:not(.lazyautosizes),
-        img.lazyautosizes.lazyloaded {
-            @include object-fit(cover, 100% 100%); }
+        img{ @include object-position(100% 100%); }
     }
 }
