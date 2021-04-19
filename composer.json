@@ -22,7 +22,7 @@
         "drupal/admin_toolbar": "^2.0",
         "drupal/advagg": "^4.0",
         "drupal/components": "^2.0",
-        "drupal/config_direct_save": "^1.0",
+        "drupal/config_direct_save": "^2.1",
         "drupal/core": "^8.7",
         "drupal/core-composer-scaffold": "^8.8.1",
         "drupal/core-recommended": "^8.8",

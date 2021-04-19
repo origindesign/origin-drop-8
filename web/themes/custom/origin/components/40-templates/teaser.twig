@@ -35,7 +35,7 @@
     <div class="copy">
 
         <h3>
-            <a href="{{ url }}">{{ label }}</a>
+            <a href="{{ url }}">{{ label|field_value }}</a>
         </h3>
 
         {% if type == "event" %}
