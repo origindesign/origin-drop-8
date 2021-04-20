@@ -35,6 +35,7 @@
     }
 
     .field--name-field-media-image{
+        @include objectFitImage();
 
         .media{
             background:$color--background;
