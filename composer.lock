@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "408be6c68e8053ee3d159000f9845dff",
+    "content-hash": "e4a6e49e8e92b8761e13ee002bdc9ee5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1429,50 +1429,6 @@
             "homepage": "https://drupal.org/project/components",
             "support": {
                 "source": "https://git.drupalcode.org/project/components"
-            }
-        },
-        {
-            "name": "drupal/config_direct_save",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/config_direct_save.git",
-                "reference": "8.x-2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_direct_save-8.x-2.1.zip",
-                "reference": "8.x-2.1",
-                "shasum": "24a3668db87b1bf001b038614dc3865d2ec5e374"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-2.1",
-                    "datestamp": "1618700636",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "matio89",
-                    "homepage": "https://www.drupal.org/user/2320090"
-                }
-            ],
-            "description": "This module allow you to export configuration after changes",
-            "homepage": "https://www.drupal.org/project/config_direct_save",
-            "support": {
-                "source": "https://git.drupalcode.org/project/config_direct_save"
             }
         },
         {
