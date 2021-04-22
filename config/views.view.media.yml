@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - image.style.thumbnail
+    - taxonomy.vocabulary.tags
   module:
     - image
     - media
+    - taxonomy
     - user
 _core:
   default_config_hash: Ii7mASsn7POL2wtBz-6KQeNw3TiBRbjCEAPRxgcafWY
@@ -565,6 +567,54 @@ display:
           entity_type: media
           plugin_id: entity_operations
       filters:
+        status:
+          id: status
+          table: media_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'True'
+            description: null
+            use_operator: false
+            operator: status_op
+            identifier: status
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: true
+          group_info:
+            label: 'Published status'
+            description: ''
+            identifier: status
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Published
+                operator: '='
+                value: '1'
+              2:
+                title: Unpublished
+                operator: '='
+                value: '0'
+          plugin_id: boolean
+          entity_type: media
+          entity_field: status
         name:
           id: name
           table: media_field_data
@@ -650,72 +700,26 @@ display:
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
-        status:
-          id: status
-          table: media_field_data
-          field: status
+        field_tags_target_id:
+          id: field_tags_target_id
+          table: media__field_tags
+          field: field_tags_target_id
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: true
-          expose:
-            operator_id: ''
-            label: 'True'
-            description: null
-            use_operator: false
-            operator: status_op
-            identifier: status
-            required: true
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: true
-          group_info:
-            label: 'Published status'
-            description: ''
-            identifier: status
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: Published
-                operator: '='
-                value: '1'
-              2:
-                title: Unpublished
-                operator: '='
-                value: '0'
-          plugin_id: boolean
-          entity_type: media
-          entity_field: status
-        langcode:
-          id: langcode
-          table: media_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
+          operator: or
           value: {  }
           group: 1
           exposed: true
           expose:
-            operator_id: langcode_op
-            label: Language
+            operator_id: field_tags_target_id_op
+            label: Tags
             description: ''
             use_operator: false
-            operator: langcode_op
-            identifier: langcode
+            operator: field_tags_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_tags_target_id
             required: false
             remember: false
             multiple: false
@@ -723,9 +727,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+              site_admin: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -738,48 +741,13 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: langcode
-          plugin_id: language
-        status_extra:
-          group_info:
-            widget: select
-            group_items: {  }
-            multiple: false
-            description: ''
-            default_group_multiple: {  }
-            default_group: All
-            label: ''
-            identifier: ''
-            optional: true
-            remember: false
-          group: 1
-          relationship: none
-          exposed: false
-          expose:
-            use_operator: false
-            remember: false
-            operator_id: ''
-            multiple: false
-            description: ''
-            required: false
-            label: ''
-            operator_limit_selection: false
-            operator: ''
-            identifier: ''
-            operator_list: {  }
-            remember_roles:
-              authenticated: authenticated
-          entity_type: media
-          value: ''
-          field: status_extra
-          is_grouped: false
-          admin_label: ''
-          operator: '='
-          table: media_field_data
-          plugin_id: media_status
-          id: status_extra
-          group_type: group
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: tags
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts:
         created:
           id: created
@@ -814,6 +782,10 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
