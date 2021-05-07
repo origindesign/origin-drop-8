@@ -97,4 +97,6 @@ filters:
     provider: lazy
     status: true
     weight: -44
-    settings: {  }
+    settings:
+      image: true
+      iframe: true

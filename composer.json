@@ -160,11 +160,6 @@
                 "[project-root]/.editorconfig": false,
                 "[web-root]/sites/development.services.yml": false
             }
-        },
-        "patches": {
-            "drupal/schema_metatag": {
-                "Illegal offset type in Drupal\\schema_metatag\\SchemaMetatagClient->objectInfo()": "https://www.drupal.org/files/issues/2020-09-30/schema_metatag-undefined_index_objectinfo-3174103-2.patch"
-            }
         }
     },
     "config": {
