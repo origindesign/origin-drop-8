@@ -18,6 +18,7 @@
     set title_classes = [
     'field__label',
     label_display == 'visually_hidden' ? 'visually-hidden',
+    't-t-uppercase'
 ]
 %}
 
@@ -27,28 +28,39 @@
 
         <div{{ attributes.addClass(classes, 'field__items') }}>
 
-            {% if slider %}
-            <div class="slides-wrap">
+            {% if slick %}
+            <div class="slides-wrap {{ slick_wrap_class }}">
                 {% endif %}
 
                 {% for item in items %}
 
+                    {%
+                        set classes = [
+                        'field__item'
+                    ]
+                    %}
+                    {% if item.extra_classes %}
+                        {% set classes = classes|merge(item.extra_classes) %}
+                    {% endif %}
+
                     {% if item.url %}
-                        <a {{ item.attributes.addClass('field__item') }} href="{{ item.url }}">
+                        <a {{ item.attributes.addClass(classes) }} href="{{ item.url }}">
                             {{ item.content }}
                         </a>
                     {% else %}
-                        <div{{ item.attributes.addClass('field__item') }}>
+                        <div{{ item.attributes.addClass(classes) }}>
                             {{ item.content }}
                         </div>
                     {% endif %}
 
                 {% endfor %}
 
-                {% if slider %}
+                {% if slick %}
             </div>
             <div class="slick-arrows"></div>
-            <div class="slick-count"><span class="current">1</span><span class="divider">/</span><span class="total"></span></div>
+            <div class="slick-count">
+                <span class="current">1</span><span class="divider">/</span><span class="total"></span>
+            </div>
             {% endif %}
 
         </div>
@@ -69,7 +81,7 @@
 
             {% elseif item.element %}
                 <{{ item.element }} {{ attributes.addClass(classes, 'field__item') }}>
-                    {{ item.content }}
+                {{ item.content }}
                 </{{ item.element }}>
 
             {% else %}
@@ -80,7 +92,11 @@
                             {{ item.content }}
                         </div>
                     {% else %}
-                        {{ item.content|raw }}
+                        {% if markup %}
+                            {{ markup|raw }}
+                        {% else %}
+                            {{ item.content|raw }}
+                        {% endif %}
                     {% endif %}
 
                 </div>
@@ -94,11 +110,12 @@
 {% else %}
 
     <div{{ attributes.addClass(classes) }}>
-        <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+
+        <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
 
         {% if multiple %}
         <div class="field__items">
-        {% endif %}
+            {% endif %}
 
             {% for item in items %}
 
@@ -121,7 +138,7 @@
 
             {% endfor %}
 
-        {% if multiple %}
+            {% if multiple %}
         </div>
         {% endif %}
 

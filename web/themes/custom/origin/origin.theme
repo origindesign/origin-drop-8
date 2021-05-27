@@ -13,12 +13,23 @@
  */
 function origin_preprocess(&$variables) {
 
-  // Get URL alias and pass it to template
-  $current_path = \Drupal::service('path.current')->getPath();
-  $current_alias = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
-  $arr_alias = explode('/',$current_alias);
-  array_splice($arr_alias, 0, 1);
-  $variables['path_alias'] = $arr_alias;
+  // Set is_front variable
+  try {
+    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  }
+  catch (Exception $e) {
+    // If the database is not yet available, set the default value.
+    $variables['is_front'] = FALSE;
+  }
+
+  // If node
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
+    $node = \Drupal::request()->attributes->get('node');
+  }
+
+  if(!isset($node)){
+    $variables['not_node'] = true;
+  }
 
 }
 
@@ -30,14 +41,7 @@ function origin_preprocess(&$variables) {
  */
 function origin_preprocess_html(&$variables) {
 
-  // Set is_front variable
-  try {
-    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
-  }
-  catch (Exception $e) {
-    // If the database is not yet available, set the default value.
-    $variables['is_front'] = FALSE;
-  }
+
 
 }
 
@@ -93,13 +97,14 @@ function origin_preprocess_node(&$variables) {
   // Services
   $entityTypeManager = \Drupal::entityTypeManager();
 
-  // Set is_front variable
-  try {
-    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
-  }
-  catch (Exception $e) {
-    // If the database is not yet available, set the default value.
-    $variables['is_front'] = FALSE;
+  // Blocks
+  $drupal_blocks = [
+    'origin_messages' => 'messages',
+  ];
+
+  foreach($drupal_blocks as $key => $value){
+    $block = \Drupal\block\Entity\Block::load($key);
+    $variables[$value] = $entityTypeManager->getViewBuilder('block')->view($block);
   }
 
 
@@ -282,6 +287,7 @@ function origin_preprocess_paragraph(&$variables) {
   switch($bundle){
 
     case 'single_column_copy':
+      $variables['extra_classes'] = ['class'];
       break;
 
 
@@ -346,7 +352,7 @@ function origin_preprocess_field(&$variables){
     case 'field_medias':
       if(count($variables['items']) > 1){
         $variables['#attached']['library'][] = 'origin/slick';
-        $variables['slider'] = true;
+        $variables['slick'] = true;
       }
       break;
 

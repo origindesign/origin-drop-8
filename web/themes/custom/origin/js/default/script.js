@@ -30,8 +30,6 @@
         // Global call only triggered once
         $('body').once('global').each(function () {
 
-            let _obj = Drupal.behaviors.global;
-
             // Tables
             $('.node--view-mode-full table').wrap('<div class="table-wrap" />');
             $('.node--view-mode-full .table-wrap').each(function() {
@@ -45,6 +43,16 @@
 
 
         });
+
+        // InView Animations
+        $('.fade-in, '
+            + '.fade-in-up')
+            .one('inview', function (event, isInView) {
+                let $this = $(this);
+                if (isInView) {
+                    $this.addClass('in-view');
+                }
+            });
 
     };
 

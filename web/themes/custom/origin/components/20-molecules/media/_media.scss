@@ -11,18 +11,6 @@
     }
 }
 
-.field--name-field-media-oembed-video{
-    position:relative;
-    &:after{
-        content: '';
-        display: block;
-        padding-bottom: 56.25%;
-    }
-    iframe{
-        @include cover();
-    }
-}
-
 .media {
 
     &.media--type-inline-image{
@@ -36,11 +24,7 @@
 
     .field--name-field-media-image{
         @include objectFitImage();
-
-        .media{
-            background:$color--background;
-        }
-
+        background:$color--background;
     }
 
     .field--name-field-media-oembed-video{

@@ -49,7 +49,7 @@ content:
     region: content
     label: hidden
     settings:
-      view_mode: medium
+      view_mode: default
       link: false
     third_party_settings: {  }
 hidden:

@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.lodging.field_google_map_embed
     - field.field.node.lodging.field_main_image
     - field.field.node.lodging.field_metatags
+    - field.field.node.lodging.field_order_weight
     - field.field.node.lodging.field_other_information
     - field.field.node.lodging.field_paragraphs
     - field.field.node.lodging.field_phone
@@ -60,7 +61,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: medium
+      view_mode: default
       link: false
     third_party_settings: {  }
     region: content
@@ -69,6 +70,7 @@ hidden:
   field_email: true
   field_google_map_embed: true
   field_metatags: true
+  field_order_weight: true
   field_other_information: true
   field_paragraphs: true
   field_phone: true

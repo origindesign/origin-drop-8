@@ -1,18 +1,19 @@
-$margin-form-item: 30px;
-$form-field-height: 35px;
+$margin-form-item: $base-typography-spacing*2.5;
+$form-field-height: 3em;
+$checkbox-height: 22px;
 
 @mixin label() {
-    display: block; margin-bottom: 10px; font-weight:bold;
+    display: block; margin-bottom: 0.5em;
 }
 
 @mixin field() {
-    background: #fff; border:$border; width:100%; padding:0 20px; line-height:$form-field-height; height:$form-field-height;
+    background: #fff; border:$border; width:100%; padding:0 1em; line-height:$form-field-height; height:$form-field-height; color: $color--secondary;
 }
 
 @mixin required() {
     &:after {
         content: " *";
-        color: red;
+        color: $color--primary;
     }
 }
 
@@ -45,7 +46,7 @@ form {
     }
 
     textarea {
-        padding: 10px; border:$border; width:100%;
+        padding: 1em; border:$border; width:100%;
     }
 
     button[type="submit"], input[type="submit"] {
@@ -55,22 +56,50 @@ form {
         }
     }
 
-    .form-checkboxes .form-item, .form-radios .form-item {
-        display: inline-block;
-        margin: 10px 0;
-        vertical-align: bottom;
-        width: 100%;
-    }
-
-    .form-type-checkbox,
-    .form-type-radio{
+    .form-checkboxes,
+    .form-radios{
+        .form-item {
+            margin: 0.5em 0;
+            width: 100%;
+            @include marginResets();
+        }
         label{
             width:auto !important;
         }
     }
 
+    .form-radios{
+        &.webform-options-display-side-by-side{
+            display: flex;
+            .form-item{
+                margin: 0; width: auto; white-space: nowrap;
+                &:not(:last-child){
+                    margin-right: 2em;
+                }
+            }
+        }
+    }
+
+    .form-type-checkbox,
+    .form-type-radio{
+        display: flex;
+        align-items: center;
+        label{
+            width:auto !important; margin: 0 0 0 1em;
+        }
+        input{
+            border: $border; width: $checkbox-height; height: $checkbox-height;
+        }
+    }
+    .form-type-radio{
+        white-space: nowrap;
+        input{
+            border-radius: 99em !important;
+        }
+    }
+
     .description {
-        margin-top: 10px;
+        margin-top: 1em;
     }
 
 }
@@ -81,7 +110,7 @@ button[type="submit"], input[type="submit"]{
     -webkit-appearance:none !important; -webkit-border-radius:0 !important; border-radius:0 !important;
 
     &:focus{
-        outline:1px dotted #000;
+        outline:2px dotted $color--secondary;
     }
 
 }

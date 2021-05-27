@@ -25,7 +25,7 @@
 
             // Datepicker setup
             let noMonths = 2;
-            if(Drupal.behaviors.resizer.isMobile){
+            if($(window).width() < 740){
                 noMonths = 1;
             }
             _obj.from.datepicker({

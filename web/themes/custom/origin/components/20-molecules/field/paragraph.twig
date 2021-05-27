@@ -11,6 +11,15 @@
 %}
 
 
+{% if extra_classes %}
+    {% set classes = classes|merge(extra_classes) %}
+{% endif %}
+
+{% if slick %}
+    {{ attach_library('origin/slick') }}
+{% endif %}
+
+
 {% block paragraph %}
     <div{{ attributes.addClass(classes) }} id="paragraph-{{ paragraph.id() }}">
 

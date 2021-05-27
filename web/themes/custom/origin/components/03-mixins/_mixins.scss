@@ -48,29 +48,40 @@
     max-width: $width;
 }
 
-@mixin container($padding: true, $maxWidth: $container-max-width) {
-    @include clearfix();
-    @include maxWidth($maxWidth);
-    @if $padding {
-        @include padding($small-screen-padding,side);
-        @include breakpoint($bp--large) {
-            @include padding(0);
-        }
+@mixin container() {
+    display:grid;
+    grid-template-rows:auto;
+    grid-template-columns:$small-screen-padding minmax(0, 1fr) $small-screen-padding;
+    grid-template-areas: "left main right";
+
+    @include breakpoint($bp--tablet-portrait) {
+        grid-template-columns:$medium-screen-padding minmax(0, 1fr) $medium-screen-padding;
     }
-    @else{
-        @include padding(0);
+
+    @include breakpoint($bp--xlarge) {
+        grid-template-columns:1fr minmax(0, $container-max-width) 1fr;
     }
-    position:relative;
 }
 
-@mixin content-container($padding: true){
-    @if $padding {
-        @include container(true, $content-width);
-        @include breakpoint($bp--content){
-            @include padding(0);
-        }
-    }@else{
-        @include container(false, $content-width);
+@mixin inner-grid(){
+    position:relative;
+    display: grid;
+    row-gap: $row-gap;
+    column-gap: $column-gap;
+    grid-template-rows:auto;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+@mixin content-container(){
+    grid-column:1/span 12;
+    @include breakpoint($bp--tablet-portrait){
+        grid-column:2/span 10;
+    }
+    @include breakpoint($bp--large-layout){
+        grid-column:3/span 8;
+    }
+    @include breakpoint($bp--large){
+        grid-column: 4/span 6;
     }
 }
 

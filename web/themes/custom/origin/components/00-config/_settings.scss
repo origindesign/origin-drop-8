@@ -1,7 +1,9 @@
 
 // Measurements
 $container-max-width: 1400px;
-$small-screen-padding: 15px;
+$small-screen-padding: 10vw;
+$medium-screen-padding: 6.5vw;
+$large-screen-padding: calc((100vw - #{$container-max-width})/ 2);
 $content-width: 700px;
 $admin-bar: 39px;
 $admin-bar-open: 79px;
@@ -13,25 +15,25 @@ $admin-bar-open: 79px;
 $width-small: 360px;
 $width-medium: 600px;
 $width-phone: $width-medium - 1px;
-$width-content: $content-width+($small-screen-padding*2);
 $width-tablet-portrait: 740px;
 $width-tablet-landscape: 960px;
+$width-laptop: 1200px;
 $width-large: $container-max-width;
 $width-xlarge: 1600px;
 
 $width-condensed-layout: $width-tablet-landscape - 1px;
 
 // Mobile-first queries
+$bp--tiny: 1px $width-small - 1px;
 $bp--small: $width-small;
-$bp--phone: 1px $width-phone;
+$bp--phone: 1px $width-tablet-portrait - 1px;
 $bp--medium: $width-medium;
-$bp--content: $width-content;
 $bp--tablet-portrait: $width-tablet-portrait;
 $bp--tablet-portrait-only: $width-tablet-portrait $width-condensed-layout;
 $bp--tablet-landscape: $width-tablet-landscape;
+$bp--tablet-landscape-only: $width-tablet-landscape $width-large - 1px;
 $bp--large: $width-large;
 $bp--xlarge: $width-xlarge;
-$bp--short: (min-width $width-tablet-portrait) (max-height $width-tablet-portrait);
 
 $bp--typography: $width-tablet-portrait;
 $bp--condensed-layout: 1px $width-condensed-layout;
@@ -45,5 +47,5 @@ $row-gap: 2em;
 
 // Interface
 $outline-offset: 2px;
-$outline:1px dotted;
+$outline:2px dotted;
 $border:1px solid $color--border;

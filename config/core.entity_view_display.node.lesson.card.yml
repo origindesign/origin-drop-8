@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.lesson.field_email
     - field.field.node.lesson.field_main_image
     - field.field.node.lesson.field_metatags
+    - field.field.node.lesson.field_order_weight
     - field.field.node.lesson.field_other_information
     - field.field.node.lesson.field_paragraphs
     - field.field.node.lesson.field_phone
@@ -67,13 +68,14 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: medium
+      view_mode: default
       link: false
     third_party_settings: {  }
     region: content
 hidden:
   field_email: true
   field_metatags: true
+  field_order_weight: true
   field_other_information: true
   field_paragraphs: true
   field_phone: true

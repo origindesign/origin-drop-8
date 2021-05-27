@@ -22,10 +22,12 @@ rules:
       exclude:
         - src
         - font-size
+        - max-width
   no-empty-rulesets: 1
   no-extends: 1
   no-misspelled-properties:
     - 1
+    - extra-properties: ["row-gap"]
   placeholder-in-extend: 2
   space-before-bang:
     - 1
@@ -36,4 +38,3 @@ rules:
   trailing-semicolon: 1
   url-quotes: 1
   zero-unit: 1
-

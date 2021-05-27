@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.activity.field_google_map_embed
     - field.field.node.activity.field_main_image
     - field.field.node.activity.field_metatags
+    - field.field.node.activity.field_order_weight
     - field.field.node.activity.field_other_information
     - field.field.node.activity.field_paragraphs
     - field.field.node.activity.field_phone
@@ -53,7 +54,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: large
+      view_mode: default
       link: false
     third_party_settings: {  }
     region: content
@@ -63,6 +64,7 @@ hidden:
   field_email: true
   field_google_map_embed: true
   field_metatags: true
+  field_order_weight: true
   field_other_information: true
   field_paragraphs: true
   field_phone: true

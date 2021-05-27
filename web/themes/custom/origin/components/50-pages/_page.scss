@@ -1,7 +1,7 @@
 
 a.skip-link{
     @include transitions(opacity);
-    left: -999em; opacity: 0; top: 15px; z-index:9999; position:absolute !important;
+    left: -999em; opacity: 0; top: 15px; z-index:9999; position: fixed !important;
 
     &:focus{
         left:50% !important; opacity:1;

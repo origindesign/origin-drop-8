@@ -16,26 +16,40 @@
 .cover{
     @include cover();
 }
-.pseudo{
-    position: relative;
-    &:before,
-    &:after{
-        @include pseudo();
-        @include transitions();
-    }
-}
 .horizontal-center{
     @include horizontalCenter();
 }
-.display{
+.pseudo{
+    &-before{
+        position: relative;
+        &:before{
+            @include pseudo();
+            @include transitions();
+        }
+    }
+    &-after{
+        position: relative;
+        &:after{
+            @include pseudo();
+            @include transitions();
+        }
+    }
+}
+.d{
     &-none{
         display: none;
     }
     &-block{
         display: block;
     }
+    &-flex{
+        display: flex;
+    }
+    &-grid{
+        display: grid;
+    }
 }
-.position{
+.pos{
     &-relative{
         position: relative;
     }
@@ -52,49 +66,103 @@
 
 // Flex / Grid
 // -----------------------------------
-.display{
-    &-flex{
-        display: flex;
+.jc{
+    &-space-between{
+        justify-content: space-between;
     }
-    &-grid{
-        display: grid;
+    &-center{
+        justify-content: center;
+    }
+    &-stretch{
+        justify-content: stretch;
+    }
+}
+.ai{
+    &-start{
+        align-items: flex-start;
+    }
+    &-center{
+        align-items: center;
+    }
+    &-end{
+        align-items: flex-end;
     }
 }
 
 
-// Fonts
+// Fonts/Text
 // -----------------------------------
-.text{
-    &-color{
-        &-primary{
-            color: $color--primary;
+.f{
+    &-heading{
+        font-family: $font--heading;
+    }
+    &-regular{
+        font-family: $font--regular;
+    }
+    &-w{
+        &-bold{
+            font-weight: 600;
         }
     }
 }
-.font{
-    &-weight-bold{
-        font-weight: bold;
+.t{
+    &-align{
+        &-center{
+            text-align: center;
+        }
     }
+    &-c{
+        &-text{
+            color: $color--text;
+        }
+    }
+    &-t{
+        &-none{
+            text-transform: none;
+        }
+        &-uppercase{
+            text-transform: uppercase;
+        }
+    }
+    /*&-large{
+        @include large-text();
+    }
+    &-micetype{
+        @include mice-type();
+    }*/
 }
 
 // Margins / Padding
 // -----------------------------------
-.padding{
-    &-base{
-        padding: 2em;
+.p{
+    &-t{
+        &-2{
+            padding-top: 2em;
+        }
     }
 }
 
-.margin{
-    &-base{
-        margin-top: $base-typography-spacing;
+.m{
+    &-t{
+        &-2{
+            margin-top: 2em;
+        }
     }
 }
 
 
 // Backgrounds
 // -----------------------------------
-
+.bg{
+    &-none{
+        background: none;
+    }
+}
 
 // Border
 // -----------------------------------
+.border{
+    &-none{
+        border: none;
+    }
+}

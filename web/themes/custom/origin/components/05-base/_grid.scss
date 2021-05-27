@@ -4,22 +4,47 @@
 
 .container{
     @include container();
+
+    .inner-grid{
+        @include inner-grid();
+        grid-area: main;
+    }
+
 }
 .content-container{
     @include content-container();
 }
+
 .row{
     @include rowMargin();
-}
-.row-padding{
-    @include rowPadding();
+
+    &-padding{
+        @include rowPadding();
+    }
+
 }
 
 
 // Grid
 // ----------------------
 
+/*
+.grid-area-main{
+    grid-area:main;
+}
 
+// Span Inner Grid
+.grid-inner{
+    &-full{
+        grid-column: 1/span 12;
+    }
+    &-2-10-large{
+        @include breakpoint($bp--large){
+            grid-column: 2/span 10;
+        }
+    }
+}
+ */
 
 
 // Flex Columns

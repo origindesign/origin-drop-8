@@ -1,5 +1,13 @@
 * {
     box-sizing: border-box;
+
+    &:focus{
+        outline:$outline;
+    }
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+
 }
 
 html {
@@ -60,4 +68,8 @@ img {
     max-width: 100%;
     height: auto;
     display:block;
+}
+
+iframe{
+    border: none !important; width: 100% !important;
 }
