@@ -60,8 +60,8 @@ class LessonController extends ContentController {
     protected function createFilters(){
 
 
-        $age_category = $this->getTermsFromVocabulary('age_category', true, 'All', 'all');
-        $level_category = $this->getTermsFromVocabulary('level_category', true, 'All', 'all');
+        $age_category = $this->getTermsFromVocabulary('age_category', false, 'All', 'all');
+        $level_category = $this->getTermsFromVocabulary('level_category', false, 'All', 'all');
 
         $form = \Drupal::formBuilder()->getForm('Drupal\efq\Form\FilterForm');
 

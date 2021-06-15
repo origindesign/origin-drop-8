@@ -50,18 +50,16 @@ content:
   field_category:
     weight: 3
     label: hidden
-    settings:
-      link: false
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_id
     region: content
   field_category_2:
     weight: 2
     label: hidden
-    settings:
-      link: false
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_id
     region: content
   field_main_image:
     type: entity_reference_entity_view

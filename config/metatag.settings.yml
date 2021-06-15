@@ -1,0 +1,31 @@
+entity_type_groups:
+  node:
+    activity:
+      basic: basic
+      open_graph: open_graph
+      schema_web_page: schema_web_page
+    article:
+      basic: basic
+      open_graph: open_graph
+      schema_article: schema_article
+      schema_web_page: schema_web_page
+    dining:
+      basic: basic
+      open_graph: open_graph
+      schema_web_page: schema_web_page
+    event:
+      basic: basic
+      open_graph: open_graph
+      schema_web_page: schema_web_page
+    lesson:
+      basic: basic
+      open_graph: open_graph
+      schema_web_page: schema_web_page
+    lodging:
+      basic: basic
+      open_graph: open_graph
+      schema_web_page: schema_web_page
+    page:
+      basic: basic
+      open_graph: open_graph
+      schema_web_page: schema_web_page

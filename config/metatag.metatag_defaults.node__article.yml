@@ -15,3 +15,4 @@ tags:
   schema_article_name: '[node:title]'
   schema_article_publisher: 'a:2:{s:5:"@type";s:12:"Organization";s:3:"@id";s:23:"[site:url]#organization";}'
   schema_article_type: BlogPosting
+  schema_web_page_type: ItemPage
