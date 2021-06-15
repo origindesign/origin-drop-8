@@ -34,6 +34,17 @@ ajaxload:
     - core/jquery.once
     - origin/forms
 
+ajaxview:
+  version: 1.x
+  js:
+    https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js: { type: external, minified: true }
+    dist/ajaxview.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - origin/forms
+
 smallpipe:
   version: 1.x
   js:
@@ -51,7 +62,7 @@ events:
     - core/jquery
     - core/drupal
     - core/jquery.once
-    - origin/ajaxload
+    - origin/ajaxview
 
 articles:
   version: 1.x
@@ -88,6 +99,15 @@ video:
   version: 1.x
   js:
     dist/video.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+
+accordion:
+  version: 1.x
+  js:
+    dist/accordion.js: { }
   dependencies:
     - core/jquery
     - core/drupal

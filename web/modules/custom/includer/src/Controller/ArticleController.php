@@ -43,7 +43,7 @@ class ArticleController extends ContentController {
       $category = 'field_category--'.$term->id().'';
     }
 
-    $defaultParams = '{"content_type":"article","category":"'.$category.'","paged":"1-8--restricted-5","sort":"created-DESC"}';
+    $defaultParams = '{"content_type":"article","category":"'.$category.'","paged":"1-10--restricted-5","sort":"created-DESC"}';
 
     return [
       '#type' => 'markup',

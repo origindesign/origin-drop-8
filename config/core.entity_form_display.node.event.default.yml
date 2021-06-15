@@ -5,11 +5,9 @@ dependencies:
   config:
     - field.field.node.event.body
     - field.field.node.event.field_address
-    - field.field.node.event.field_all_day
     - field.field.node.event.field_category
-    - field.field.node.event.field_date_range
+    - field.field.node.event.field_date_recur
     - field.field.node.event.field_email
-    - field.field.node.event.field_event_reference
     - field.field.node.event.field_google_map_embed
     - field.field.node.event.field_main_image
     - field.field.node.event.field_metatags
@@ -23,13 +21,14 @@ dependencies:
     - node.type.event
   module:
     - address
-    - datetime_range
     - field_group
     - link_attributes
     - media_library
     - metatag
     - paragraphs
     - path
+    - smart_date
+    - smart_date_recur
     - text
 third_party_settings:
   field_group:
@@ -128,8 +127,7 @@ third_party_settings:
       region: content
     group_dates:
       children:
-        - field_date_range
-        - field_all_day
+        - field_date_recur
       parent_name: group_available_fields
       weight: 9
       format_type: tab
@@ -170,24 +168,31 @@ content:
     third_party_settings: {  }
     type: address_default
     region: content
-  field_all_day:
-    weight: 34
-    settings:
-      display_label: false
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_category:
     weight: 34
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
-  field_date_range:
-    weight: 33
-    settings: {  }
-    third_party_settings: {  }
-    type: daterange_default
+  field_date_recur:
+    weight: 58
+    settings:
+      show_extra: false
+      hide_date: false
+      modal: false
+      default_duration: 60
+      default_duration_increments: "30\n60|1 hour\n90\n120|2 hours\ncustom"
+    third_party_settings:
+      smart_date_recur:
+        modal: true
+        allowed_recur_freq_values:
+          DAILY: DAILY
+          WEEKLY: WEEKLY
+          MONTHLY: MONTHLY
+          MINUTELY: '0'
+          HOURLY: '0'
+          YEARLY: '0'
+    type: smartdate_default
     region: content
   field_email:
     weight: 52
@@ -196,16 +201,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: email_default
-    region: content
-  field_event_reference:
-    weight: 2
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   field_google_map_embed:
     weight: 55
@@ -224,7 +219,8 @@ content:
     region: content
   field_metatags:
     weight: 5
-    settings: {  }
+    settings:
+      sidebar: true
     third_party_settings: {  }
     type: metatag_firehose
     region: content

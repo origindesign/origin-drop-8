@@ -10,9 +10,9 @@ dependencies:
     module:
       - media_library
   module:
-    - image
     - media
     - media_library
+    - svg_image
     - taxonomy
     - user
 _core:
@@ -57,12 +57,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
           items_per_page: 24
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -71,9 +76,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
+          quantity: 9
       style:
         type: default
         options:
@@ -535,21 +538,19 @@ display:
         - user
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.remote_video.default'
+        - 'config:core.entity_view_display.media.remote_video.media_library'
         - 'config:core.entity_view_display.media.audio.default'
         - 'config:core.entity_view_display.media.audio.media_library'
         - 'config:core.entity_view_display.media.file.default'
         - 'config:core.entity_view_display.media.file.inline'
         - 'config:core.entity_view_display.media.file.media_library'
-        - 'config:core.entity_view_display.media.image.default'
-        - 'config:core.entity_view_display.media.image.full'
-        - 'config:core.entity_view_display.media.image.large'
-        - 'config:core.entity_view_display.media.image.media_library'
-        - 'config:core.entity_view_display.media.image.medium'
-        - 'config:core.entity_view_display.media.image.small'
         - 'config:core.entity_view_display.media.inline_image.default'
         - 'config:core.entity_view_display.media.inline_image.inline'
-        - 'config:core.entity_view_display.media.remote_video.default'
-        - 'config:core.entity_view_display.media.remote_video.media_library'
+        - 'config:core.entity_view_display.media.inline_image.media_library'
+        - 'config:core.entity_view_display.media.inline_image.original'
         - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.video.media_library'
   page:
@@ -855,13 +856,11 @@ display:
         - 'config:core.entity_view_display.media.file.inline'
         - 'config:core.entity_view_display.media.file.media_library'
         - 'config:core.entity_view_display.media.image.default'
-        - 'config:core.entity_view_display.media.image.full'
-        - 'config:core.entity_view_display.media.image.large'
         - 'config:core.entity_view_display.media.image.media_library'
-        - 'config:core.entity_view_display.media.image.medium'
-        - 'config:core.entity_view_display.media.image.small'
         - 'config:core.entity_view_display.media.inline_image.default'
         - 'config:core.entity_view_display.media.inline_image.inline'
+        - 'config:core.entity_view_display.media.inline_image.media_library'
+        - 'config:core.entity_view_display.media.inline_image.original'
         - 'config:core.entity_view_display.media.remote_video.default'
         - 'config:core.entity_view_display.media.remote_video.media_library'
         - 'config:core.entity_view_display.media.video.default'
@@ -1240,13 +1239,11 @@ display:
         - 'config:core.entity_view_display.media.file.inline'
         - 'config:core.entity_view_display.media.file.media_library'
         - 'config:core.entity_view_display.media.image.default'
-        - 'config:core.entity_view_display.media.image.full'
-        - 'config:core.entity_view_display.media.image.large'
         - 'config:core.entity_view_display.media.image.media_library'
-        - 'config:core.entity_view_display.media.image.medium'
-        - 'config:core.entity_view_display.media.image.small'
         - 'config:core.entity_view_display.media.inline_image.default'
         - 'config:core.entity_view_display.media.inline_image.inline'
+        - 'config:core.entity_view_display.media.inline_image.media_library'
+        - 'config:core.entity_view_display.media.inline_image.original'
         - 'config:core.entity_view_display.media.remote_video.default'
         - 'config:core.entity_view_display.media.remote_video.media_library'
         - 'config:core.entity_view_display.media.video.default'

@@ -6,11 +6,9 @@ dependencies:
     - core.entity_view_mode.node.card
     - field.field.node.event.body
     - field.field.node.event.field_address
-    - field.field.node.event.field_all_day
     - field.field.node.event.field_category
-    - field.field.node.event.field_date_range
+    - field.field.node.event.field_date_recur
     - field.field.node.event.field_email
-    - field.field.node.event.field_event_reference
     - field.field.node.event.field_google_map_embed
     - field.field.node.event.field_main_image
     - field.field.node.event.field_metatags
@@ -23,7 +21,6 @@ dependencies:
     - field.field.node.event.field_website
     - node.type.event
   module:
-    - datetime_range
     - smart_trim
     - user
 _core:
@@ -52,16 +49,6 @@ content:
       more_link: false
     third_party_settings: {  }
     region: content
-  field_date_range:
-    weight: 1
-    label: hidden
-    settings:
-      separator: '-'
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: daterange_default
-    region: content
   field_main_image:
     type: entity_reference_entity_view
     weight: 0
@@ -73,10 +60,9 @@ content:
     region: content
 hidden:
   field_address: true
-  field_all_day: true
   field_category: true
+  field_date_recur: true
   field_email: true
-  field_event_reference: true
   field_google_map_embed: true
   field_metatags: true
   field_other_information: true

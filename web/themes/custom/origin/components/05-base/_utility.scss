@@ -1,9 +1,6 @@
 
 // Display
 // -----------------------------------
-.clearfix {
-    @include clearfix();
-}
 .visually-hidden{
     @include visuallyHidden();
 }
@@ -16,8 +13,16 @@
 .cover{
     @include cover();
 }
-.horizontal-center{
-    @include horizontalCenter();
+.center{
+    &-horizontal{
+        @include horizontalCenter();
+    }
+    &-absolute{
+        @include absoluteCenter();
+    }
+}
+.outline-offset{
+    outline-offset: $outline-offset;
 }
 .pseudo{
     &-before{
@@ -54,7 +59,7 @@
         position: relative;
     }
     &-absolute{
-        position: absolute; width: 100%;
+        position: absolute;
     }
 }
 .z-index{
@@ -73,18 +78,15 @@
     &-center{
         justify-content: center;
     }
-    &-stretch{
-        justify-content: stretch;
-    }
 }
 .ai{
-    &-start{
+    &-flex-start{
         align-items: flex-start;
     }
     &-center{
         align-items: center;
     }
-    &-end{
+    &-flex-end{
         align-items: flex-end;
     }
 }

@@ -41,7 +41,7 @@ function origin_preprocess(&$variables) {
  */
 function origin_preprocess_html(&$variables) {
 
-
+  // $variables['GTM'] = '';
 
 }
 
@@ -117,37 +117,14 @@ function origin_preprocess_node(&$variables) {
     }
     $variables['has_hero_image'] = ((isset($node->field_main_image->entity) || isset($node->field_main_images->entity)) && $hero_is_displayed ) ? true : false;
 
-    // Hero image when an event is referenced
-    if(isset($node->field_event_reference[0])){
-      $node_storage = $entityTypeManager->getStorage('node');
-      $ref_nid = $node->field_event_reference[0]->target_id;
-      $referenced_node = $node_storage->load($ref_nid);
-      $hero_is_displayed = true;
-      if ( isset( $referenced_node->field_hide_main_image) ){
-        $hero_is_displayed = ($referenced_node->field_hide_main_image->value === "1") ? false : true;
-      }
-      $variables['has_hero_image'] = ((isset($referenced_node->field_main_image->entity) || isset($referenced_node->field_main_images->entity)) && $hero_is_displayed ) ? true : false;
-    }
 
-
-    // Set includes based on type
+    /* Set includes based on type
     switch($variables["type"]){
 
-      case 'event':
-        if(isset($variables['node']->field_event_reference[0])) {
-          //$ref_nid = $variables['node']->field_event_reference[0]->target_id;
-          $user = \Drupal::currentUser();
-          if($user->hasPermission('edit any event content')){
-            $variables['edit_event_master'] = true;
-          }
-        }else{
-          //$ref_nid = $nid;
-        }
-
-        //$controllerName = "EventNodeController"; $arguments = array('ref_nid' => $ref_nid);
+      case '':
         break;
 
-    }
+    }*/
 
 
     /**
@@ -165,7 +142,7 @@ function origin_preprocess_node(&$variables) {
 
       // Events
       case 8:
-        $controllerName = "EventController";
+        $controllerName = "EventCalendarController";
         $variables['#attached']['library'][] = 'origin/events';
         break;
 

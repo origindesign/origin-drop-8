@@ -1,12 +1,12 @@
 
-<div class="clearfix row listing ajax {{ additional_classes }} {% if not filter_ajax %} no-filters {% endif %}">
+<div class="row listing ajax {{ additional_classes }} {% if not filter_ajax %} no-filters {% endif %}">
 
     {% if listing_heading %}
         {{ listing_heading|raw }}
     {% endif %}
 
     {% if filter_ajax %}
-        <div class="clearfix filters filter-ajax">
+        <div class="filters filter-ajax">
             {{ filter_ajax }}
         </div>
     {% endif %}

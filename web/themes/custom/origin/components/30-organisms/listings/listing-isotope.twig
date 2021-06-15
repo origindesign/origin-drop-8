@@ -2,19 +2,19 @@
 <div class="clearfix row listing isotope {{ additional_classes }} {% if not filter_isotope %} no-filters {% endif %}">
 
     {% if filter_isotope %}
-        <div class="clearfix filters filter-isotope links">
+        <div class="filters filter-isotope links">
             {{ filter_isotope }}
         </div>
     {% endif %}
 
     {% if filter_isotope_select %}
-        <div class="clearfix filters filter-isotope select">
+        <div class="filters filter-isotope select">
             {{ filter_isotope_select }}
         </div>
     {% endif %}
 
     <div class="content">
-        <div class="inner-listing three-col-float isoGrid">
+        <div class="inner-listing isoGrid">
             {{ content }}
             <div class="no-results">{% trans %}There are no results for your selection, please try again.{% endtrans %}</div>
         </div>

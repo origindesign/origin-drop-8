@@ -45,6 +45,7 @@
     }
 
     &.isotope {
+        $gutter: 2.85714%;
 
         .isoGrid {
             min-height: 200px;
@@ -55,13 +56,24 @@
         }
 
         .iso-gutter {
-            display: block; width: 0;
+            display:block; width:0;
+
             @include breakpoint($bp--tablet-portrait){
-                width: 2%;
+                width:$gutter;
+            }
+
+        }
+
+        .iso-item{
+            width:100%; margin:0 0 $row-gap 0 !important;
+
+            @include breakpoint($bp--tablet-portrait){
+                width:calc(50% - #{$gutter/2});
             }
             @include breakpoint($bp--large-layout){
-                width: 1%;
+                width:#{33% - ($gutter/3)*2};
             }
+
         }
 
     }

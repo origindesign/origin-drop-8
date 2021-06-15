@@ -1,22 +1,22 @@
-(function eventsScript($, Drupal) {
+(function eventCalendarScript($, Drupal) {
 
     'use strict';
 
-    Drupal.behaviors.events = {};
-    Drupal.behaviors.events.from = '';
-    Drupal.behaviors.events.to = '';
-    Drupal.behaviors.events.category = '';
+    Drupal.behaviors.eventCalendar = {};
+    Drupal.behaviors.eventCalendar.from = '';
+    Drupal.behaviors.eventCalendar.to = '';
+    Drupal.behaviors.eventCalendar.categories = '';
 
-    Drupal.behaviors.events.attach = function (context) {
+    Drupal.behaviors.eventCalendar.attach = function (context) {
 
-        $('.ajax-events', context).once('events').each(function () {
+        $('.ajax-events', context).once('eventCalendar').each(function () {
 
-            let _obj = Drupal.behaviors.events;
-            let $ajaxLoad = Drupal.behaviors.ajaxListLoading;
+            let _obj = Drupal.behaviors.eventCalendar;
+            let _ajaxLoad = Drupal.behaviors.ajaxViewLoading;
 
             _obj.from = $(".filterform .from-date");
             _obj.to = $(".filterform .to-date");
-            _obj.category = $(".filterform .category");
+            _obj.categories = $(".filterform .categories");
 
             //  Trigger the display of the list on filter change
             $(".filter-list").on("change", function() {
@@ -61,54 +61,49 @@
                     params = $.parseJSON(event.state.params);
                 }else{
                     // Use defaults
-                    params = Drupal.behaviors.ajaxListLoading.params;
-                    _obj.category.val('all').blur().dropdown("update");
+                    params = _ajaxLoad.params;
+                    _obj.categories.val('All').blur().dropdown("update");
                 }
 
                 // Animate and reload list
                 let top = $('.filter-ajax').offset().top - 200;
                 $('html, body').animate(
                     { scrollTop: top }, '500', function() {
-                        $ajaxLoad.displayList($ajaxLoad.ajaxContainer, $ajaxLoad.ajaxPath, params);
+                        _ajaxLoad.displayList(_ajaxLoad.ajaxContainer, _ajaxLoad.ajaxPath, params);
                     }
                 );
 
             };
+
 
         });
 
     };
 
 
+    Drupal.behaviors.eventCalendar.reloadList = function(){
 
-    Drupal.behaviors.events.reloadList = function(){
-
-        let _obj = Drupal.behaviors.events;
-        let $ajaxLoad = Drupal.behaviors.ajaxListLoading;
+        let _obj = Drupal.behaviors.eventCalendar;
+        let _ajaxLoad = Drupal.behaviors.ajaxViewLoading;
 
         let params = '';
-        let from = Date.parse(_obj.from.val()).toString('yyyy-MM-dd');
-        let to = Date.parse(_obj.to.val()).toString('yyyy-MM-dd');
-        let category = _obj.category.val();
+        let from = Date.parse(_obj.from.val()).toString('yyyy-MM-dd') + ' 00:00:01';
+        let to = Date.parse(_obj.to.val()).toString('yyyy-MM-dd') + ' 23:59:59';
+        let category = _obj.categories.val();
 
+        params = '{"from":"' + from + '","to":"' + to + '","category":"' + category + '"}';
 
-        if(category !== 'all'){
-            category = 'field_category--' + category.replace('.term-','');
-        }
-
-        params = '{"content_type":"event","category":"' + category + '","date":"field_date_range--' + from + ',' + to + '","sort":"field_date_range-ASC"}';
 
         // Abort any possible current ajax call
-        $ajaxLoad.xhr.abort();
+        _ajaxLoad.xhr.abort();
 
         // Trigger the display of the list
-        $ajaxLoad.displayList($ajaxLoad.ajaxContainer, $ajaxLoad.ajaxPath, $.parseJSON(params));
+        _ajaxLoad.displayList(_ajaxLoad.ajaxContainer, _ajaxLoad.ajaxPath, $.parseJSON(params));
 
         // Set history state
         window.history.pushState({ params: params }, null, window.location);
 
     };
 
-
-
+    
 }(jQuery, Drupal));
