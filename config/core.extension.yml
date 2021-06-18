@@ -35,7 +35,6 @@ module:
   help: 0
   helper: 0
   history: 0
-  hsts: 0
   image: 0
   includer: 0
   jquery_ui: 0
@@ -72,6 +71,7 @@ module:
   schema_web_page: 0
   schema_web_site: 0
   search: 0
+  seckit: 0
   serialization: 0
   shortcut: 0
   simple_block: 0
